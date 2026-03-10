@@ -19,7 +19,27 @@ duration: 60min
 </div>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+  /* Npuls Custom Fonts */
+  @font-face {
+    font-family: 'General Sans';
+    src: url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'General Sans';
+    src: url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Cooper Light BT';
+    src: url('/npuls/Npuls_lettertype/Npuls_lettertype_cooper_light_bt.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
 
   /* Npuls Branding Colors */
   :root {
@@ -67,7 +87,7 @@ duration: 60min
 
   :deep(.slide) {
     position: relative;
-    font-family: 'Poppins', 'General Sans', sans-serif;
+    font-family: 'General Sans', Arial, Helvetica, sans-serif;
     color: #000000;
     background-color: transparent !important;
   }
@@ -268,13 +288,13 @@ duration: 60min
 
 <div class="grid grid-cols-2 gap-8 mt-8">
   <div class="text-center">
-    <img src="/presentations/2603_1CHO_update_Avans_Windesheim/tomer_iwan.jpg" alt="Tomer Iwan" class="h-56 rounded-lg mx-auto shadow-lg">
+    <img src="/ceda_contributors/tomer_iwan.jpg" alt="Tomer Iwan" class="h-56 rounded-lg mx-auto shadow-lg">
     <h3 class="mt-4 text-xl font-bold">Tomer Iwan</h3>
     <p class="mt-2 text-base font-semibold">Data Engineer @ CEDA</p>
     <p class="mt-3 text-sm leading-relaxed">Verantwoordelijk voor data pipelines, verwerking en kwaliteit van onderwijsgegevens</p>
   </div>
   <div class="text-center">
-    <img src="/presentations/2603_1CHO_update_Avans_Windesheim/aslam_tanjung.jpg" alt="Aslam Tanjung" class="h-56 rounded-lg mx-auto shadow-lg">
+    <img src="/ceda_contributors/aslam_tanjung.jpg" alt="Aslam Tanjung" class="h-56 rounded-lg mx-auto shadow-lg">
     <h3 class="mt-4 text-xl font-bold">Aslam Tanjung</h3>
     <p class="mt-2 text-base font-semibold">Data Scientist @ CEDA</p>
     <p class="mt-3 text-sm leading-relaxed">Specialisatie in machine learning, fairness analysis en onderwijsonderzoek</p>
