@@ -7,7 +7,8 @@ info: |
 
   - Wat zijn Claude Code Skills?
   - R Package Refactoring in actie
-  - Technical Architecture & Cross-referencing
+  - Skills Ecosystem & Cross-Referencing
+  - Best Practices & Voorbeelden
 drawings:
   persist: false
 transition: slide-left
@@ -123,7 +124,7 @@ duration: 30min
 
   /* Headings with Npuls colors */
   :deep(h1) {
-    color: #3D68EC !important;
+    color: #DD784B !important;
     font-weight: 700;
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -147,6 +148,16 @@ duration: 30min
 
   :deep(h3) {
     font-size: 1.5rem;
+  }
+
+  /* Subtitle op title slide - Oranje maar NIET bold */
+  .title-subtitle {
+    color: #DD784B !important;
+    font-weight: 400 !important;
+  }
+
+  .title-subtitle strong {
+    font-weight: 400 !important;
   }
 
   /* Links */
@@ -236,11 +247,20 @@ duration: 30min
   .text-center {
     text-align: center;
   }
+
+  /* Force alle illustraties volledig zichtbaar */
+  img[src*="powerpoint_illustrations"] {
+    opacity: 1 !important;
+  }
+
+  img[src*="powerpoint_illustrations"] * {
+    opacity: 1 !important;
+  }
 </style>
 
-# Claude Code Skills
+# Slidev Presentaties
 
-## Geautomatiseerde Refactoring & Standaard Compliance
+## Snel professionele slides maken met Claude
 
 <div class="mt-8 text-xl">
 <strong>CEDA</strong> - Centre for Educational Data Analytics

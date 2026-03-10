@@ -42,6 +42,15 @@ slidev-presentaties/
 
 ## Nieuwe Presentatie Maken
 
+### Stap 0: Vraag om presentatie details
+
+**BELANGRIJK**: Voordat je begint met het maken van een nieuwe presentatie, vraag de gebruiker om:
+1. **Presentatie datum**: Op welke datum is het overleg/de presentatie?
+2. **Onderwerp**: Waar gaat de presentatie over?
+3. **Doelgroep**: Voor wie is de presentatie bedoeld?
+
+Gebruik de datum voor de bestandsnaam: `YYMMDD_onderwerp.md`
+
 ### Stap 1: Creëer presentatie bestand
 
 ```bash
@@ -66,6 +75,138 @@ cp your_images/* public/presentations/0304_new_presentation/
 ```bash
 slidev 0304_new_presentation.md --open
 ```
+
+---
+
+## Slidev Gebruiken
+
+### Markdown Basis
+
+Slidev presentaties worden geschreven in **Markdown**. Enkele basics:
+
+```markdown
+# H1 Titel (grootste)
+## H2 Ondertitel
+### H3 Kleinere titel
+
+- Bullet point
+- Nog een bullet
+  - Geneste bullet
+
+1. Genummerde lijst
+2. Item twee
+
+**Bold text** en *italic text*
+
+[Link tekst](https://url.com)
+```
+
+### Slides Scheiden
+
+Elke slide wordt gescheiden met drie streepjes:
+
+```markdown
+---
+```
+
+**Voorbeeld:**
+```markdown
+# Slide 1
+
+Content van slide 1
+
+---
+
+# Slide 2
+
+Content van slide 2
+
+---
+```
+
+### Frontmatter per Slide
+
+Elke slide kan optionele frontmatter hebben:
+
+```markdown
+---
+class: text-center
+layout: default
+---
+
+# Gecentreerde Slide
+```
+
+**Belangrijk**: Gebruik GEEN `background:` property (voegt overlays toe)!
+
+### Code Blocks
+
+Slidev ondersteunt syntax highlighting:
+
+````markdown
+```bash
+npm install -g @slidev/cli
+```
+
+```python
+def hello():
+    print("Hello World")
+```
+````
+
+### Images in Slides
+
+**Voor gedeelde Npuls assets:**
+```markdown
+<img src="/npuls/powerpoint_illustrations/laptop.svg"
+     style="width: 140px; height: auto;" />
+```
+
+**Voor presentatie-specifieke images:**
+```markdown
+<img src="/presentations/260310_jouw_presentatie/team_foto.jpg"
+     alt="Team foto"
+     class="h-56 rounded-lg shadow-lg" />
+```
+
+### Styling met Tailwind
+
+Slidev heeft Tailwind CSS ingebouwd:
+
+```markdown
+<div class="mt-8 text-xl text-center">
+Gecentreerde tekst met margin-top
+</div>
+
+<div class="grid grid-cols-2 gap-8">
+  <div>Kolom 1</div>
+  <div>Kolom 2</div>
+</div>
+```
+
+**Veelgebruikte classes:**
+- `mt-8`, `mb-4` - margins
+- `text-xl`, `text-sm` - font sizes
+- `text-center` - center alignment
+- `font-bold` - bold
+- `grid grid-cols-2` - two columns
+- `rounded-lg` - rounded corners
+- `shadow-lg` - drop shadow
+
+### Keyboard Shortcuts
+
+Tijdens presentatie:
+- `Space` / `→` - Volgende slide
+- `Shift+Space` / `←` - Vorige slide
+- `F` - Fullscreen
+- `P` - Presenter mode (met notes)
+- `D` - Dark mode toggle
+- `G` - Go to slide (type nummer)
+- `O` - Overview mode
+
+### Hot Reload
+
+Wijzigingen in je `.md` bestand worden **automatisch** herladen in de browser - geen refresh nodig!
 
 ---
 
@@ -246,12 +387,25 @@ background-image: url('/npuls/npuls_logo.jpg');
 - ✅ Plaats in hoeken (top/bottom + left/right) om tekst niet te overlappen
 - ✅ Gebruik `position: absolute` voor vrijheid in plaatsing
 - ✅ Gebruik `opacity: 1.0` - illustraties mogen opvallen en aanwezig zijn
+- ✅ **Voeg CSS override toe** om illustraties te forceren naar volledige zichtbaarheid
 - ✅ Houd illustraties relevant bij slide content
 - ✅ Gebruik `width: 120-160px` voor goede balans
 - ✅ Plaats illustraties BUITEN content divs
 - ❌ Plaats NIET over belangrijke tekst
 - ❌ Gebruik NIET te grote illustraties (max 200px)
 - ❌ Overlaad slides NIET met te veel illustraties (max 1-2 per slide)
+
+**CSS Override voor Volledige Zichtbaarheid:**
+```css
+/* Voeg toe aan <style> block */
+img[src*="powerpoint_illustrations"] {
+  opacity: 1 !important;
+}
+
+img[src*="powerpoint_illustrations"] * {
+  opacity: 1 !important;
+}
+```
 
 **Overlap Voorkomen - Strategieën:**
 
@@ -385,6 +539,161 @@ Content here...
 
 ---
 
+## Presenter Notes
+
+Slidev ondersteunt **presenter notes** die alleen zichtbaar zijn in presenter mode (druk op `P` tijdens de presentatie).
+
+### Hoe Notes Toevoegen
+
+Voeg notes toe aan het **einde van een slide** met HTML comment syntax:
+
+```markdown
+---
+---
+
+# Slide Title
+
+Content van de slide...
+
+<!--
+Dit zijn presenter notes.
+- Ze zijn alleen zichtbaar voor de presenter
+- Niet voor het publiek
+- Gebruik ze voor timing, extra context, of herinneringen
+-->
+
+---
+```
+
+### Best Practices voor Presenter Notes
+
+**✅ VOEG ALTIJD TOE:**
+- **Timing**: "Deze slide duurt ~2 minuten"
+- **Key points**: Belangrijkste punten om te benadrukken
+- **Voorbeelden**: Extra voorbeelden die je mondeling kunt delen
+- **Transities**: "Vervolgens gaan we naar..."
+- **Vragen om te stellen**: "Vraag: Wie heeft dit al eens gebruikt?"
+
+**❌ VERMIJD:**
+- Hele paragrafen voorlezen
+- Te veel detail (kort en bondig)
+- Informatie die op de slide zelf hoort
+
+### Voorbeeld: Title Slide met Notes
+
+```markdown
+---
+class: text-center
+---
+
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+  <img src="/npuls/powerpoint_slides/Slide1.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
+</div>
+
+# Slidev Presentaties
+
+## Snel professionele slides maken met Claude
+
+<div class="mt-8 text-xl title-subtitle">
+<strong>CEDA</strong> - Centre for Educational Data Analytics
+</div>
+
+<!--
+⏱️ Timing: 1 minuut
+
+📌 Key points:
+- Verwelkom iedereen
+- Korte intro: "Vandaag leer je hoe je snel professionele presentaties maakt"
+- Noem dat presentatie ~15 minuten duurt
+
+💡 Opening:
+"Welkom! Vandaag laat ik zien hoe we bij CEDA in een paar minuten professionele presentaties maken met Slidev en Claude."
+-->
+```
+
+### Voorbeeld: Content Slide met Notes
+
+```markdown
+---
+---
+
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+  <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
+</div>
+
+# Voordelen van Slidev
+
+- **Markdown** - Schrijf zoals je documentatie schrijft
+- **Git-vriendelijk** - Track changes, branches, pull requests
+- **Code highlighting** - Alle talen ondersteund
+- **Hot reload** - Zie wijzigingen direct
+
+<!--
+⏱️ Timing: 2-3 minuten
+
+📌 Key points:
+- Markdown: Voor developers heel natuurlijk
+- Git: Volledige versiecontrole, samenwerken makkelijk
+- Code highlighting: Laat voorbeeld zien als tijd
+- Hot reload: Demo live als mogelijk
+
+🎯 Call to action:
+"Wie gebruikt hier regelmatig Markdown?" [wacht op response]
+
+🔄 Transitie:
+"Nu we de voordelen kennen, laten we kijken naar de setup..."
+-->
+```
+
+### Presenter Mode Gebruiken
+
+**Start presenter mode:**
+1. Open presentatie in browser (`slidev presentation.md --open`)
+2. Druk op `P` voor Presenter mode
+3. Twee vensters openen:
+   - **Presenter view**: Met notes, timer, volgende slide preview
+   - **Presentation view**: Voor het publiek (beamer/scherm)
+
+**Keyboard shortcuts in presenter mode:**
+- `P` - Toggle presenter mode
+- `Space` / `→` - Volgende slide
+- `Shift+Space` / `←` - Vorige slide
+- `G` - Ga naar slide nummer
+- `D` - Toggle dark mode
+
+### Template met Notes
+
+Gebruik dit als standaard template:
+
+```markdown
+---
+---
+
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+  <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
+</div>
+
+# Slide Titel
+
+Content hier...
+
+<!--
+⏱️ Timing: [X minuten]
+
+📌 Key points:
+- [Punt 1]
+- [Punt 2]
+
+💡 Extra context:
+[Extra informatie die je mondeling deelt]
+
+🔄 Transitie:
+"[Overgangszin naar volgende slide]"
+-->
+```
+
+---
+
 ## Slide Templates
 
 ### Template: Title Slide (Slide1.PNG)
@@ -402,7 +711,7 @@ class: text-center
 
 ## Ondertitel
 
-<div class="mt-8 text-xl">
+<div class="mt-8 text-xl title-subtitle">
 <strong>CEDA</strong> - Centre for Educational Data Analytics
 </div>
 ```
@@ -575,10 +884,26 @@ Custom styling plaats je in een `<style>` block aan het begin van je presentatie
   }
 
   /* Headings met Npuls kleuren */
-  :deep(h1) { color: #3D68EC !important; }      /* Blauw */
-  :deep(h2) { color: #DD784B !important; }      /* Oranje */
+  :deep(h1) {
+    color: #DD784B !important;                  /* Oranje */
+    font-weight: 700;
+  }
+  :deep(h2) {
+    color: #DD784B !important;                  /* Oranje */
+    font-weight: 600;
+  }
   :deep(h3), :deep(h4), :deep(h5), :deep(h6) {
     color: #000000 !important;                  /* Zwart */
+  }
+
+  /* Subtitle op title slide - Oranje maar NIET bold */
+  .title-subtitle {
+    color: #DD784B !important;
+    font-weight: 400 !important;                /* Normal weight, niet bold */
+  }
+
+  .title-subtitle strong {
+    font-weight: 400 !important;                /* Ook strong niet bold maken */
   }
 
   /* Links */
@@ -965,7 +1290,7 @@ Voordat je een presentatie als "klaar" beschouwt, controleer het volgende:
 ### CSS & Styling
 - ✅ Complete CSS block met custom fonts (@font-face declarations)
 - ✅ Overlay removal CSS aanwezig (CRITICAL!)
-- ✅ Npuls kleuren consistent gebruikt (blue voor h1, orange voor h2)
+- ✅ Npuls kleuren consistent gebruikt (orange voor h1 en h2, subtitle oranje maar niet bold)
 - ✅ Npuls logo verschijnt op alle slides (via CSS ::after)
 
 ### Backgrounds

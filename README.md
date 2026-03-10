@@ -21,63 +21,160 @@ Presentatie repository voor CEDA (Centre for Educational Data Analytics) met **N
 Dit project bevat meerdere Slidev presentaties die de Npuls huisstijl volgen. Alle presentaties delen dezelfde branding assets maar hebben hun eigen specifieke content en afbeeldingen.
 
 **Naming Convention**: `YYMMDD_presentatie_naam.md`
-- Voorbeeld: `2603_1CHO_update_Avans_Windesheim.md`
+- Voorbeeld: `260310_slidev_claude.md`
 
 ---
 
-## 🚀 Slidev Installatie
+## ⚡ Quick Start
 
-Je hebt **3 opties** om Slidev te gebruiken:
+```bash
+# 1. Clone repository
+git clone https://github.com/cedanl/slidev-presentaties.git
+cd slidev-presentaties
 
-### Optie 1: Global Installatie (Aanbevolen) ⭐
+# 2. Installeer Slidev
+npm install -g @slidev/cli
+
+# 3. Start een presentatie
+slidev 260310_slidev_claude.md --open
+
+# 4. Maak presentatie met Claude Code
+claude
+> "Maak een presentatie over [onderwerp] volgens CEDA Npuls huisstijl"
+```
+
+### 📌 Belangrijkste Commando's
+
+| Commando | Beschrijving |
+|----------|--------------|
+| `slidev presentatie.md --open` | Start presentatie met hot reload |
+| `slidev export presentatie.md` | Export naar PDF |
+| `slidev export presentatie.md --format pptx` | Export naar PowerPoint |
+| Druk `P` tijdens presentatie | Presenter mode met notes |
+
+---
+
+## 🚀 Snel Aan De Slag
+
+### Stap 1: Clone de Repository
+
+```bash
+git clone https://github.com/cedanl/slidev-presentaties.git
+cd slidev-presentaties
+```
+
+### Stap 2: Installeer Slidev
+
+**Optie A: Global Installatie (Aanbevolen) ⭐**
 
 ```bash
 npm install -g @slidev/cli
 ```
 
-**Voordelen:**
-- ✅ Eén keer installeren, overal gebruiken
-- ✅ Geen `node_modules/` of `package.json` per project
-- ✅ Meest lightweight
+✅ Eén keer installeren, overal gebruiken
 
-**Gebruik:**
-```bash
-slidev presentatie.md --open
-```
-
-### Optie 2: NPX (Geen installatie)
+**Optie B: NPX (Geen installatie nodig)**
 
 ```bash
-npx @slidev/cli presentatie.md --open
+npx @slidev/cli --version
 ```
 
-**Voordelen:**
-- ✅ Geen installatie nodig
-- ✅ Gebruikt altijd de laatste versie
+✅ Geen installatie, altijd laatste versie
 
-**Nadelen:**
-- ❌ Download bij elke run (trager)
-
-### Optie 3: Lokale Project Installatie
+### Stap 3: Start een Presentatie
 
 ```bash
-npm init -y
-npm install @slidev/cli
+# Met global installatie:
+slidev 260310_slidev_claude.md --open
+
+# Met npx:
+npx @slidev/cli 260310_slidev_claude.md --open
 ```
 
-**Voordelen:**
-- ✅ Vaste versie per project
-- ✅ Team gebruikt zelfde versie
+Browser opent automatisch op `http://localhost:3030` 🎉
 
-**Nadelen:**
-- ❌ `node_modules/` folder per project
-- ❌ Meer disk space
+---
 
-**Gebruik:**
+## 📝 Slidev Gebruiken
+
+### Markdown Basis
+
+Slidev presentaties worden geschreven in **Markdown**:
+
+```markdown
+# H1 Titel (grootste - oranje)
+## H2 Ondertitel (oranje)
+### H3 Sectie titel (zwart)
+
+- Bullet point
+- Nog een bullet
+
+**Bold text** en *italic text*
+```
+
+### Slides Scheiden
+
+Elke slide eindigt met drie streepjes:
+
+```markdown
+# Slide 1
+
+Content hier...
+
+---
+
+# Slide 2
+
+Content hier...
+```
+
+### Backgrounds Toevoegen
+
+**❌ NIET zo** (voegt overlay toe):
+```yaml
+---
+background: /npuls/powerpoint_slides/Slide1.PNG
+---
+```
+
+**✅ WEL zo** (originele kleuren behouden):
+```markdown
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+  <img src="/npuls/powerpoint_slides/Slide3.PNG"
+       style="width: 100%; height: 100%; object-fit: cover;" />
+</div>
+
+# Jouw Slide Titel
+```
+
+**Beschikbare backgrounds:**
+- `Slide1.PNG` - Titelslide
+- `Slide3.PNG` - Standaard content
+- `Slide13.PNG`, `Slide14.PNG`, `Slide15.PNG` - Hoofdstuk dividers
+- `Slide17.PNG` - Afsluiting (geen tekst)
+
+### Eigen Afbeeldingen Toevoegen
+
+**Stap 1: Maak folder**
 ```bash
-npx slidev presentatie.md --open
-# Of in package.json scripts
+mkdir -p public/presentations/260310_jouw_presentatie
 ```
+
+**Stap 2: Kopieer images**
+```bash
+cp je_foto.jpg public/presentations/260310_jouw_presentatie/
+```
+
+**Stap 3: Gebruik in presentatie**
+```markdown
+<img src="/presentations/260310_jouw_presentatie/je_foto.jpg"
+     alt="Beschrijving"
+     class="h-56 rounded-lg shadow-lg" />
+```
+
+### Hot Reload
+
+Wijzigingen worden **automatisch** zichtbaar - geen refresh nodig! 🔥
 
 ---
 
@@ -144,12 +241,24 @@ title: Mijn Presentatie Titel
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
   :root {
-    --npuls-blue: #3D68EC;
     --npuls-orange: #DD784B;
+    --npuls-blue: #3D68EC;
   }
 
-  :deep(h1) { color: #3D68EC !important; }
-  :deep(h2) { color: #DD784B !important; }
+  :deep(h1) {
+    color: #DD784B !important;
+    font-weight: 700;
+  }
+  :deep(h2) {
+    color: #DD784B !important;
+    font-weight: 600;
+  }
+
+  /* Subtitle op title slide - Oranje maar NIET bold */
+  .title-subtitle {
+    color: #DD784B !important;
+    font-weight: 400 !important;
+  }
 </style>
 
 # Mijn Presentatie Titel
@@ -236,73 +345,114 @@ slidev export presentatie.md --range 1-10
 
 ---
 
-## 🤖 Werken met Claude
+## 🤖 Werken met Claude Code
 
-### Claude Code voor Presentaties
+### Hele Presentaties Maken met Claude
 
-**Claude kan helpen met:**
-- ✅ Nieuwe slides schrijven
-- ✅ Content structureren
-- ✅ Npuls kleuren toepassen
-- ✅ Layouts maken (two-column, grids)
-- ✅ CSS styling fixes
-- ✅ Images toevoegen en positioneren
+Claude kan **complete presentaties** genereren met de juiste Npuls huisstijl. Tijdsbesparing: **5 minuten vs 2 uur** handmatig werk.
 
-### Best Practices met Claude
+### Claude Code Workflow
 
-**1. Refereer naar CLAUDE.md:**
-```
-"Maak een nieuwe slide volgens de structuur in CLAUDE.md"
-```
-
-**2. Specificeer Npuls huisstijl:**
-```
-"Gebruik Npuls blue (#3D68EC) voor de titel"
-```
-
-**3. Geef context over assets:**
-```
-"Voeg de afbeelding toe uit /presentations/2603_1CHO_update_Avans_Windesheim/grafiek.png"
-```
-
-**4. Vraag om specifieke layouts:**
-```
-"Maak een two-column layout met links tekst en rechts een afbeelding"
-```
-
-### Claude Commando's
+#### 1. Open Project in Claude Code
 
 ```bash
-# Claude kan deze commands voor je uitvoeren:
-slidev 2603_1CHO_update_Avans_Windesheim.md --open
-
-# Of nieuwe presentaties maken:
-mkdir -p public/presentations/0304_nieuwe_presentatie
-touch 0304_nieuwe_presentatie.md
+cd slidev-presentaties
+claude
 ```
 
-### Voorbeeld Prompts
+#### 2. Vraag om een Presentatie
 
-**Nieuwe slide toevoegen:**
+**Voorbeeld prompt:**
 ```
-"Voeg een slide toe met titel 'Resultaten Q1' en een bullet list met 3 punten"
+Maak een Slidev presentatie over Data Visualisatie
+voor een technische doelgroep.
+
+Onderwerpen:
+- Waarom visualisatie belangrijk is
+- Populaire tools (Python, R, Tableau)
+- Best practices
+- Voorbeelden
+
+Gebruik de CEDA Npuls huisstijl.
+Presentatie datum: 15 maart 2026
+Duur: ongeveer 20 minuten
 ```
 
-**Layout aanpassen:**
+#### 3. Claude Leest Automatisch CLAUDE.md
+
+Claude gebruikt alle richtlijnen uit `CLAUDE.md`:
+- ✅ Npuls kleuren en fonts
+- ✅ Juiste backgrounds (Slide1.PNG voor titel, etc.)
+- ✅ Illustraties uit de bibliotheek
+- ✅ Correcte styling en CSS
+- ✅ Presenter notes
+
+#### 4. Review & Itereer
+
+Claude kan alles aanpassen:
+
 ```
-"Verander deze slide naar een two-column layout met links de tekst
-en rechts het logo"
+"Voeg een slide toe over interactieve visualisaties"
+
+"Maak de intro korter - max 2 minuten"
+
+"Voeg presenter notes toe aan alle slides"
+
+"Verander de volgorde: begin met voorbeelden"
+
+"Gebruik meer code voorbeelden voor Python"
 ```
 
-**Npuls background toevoegen:**
-```
-"Voeg Slide16.PNG als background toe aan deze section break slide"
+#### 5. Start Presentatie
+
+```bash
+slidev YYMMDD_jouw_presentatie.md --open
 ```
 
-**CSS fixes:**
+### Wat Claude Automatisch Doet
+
+- ✅ **Correcte bestandsnaam**: `YYMMDD_onderwerp.md` format
+- ✅ **Npuls styling**: Oranje titels, juiste fonts, kleuren
+- ✅ **Backgrounds**: Slide1 voor titel, Slide3 voor content, Slide17 voor afsluiting
+- ✅ **Illustraties**: Kiest passende SVG icons uit de bibliotheek
+- ✅ **Asset folders**: Maakt `public/presentations/YYMMDD_naam/` aan
+- ✅ **Presenter notes**: Timing, key points, scripts
+- ✅ **Consistentie**: Volgt altijd CLAUDE.md richtlijnen
+
+### Tips voor Beste Resultaten
+
+**✅ Geef duidelijke context:**
+- Onderwerp en doelgroep
+- Belangrijkste punten
+- Gewenste duur
+- Presentatie datum
+
+**✅ Specificeer niveau:**
 ```
-"De titel is niet zichtbaar op de blauwe achtergrond, fix de text-shadow"
+"Maak een technische presentatie voor developers"
+"Maak een toegankelijke presentatie voor management"
 ```
+
+**✅ Vraag om specifieke elementen:**
+```
+"Voeg code voorbeelden toe"
+"Gebruik twee-kolom layouts waar mogelijk"
+"Voeg een demo slide toe"
+```
+
+**✅ Itereer stapsgewijs:**
+- Eerst basis structuur
+- Daarna content verfijnen
+- Als laatste presenter notes toevoegen
+
+### Claude Code Skills
+
+Het project kan **Claude Code Skills** bevatten in `.claude/skills/`. Deze skills helpen bij:
+- ✅ Automatisch presentaties genereren
+- ✅ Consistente styling toepassen
+- ✅ Asset management
+
+Vraag Claude om een skill te maken als je repetitieve taken hebt.
 
 ---
 
@@ -312,8 +462,8 @@ en rechts het logo"
 
 ```css
 /* Primair */
---npuls-blue: #3D68EC      /* Titels */
---npuls-orange: #DD784B    /* Subtitels */
+--npuls-orange: #DD784B    /* H1 en H2 titels */
+--npuls-blue: #3D68EC      /* Accenten en links */
 --npuls-black: #000000     /* Tekst */
 --npuls-white: #FFFFFF     /* Achtergrond */
 
@@ -322,6 +472,11 @@ en rechts het logo"
 --npuls-yellow: #F4D74B    /* Accent */
 --npuls-pink: #F4D9DC      /* Accent */
 ```
+
+**Styling:**
+- H1: Oranje (#DD784B), bold (700)
+- H2: Oranje (#DD784B), semi-bold (600)
+- Subtitle op titelslide: Oranje, **niet** bold (400)
 
 ### Fonts
 
