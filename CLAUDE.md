@@ -783,6 +783,8 @@ class: text-center
 
 **⚠️ Wissel af tussen Slide13.PNG, Slide14.PNG, Slide15.PNG**
 
+**⚠️ Gebruik WITTE tekst voor goede contrast op hoofdstuk backgrounds**
+
 ```markdown
 ---
 class: text-center
@@ -792,13 +794,13 @@ class: text-center
   <img src="/npuls/powerpoint_slides/Slide13.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
 </div>
 
-<div style="font-weight: 700; font-size: 3.5rem;">
+<div style="font-weight: 700; font-size: 3.5rem; color: #FFFFFF;">
 
 # Hoofdstuk Titel
 
 </div>
 
-<div style="font-weight: 600; font-size: 2rem; margin-top: 1rem;">
+<div style="font-weight: 600; font-size: 2rem; margin-top: 1rem; color: #FFFFFF;">
 
 ## Ondertitel
 
