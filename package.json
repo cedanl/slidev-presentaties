@@ -7,7 +7,7 @@
     "dev": "slidev",
     "build": "slidev build",
     "export": "slidev export",
-    "clidev": "slidev 110326_clidev.md --open"
+    "clidev": "slidev 260311_clidev.md --open"
   },
   "repository": {
     "type": "git",
