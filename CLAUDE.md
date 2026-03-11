@@ -1,790 +1,488 @@
 # CEDA Slidev Presentations - Documentation
 
-## Project Overview
+> **FOR CLAUDE CODE:**
+> **ALWAYS use `/slidev` skill as foundation** when working with Slidev presentations.
+> This CLAUDE.md = Npuls-specific customizations only.
 
-Dit project bevat meerdere Slidev presentaties voor CEDA (Centre for Educational Data Analytics). Alle presentaties volgen de **Npuls huisstijl** en gebruiken een gedeelde asset structuur.
-
-**Naming Convention**: `YYMMDD_presentation_name.md`
-- Voorbeeld: `2603_1CHO_update_Avans_Windesheim.md`
-- Voorbeeld: `1504_NFWA_introductie.md`
+**Documentation Hierarchy:**
+1. `/slidev` skill → Core Slidev (syntax, features, CLI)
+2. This CLAUDE.md → Npuls branding + CEDA workflows
 
 ---
 
-## Project Structuur
+## Project Structure
 
 ```
 slidev-presentaties/
-├── YYMMDD_presentation_name.md   ← Presentatie bestanden
-├── CLAUDE.md                     ← Deze documentatie
-├── README.md                     ← Project readme
-├── components/                   ← Custom Slidev components (optioneel)
-├── snippets/                     ← Herbruikbare code snippets
-└── public/                       ← ALLE statische assets
-    ├── npuls/                   ← SHARED Npuls branding assets
-    │   ├── powerpoint_slides/   ← Slide backgrounds (Slide1.PNG - Slide19.PNG)
-    │   ├── powerpoint_illustrations/ ← Illustrations (70+ SVG icons)
-    │   ├── npuls_images/        ← 101 template assets (image1.png - image101.png)
-    │   ├── npuls_logo.jpg       ← Npuls logo
-    │   ├── Npuls_powerpoint-template.potx
-    │   ├── Npuls_huisstijlgids_2025.pdf
-    │   └── Npuls_lettertype/    ← Font files
-    ├── ceda_contributors/       ← CEDA team member photos (SHARED)
-    │   ├── aslam_tanjung.jpg
-    │   └── tomer_iwan.jpg
-    └── presentations/           ← PRESENTATION-SPECIFIC assets
-        ├── 2603_1CHO_update_Avans_Windesheim/
-        │   └── [project_specific_images].jpg
-        └── [andere_presentatie]/
-            └── [specifieke_images].jpg
+├── YYMMDD_name.md              # Presentations (naming: YYMMDD_topic.md)
+├── public/
+│   ├── npuls/                  # SHARED Npuls assets
+│   │   ├── powerpoint_slides/  # Backgrounds (Slide1-19.PNG)
+│   │   ├── powerpoint_illustrations/  # 70+ SVG icons
+│   │   ├── npuls_logo.jpg
+│   │   └── Npuls_lettertype/   # Fonts
+│   ├── ceda_contributors/      # Team photos
+│   └── presentations/YYMMDD_name/  # Presentation-specific assets
+└── snippets/                   # Reusable code
 ```
+
+**Naming Convention**: `YYMMDD_topic.md` (e.g., `260311_1cijferho_update.md`)
 
 ---
 
-## Nieuwe Presentatie Maken
-
-### Stap 0: Vraag om presentatie details
-
-**BELANGRIJK**: Voordat je begint met het maken van een nieuwe presentatie, vraag de gebruiker om:
-1. **Presentatie datum**: Op welke datum is het overleg/de presentatie?
-2. **Onderwerp**: Waar gaat de presentatie over?
-3. **Doelgroep**: Voor wie is de presentatie bedoeld?
-4. **Duur**: Hoe lang moet de presentatie zijn?
-
-Gebruik de datum voor de bestandsnaam: `YYMMDD_onderwerp.md`
-
-**💡 Pro Tip voor Claude Code:**
-Als gebruiker vraagt om een presentatie, doe dan automatisch stap 0-4 zonder tussenkomst:
-- Vraag eerst om details (datum, onderwerp, doelgroep, duur)
-- Maak vervolgens de complete presentatie met alle stappen hieronder
-- Gebruiker hoeft niets handmatig te doen!
-
----
-
-### Handmatige Stappen (Als je niet Claude Code gebruikt)
-
-### Stap 1: Creëer presentatie bestand
-
-```bash
-# Naming convention: YYMMDD_naam.md
-touch 0304_new_presentation.md
-```
-
-### Stap 2: Creëer asset folder
-
-```bash
-mkdir -p public/presentations/0304_new_presentation
-```
-
-### Stap 3: Voeg presentatie-specifieke images toe
-
-```bash
-cp your_images/* public/presentations/0304_new_presentation/
-```
-
-### Stap 4: Start presentatie
-
-```bash
-slidev 0304_new_presentation.md --open
-```
-
----
-
-## Slidev Gebruiken
-
-### Markdown Basis
-
-Slidev presentaties worden geschreven in **Markdown**. Enkele basics:
-
-```markdown
-# H1 Titel (grootste)
-## H2 Ondertitel
-### H3 Kleinere titel
-
-- Bullet point
-- Nog een bullet
-  - Geneste bullet
-
-1. Genummerde lijst
-2. Item twee
-
-**Bold text** en *italic text*
-
-[Link tekst](https://url.com)
-```
-
-### Slides Scheiden
-
-Elke slide wordt gescheiden met drie streepjes:
-
-```markdown
----
-```
-
-**Voorbeeld:**
-```markdown
-# Slide 1
-
-Content van slide 1
-
----
-
-# Slide 2
-
-Content van slide 2
-
----
-```
-
-### Frontmatter per Slide
-
-Elke slide kan optionele frontmatter hebben:
-
-```markdown
----
-class: text-center
-layout: default
----
-
-# Gecentreerde Slide
-```
-
-**Belangrijk**: Gebruik GEEN `background:` property (voegt overlays toe)!
-
-### Code Blocks
-
-Slidev ondersteunt syntax highlighting:
-
-````markdown
-```bash
-npm install -g @slidev/cli
-```
-
-```python
-def hello():
-    print("Hello World")
-```
-````
-
-### Images in Slides
-
-**Voor gedeelde Npuls assets:**
-```markdown
-<img src="/npuls/powerpoint_illustrations/laptop.svg"
-     style="width: 140px; height: auto;" />
-```
-
-**Voor presentatie-specifieke images:**
-```markdown
-<img src="/presentations/260310_jouw_presentatie/team_foto.jpg"
-     alt="Team foto"
-     class="h-56 rounded-lg shadow-lg" />
-```
-
-### Styling met Tailwind
-
-Slidev heeft Tailwind CSS ingebouwd:
-
-```markdown
-<div class="mt-8 text-xl text-center">
-Gecentreerde tekst met margin-top
-</div>
-
-<div class="grid grid-cols-2 gap-8">
-  <div>Kolom 1</div>
-  <div>Kolom 2</div>
-</div>
-```
-
-**Veelgebruikte classes:**
-- `mt-8`, `mb-4` - margins
-- `text-xl`, `text-sm` - font sizes
-- `text-center` - center alignment
-- `font-bold` - bold
-- `grid grid-cols-2` - two columns
-- `rounded-lg` - rounded corners
-- `shadow-lg` - drop shadow
-
-### Keyboard Shortcuts
-
-Tijdens presentatie:
-- `Space` / `→` - Volgende slide
-- `Shift+Space` / `←` - Vorige slide
-- `F` - Fullscreen
-- `P` - Presenter mode (met notes)
-- `D` - Dark mode toggle
-- `G` - Go to slide (type nummer)
-- `O` - Overview mode
-
-### Hot Reload
-
-Wijzigingen in je `.md` bestand worden **automatisch** herladen in de browser - geen refresh nodig!
-
----
-
-## Npuls Huisstijl / Branding
-
-Alle presentaties volgen de **Npuls huisstijl**. Branding assets zijn beschikbaar in `public/npuls/`:
-
-### Kleuren (Npuls Color Palette)
-
-**Primaire Kleuren:**
-```css
---npuls-blue: #3D68EC     /* Hoofdkleur voor titels */
---npuls-orange: #DD784B   /* Accent kleur voor subtitels */
---npuls-black: #000000    /* Tekst kleur */
---npuls-white: #FFFFFF    /* Achtergrond */
-```
-
-**Secundaire Kleuren:**
-```css
---npuls-green: #00AF81    /* Accent */
---npuls-yellow: #F4D74B   /* Accent */
---npuls-pink: #F4D9DC     /* Accent */
-```
-
-### Typografie
-
-**Fonts:**
-- **Primair**: General Sans (custom Npuls font in `/npuls/Npuls_lettertype/`)
-- **Secundair**: Cooper Light BT (voor quotes/introducties)
-- **Fallback**: Arial, Helvetica
-
-**Beschikbare Font Files:**
-- `Npuls_lettertype_generalsans_regular.otf` - Regular (400)
-- `Npuls_lettertype_generalsans_semibold.otf` - Semi-Bold (600)
-- `Npuls_lettertype_cooper_light_bt.ttf` - Light (300)
-
-**Font Weights:**
-- Regular (400): Body text
-- Semi-Bold (600): H1, H2, H3
-- Light (300): Cooper Light voor quotes
-
-**Font Loading in CSS:**
-```css
-@font-face {
-  font-family: 'General Sans';
-  src: url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'General Sans';
-  src: url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_semibold.otf') format('opentype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Cooper Light BT';
-  src: url('/npuls/Npuls_lettertype/Npuls_lettertype_cooper_light_bt.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-```
-
-**Usage:**
-```css
-:deep(.slide) {
-  font-family: 'General Sans', Arial, Helvetica, sans-serif;
-}
-```
+## Npuls Branding
+
+### Colors
+
+| Usage | Color | Hex |
+|-------|-------|-----|
+| H1, H2 (titles) | Orange | `#DD784B` |
+| H3-H6, body, subtitles | Black | `#000000` |
+| Strong/bold, links | Blue | `#3D68EC` |
+| Link hover | Orange | `#DD784B` |
+| Accents | Green, Yellow, Pink | `#00AF81`, `#F4D74B`, `#F4D9DC` |
+
+**For Mermaid diagrams:**
+- Primary nodes: `fill:#3D68EC,stroke:#DD784B,color:#fff`
+- Important nodes: `fill:#DD784B,stroke:#3D68EC,color:#fff`
+- Success nodes: `fill:#00AF81,color:#fff`
+
+### Fonts
+
+| Font | Weight | Usage |
+|------|--------|-------|
+| General Sans Regular | 400 | Body text |
+| General Sans Semi-Bold | 600 | H1, H2, H3 |
+| Cooper Light BT | 300 | Quotes |
+
+**Paths:**
+- `Npuls_lettertype_generalsans_regular.otf`
+- `Npuls_lettertype_generalsans_semibold.otf`
+- `Npuls_lettertype_cooper_light_bt.ttf`
 
 ### Logo
 
-Het Npuls logo kan automatisch op elke slide verschijnen via CSS:
-- **Locatie**: `/npuls/npuls_logo.jpg`
-- **Implementatie**: Via `::after` pseudo-element in CSS (zie voorbeeld presentatie)
+Auto-appears on every slide via CSS `::after`. Location: `/npuls/npuls_logo.jpg`
 
 ---
 
-## Slide Backgrounds - BELANGRIJK! ⚠️
+## ⚠️ SPACING & CONTENT GUARDRAILS (CRITICAL!)
 
-### Het Probleem met Slidev Backgrounds
+**These rules PREVENT text overflow. Follow religiously or slides WILL overflow.**
 
-Slidev voegt **automatisch een donkere overlay** toe over backgrounds wanneer je de `background:` property gebruikt.
+### Strict Spacing Rules
 
-### Onze Oplossing
+**ALWAYS use these, NEVER larger:**
 
-**❌ NIET gebruiken:**
+| Element | Rule | Example |
+|---------|------|---------|
+| Top margin | `mt-2` or `mt-4` | `<div class="mt-4">` |
+| Between sections | `mt-4` max | Never `mt-6`, `mt-8`, `mt-12` |
+| Line height | `1.5` - `1.6` | `line-height: 1.6;` |
+| Padding (boxes) | `1rem` max | `padding: 1rem;` |
+| Gap (grids) | `gap-4` or `gap-6` | `gap-6` max |
+
+**❌ NEVER USE:**
+- `mt-8`, `mt-12` → TOO LARGE, causes overflow
+- `line-height: 2` → TOO SPACIOUS
+- `padding: 1.5rem` or higher → TOO MUCH
+
+**✅ ALWAYS USE:**
+- Conservative spacing: `mt-2`, `mt-4`
+- Compact line-height: `1.5`, `1.6`
+- Small padding: `0.75rem`, `1rem`
+
+### Font Size Rules
+
+**CRITICAL: Start with 0.85rem, NOT larger. Only increase if slide is nearly empty.**
+
+| Content Type | Font Size | Example |
+|--------------|-----------|---------|
+| Body text / lists | **`0.85rem`** (default) | `font-size: 0.85rem;` |
+| Code blocks | **`0.85rem`** (default) | `style="font-size: 0.85rem;"` |
+| Boxes/callouts | **`0.8rem`** | `font-size: 0.8rem;` |
+| Subsections | `0.9rem` max | Only if very little content |
+| Headers (H1, H2) | Default (CSS handles) | Don't override |
+
+**Default text size = TOO LARGE. ALWAYS wrap content in `<div style="font-size: 0.85rem;">`**
+
+**Exception:** Only use 0.9rem+ if slide has ≤3 bullet points AND no code blocks.
+
+### Content Limits Per Slide
+
+**STRICT maximum allowed:**
+
+| Element | Max Count | Safe Count | Action if exceeded |
+|---------|-----------|------------|-------------------|
+| Bullet points | 5 ABSOLUTE MAX | 3-4 | SPLIT INTO 2 SLIDES |
+| Code blocks | 1 (6 lines max) | 1 (4 lines) | Remove lines or split |
+| Sections (###) | 1-2 | 1 | Remove headings or split |
+| Grid columns | 2 | 2 | 3 lines per column max |
+| Mermaid nodes | 6 | 5 | Simplify diagram |
+| Steps/workflow items | 4 | 3 | Condense or split |
+
+**If you exceed SAFE COUNT → High risk of overflow → SPLIT INTO MULTIPLE SLIDES**
+
+**Golden rule:** When in doubt, REMOVE content or SPLIT. Too little content = good. Too much = broken slide.
+
+### Mermaid Diagram Rules
+
+**Strict settings to prevent overflow:**
+
+```markdown
+# ✅ GOOD - Compact
+```mermaid {scale: 0.5}
+graph LR
+    A[Start] --> B[End]
+```
+
+# ❌ BAD - Too large
+```mermaid {scale: 0.8}
+graph TD
+    [10+ nodes with long labels]
+```
+```
+
+**Rules:**
+- **Scale**: `0.5` - `0.6` max (never >0.7)
+- **Layout**: Prefer `LR` (horizontal) over `TD` (vertical) for compactness
+- **Nodes**: Max 5-8 nodes
+- **Labels**: Keep SHORT (1-3 words)
+
+### Code Highlighting Rules
+
+**Click-based highlighting `{1|2-3|all}` has special requirements:**
+
+```markdown
+# ✅ CORRECT - No wrapper
+### Code example
+
+```python {1|3-5|7|all}
+code here
+```
+
+# ❌ WRONG - v-click wrapper breaks highlighting
+<div v-click>
+```python {1|3-5|7|all}
+code here
+```
+</div>
+```
+
+**Rule**: Code blocks with `{1|2|all}` syntax must NOT be inside `<div v-click>` or `<v-clicks>`. They create their own click progression.
+
+### Grid Layout Rules
+
+**Two-column grids:**
+
+```markdown
+# ✅ GOOD - Compact settings
+<div class="grid grid-cols-2 gap-4 mt-4">
+  <div>Left content (5 lines max)</div>
+  <div>Right content (5 lines max)</div>
+</div>
+
+# ❌ BAD - Too much spacing/content
+<div class="grid grid-cols-2 gap-8 mt-8">
+  <div>10 bullet points</div>
+  <div>Large code block</div>
+</div>
+```
+
+**Rules:**
+- Gap: `gap-4` (NEVER `gap-6` or larger)
+- Content per column: **3 lines max** (not 5-6!)
+- Total slide height: 2 columns = HALF the content per column
+- mt on grid: `mt-2` inline, NEVER `mt-4`
+
+### Validation Checklist (BEFORE DELIVERY)
+
+Run through this for EVERY slide:
+
+**Spacing:**
+- [ ] No `mt-8`, `mt-12`, `mt-6` used (only `mt-2`, occasionally `mt-4`)
+- [ ] All content wrapped in `font-size: 0.85rem` div
+- [ ] Line-height is `1.5` (not 1.6 or higher)
+- [ ] Padding in boxes is `0.6rem` (not 0.75rem or higher)
+
+**Content:**
+- [ ] Max 3-4 bullet points per slide (NOT 5-6!)
+- [ ] Max 1 code block with ≤6 lines
+- [ ] Mermaid scale ≤ 0.55
+- [ ] Mermaid nodes ≤ 6
+- [ ] Grid columns: max 3 lines each
+
+**Interactive:**
+- [ ] Code highlighting NOT in v-click wrapper
+- [ ] v-clicks not nested (no v-clicks inside v-click)
+- [ ] All v-click elements tested
+
+**Test:**
+- [ ] Run `slidev presentation.md --open`
+- [ ] Check EVERY slide for overflow
+- [ ] Test all interactive elements (clicks, code highlighting)
+
+### Common Pitfalls
+
+**These ALWAYS cause overflow:**
+
+1. **"It looks fine in markdown"** → Rendered slide is TALLER, always test
+2. **Default margins/font sizes** → ALWAYS too large, must wrap everything in 0.85rem
+3. **Too many bullet points** → >4 items = guaranteed overflow
+4. **Large Mermaid diagrams** → >6 nodes or scale >0.6 = overflow
+5. **Code in v-click** → Breaks click-based highlighting
+6. **Nested v-clicks** → Doesn't work as expected
+7. **Line-height: 2** → Wastes vertical space
+8. **Adding new slides without conservative approach** → Most common cause of overflow
+9. **Using mt-3, mt-4 between sections** → Use mt-2 only
+10. **Grid with >3 items per column** → Will overflow
+
+### New Slide Protocol (CRITICAL!)
+
+**When adding ANY new slide, ALWAYS:**
+
+1. **Start ultra-conservative:**
+   ```markdown
+   <div class="mt-2" style="font-size: 0.85rem; line-height: 1.5;">
+   ```
+
+2. **Count content BEFORE writing:**
+   - Max 3-4 bullet points OR
+   - Max 1 code block (5 lines) OR
+   - Max 2 sections (###)
+
+3. **If you need more → SPLIT INTO 2 SLIDES IMMEDIATELY**
+
+4. **Test mentally:** If you think "this might be tight" → IT WILL OVERFLOW → REMOVE CONTENT
+
+**Example - WRONG approach (will overflow):**
+```markdown
+# New Slide
+### Section 1
+- Point 1
+- Point 2
+- Point 3
+### Section 2
+```bash
+code
+code
+code
+```
+- Point 4
+- Point 5
+```
+
+**Example - CORRECT approach:**
+```markdown
+# New Slide Part 1
+<div class="mt-2" style="font-size: 0.85rem; line-height: 1.5;">
+- Point 1
+- Point 2
+- Point 3
+</div>
+
+---
+
+# New Slide Part 2
+<div class="mt-2" style="font-size: 0.85rem; line-height: 1.5;">
+```bash
+code
+```
+</div>
+```
+
+### Emergency Fix Template
+
+If slide overflows, apply ALL of these:
+
+```markdown
+<div class="mt-2" style="font-size: 0.85rem; line-height: 1.5;">
+
+<!-- Reduce content to max 3 items -->
+- Item 1
+- Item 2
+- Item 3
+
+</div>
+```
+
+**If still overflows → SPLIT INTO 2 SLIDES (non-negotiable)**
+
+---
+
+## Critical Rules
+
+### ⚠️ Backgrounds - NEVER use `background:` property
+
+**❌ WRONG:**
 ```yaml
 ---
 background: /npuls/powerpoint_slides/Slide1.PNG
 ---
 ```
 
-**✅ WEL gebruiken:**
-```markdown
----
----
-
+**✅ CORRECT:**
+```html
 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
   <img src="/npuls/powerpoint_slides/Slide1.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
 </div>
-
-# Slide Title
 ```
 
-### Waarom Deze Aanpak?
+### Available Backgrounds
 
-1. ✅ Geen overlays
-2. ✅ Geen filters
-3. ✅ 100% originele Npuls images zichtbaar
-4. ✅ Volledige controle over de presentatie
+| File | Usage | Notes |
+|------|-------|-------|
+| `Slide1.PNG` | Title slide | |
+| `Slide2.PNG` | Agenda/About | **Text RIGHT** (image on left) |
+| `Slide3.PNG` | Content slide | Default |
+| `Slide13/14/15.PNG` | Chapter dividers | **WHITE text**, rotate between them |
+| `Slide17.PNG` | Closing | **NO TEXT** |
 
-### Beschikbare Background Images
+### ⚠️ Illustrations - Case-Sensitive!
 
-Locatie: `/npuls/powerpoint_slides/`
+**ALWAYS check exact filename before using:**
+```bash
+ls public/npuls/powerpoint_illustrations/ | grep -i "keyword"
+```
 
-| Bestand | Gebruik |
-|---------|---------|
-| `Slide1.PNG` | Titelslide |
-| `Slide2.PNG` | Inhoudsopgave / Over Ons | Zet tekst rechts, want er is afbeelding links
-| `Slide3.PNG` | Standaard content slide |
-| `Slide13.PNG`, `Slide14.PNG`, `Slide15.PNG` | Hoofdstuk slide, wissel af. Geef ook opmaak van tekst (dikker bv) zodat het inderdaad lijkt op hoofdstuk |
-| `Slide10.PNG` | Alternatieve content slide |
-| `Slide17.PNG` | Afsluiting slide GEEN TEXT|
+**Common mistakes:**
+- ❌ `Data.svg` → ✅ `data.svg`
+- ❌ `Ster.svg` → ✅ `Ster geel.svg` or `Ster oranje.svg`
+- ❌ `Pakket.svg` → ✅ `Pakket compact.svg`
+- ❌ `Boeken.svg` → ✅ `Boeken roze blauw.svg`
+
+---
+
+## Illustration Index (70+ available)
+
+**People**: `Dame blauw pak.svg`, `Dame oranje blauw.svg`, `Man.svg`, `Laptopman.svg`, `Man in rolstoel.svg`, `bestuurder.svg`, `onderwijsprofessional.svg`
+
+**Objects**: `laptop.svg`, `Laptop leeg beeld.svg`, `Laptop met beeld.svg`, `books.svg`, `Boeken roze blauw.svg`, `Boeken blauw roze blauw.svg`, `Boeken blauw rozen groen.svg`, `Pakket compact.svg`, `Stopwatch.svg`, `Lamp.svg`, `Sleutel.svg`, `Slot.svg`
+
+**Concepts**: `Puzzelstuk 2D.svg`, `Puzzelstuk 3D.svg`, `Connecties.svg`, `Combineren.svg`, `Blokken stapel.svg`, `netwerk.svg`, `hands.svg`, `hersenen.svg`, `brains.svg`
+
+**Symbols**: `Vaantje geel met vink.svg`, `Vaantje oranje.svg`, `MC Vaantje.svg`, `Pijlen rechts grafisch.svg`, `Pijlen naar elkaar.svg`, `Pijlen roze rechts.svg`, `Ster geel.svg`, `Ster oranje.svg`, `Stip geel.svg`, `Cirkel grafisch.svg`, `Golven.svg`
+
+**Education**: `Boek puzzelstuk.svg`, `Digitale leermaterialen Npuls.svg`, `Gebouw blauw en roze dak.svg`, `Gebouw blauw met boom.svg`, `schoolgebouwen.svg`, `learninganalystics.svg`, `lerende.svg`, `kennisdeling.svg`, `hat.svg`
+
+**Tech**: `chip.svg`, `data.svg`, `pc.svg`, `Servers.svg`, `kunstmatigeintelligentie.svg`, `vr.svg`
+
+**Other**: `Document.svg`, `Dokter.svg`, `Financien.svg`, `cadeau.svg`, `present.svg`, `Boom.svg`, `bijeenkomst.svg`, `events.svg`, `figure.svg`, `gesprek.svg`, `globe.svg`, `light.svg`, `locatie.svg`, `verrekijker.svg`, `video.svg`
+
+**Usage:**
+```html
+<img src="/npuls/powerpoint_illustrations/data.svg"
+     style="position: absolute; bottom: 2rem; right: 2rem; width: 140px; opacity: 1.0;" />
+```
 
 ---
 
 ## Asset Paths
 
-### Shared Assets
+| Asset Type | Path | Example |
+|------------|------|---------|
+| Backgrounds | `/npuls/powerpoint_slides/` | `Slide3.PNG` |
+| Illustrations | `/npuls/powerpoint_illustrations/` | `data.svg` |
+| Logo | `/npuls/` | `npuls_logo.jpg` |
+| Fonts | `/npuls/Npuls_lettertype/` | `Npuls_lettertype_generalsans_regular.otf` |
+| Team photos | `/ceda_contributors/` | `aslam_tanjung.jpg`, `tomer_iwan.jpg` |
+| Presentation-specific | `/presentations/YYMMDD_name/` | Custom images |
 
-Deze zijn beschikbaar voor ALLE presentaties:
+---
 
-```markdown
-<!-- Background slides -->
-<img src="/npuls/powerpoint_slides/Slide1.PNG" />
+## Required CSS Boilerplate
 
-<!-- Logo -->
-background-image: url('/npuls/npuls_logo.jpg');
+Every presentation MUST include:
 
-<!-- Template images (101 stuks) -->
-<img src="/npuls/npuls_images/image1.png" />
-<img src="/npuls/npuls_images/image42.svg" />
-
-<!-- CEDA Contributors -->
-<img src="/ceda_contributors/aslam_tanjung.jpg" />
-<img src="/ceda_contributors/tomer_iwan.jpg" />
-
-<!-- Illustrations (70+ SVG icons available) -->
-<img src="/npuls/powerpoint_illustrations/Puzzelstuk 3D.svg" />
-<img src="/npuls/powerpoint_illustrations/Stopwatch.svg" />
-<img src="/npuls/powerpoint_illustrations/laptop.svg" />
-```
-
-### Npuls Illustrations
-
-70+ SVG illustraties beschikbaar in `/npuls/powerpoint_illustrations/`
-
-**Categorieën:**
-- **Personen**: Dame blauw pak, Man, Laptopman, Man in rolstoel
-- **Objecten**: Laptop, Boeken, Pakket, Stopwatch, Lamp
-- **Concepten**: Puzzelstuk, Connecties, Blokken stapel, Netwerk
-- **Symbolen**: Vaantje met vink, Pijlen, Ster, Document
-- **Educatie**: Boeken, Gebouw, Learninganalystics
-- **Tech**: Chip, Data, Servers, PC
-
-**Gebruik:**
-```html
-<!-- Plaats illustratie in hoek (conflicteert niet met tekst) -->
-<img src="/npuls/powerpoint_illustrations/Stopwatch.svg"
-     style="position: absolute; top: 2rem; right: 2rem; width: 120px; height: auto; opacity: 1.0;"
-     alt="Stopwatch" />
-```
-
-**Best Practices:**
-- ✅ Plaats in hoeken (top/bottom + left/right) om tekst niet te overlappen
-- ✅ Gebruik `position: absolute` voor vrijheid in plaatsing
-- ✅ Gebruik `opacity: 1.0` - illustraties mogen opvallen en aanwezig zijn
-- ✅ **Voeg CSS override toe** om illustraties te forceren naar volledige zichtbaarheid
-- ✅ Houd illustraties relevant bij slide content
-- ✅ Gebruik `width: 120-160px` voor goede balans
-- ✅ Plaats illustraties BUITEN content divs
-- ❌ Plaats NIET over belangrijke tekst
-- ❌ Gebruik NIET te grote illustraties (max 200px)
-- ❌ Overlaad slides NIET met te veel illustraties (max 1-2 per slide)
-
-**CSS Override voor Volledige Zichtbaarheid:**
 ```css
-/* Voeg toe aan <style> block */
-img[src*="powerpoint_illustrations"] {
-  opacity: 1 !important;
-}
+<style>
+  /* Fonts */
+  @font-face {
+    font-family: 'General Sans';
+    src: url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_regular.otf') format('opentype');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'General Sans';
+    src: url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_semibold.otf') format('opentype');
+    font-weight: 600;
+  }
 
-img[src*="powerpoint_illustrations"] * {
-  opacity: 1 !important;
-}
-```
+  /* Apply fonts */
+  :deep(.slide) { font-family: 'General Sans', Arial, sans-serif; }
 
-**Overlap Voorkomen - Strategieën:**
+  /* Npuls colors */
+  :deep(h1), :deep(h2) { color: #DD784B !important; font-weight: 600-700; }
+  :deep(h3), :deep(h4), :deep(h5), :deep(h6) { color: #000000 !important; }
+  :deep(strong) { color: #3D68EC; }
+  :deep(a) { color: #3D68EC; }
+  :deep(a:hover) { color: #DD784B; }
 
-1. **Plaats illustraties BUITEN de content div:**
-```html
-<!-- GOED: Illustratie na de content -->
-<div class="mt-8">
-  <h1>Slide Title</h1>
-  <p>Content here...</p>
-</div>
+  /* Title slide subtitle (black, not bold) */
+  .title-subtitle { color: #000000 !important; font-weight: 400 !important; }
 
-<img src="/npuls/powerpoint_illustrations/example.svg"
-     style="position: absolute; bottom: 2rem; right: 2rem;
-            width: 140px; opacity: 0.5;" />
+  /* CRITICAL: Overlay removal */
+  #slide-content, .slidev-layout, .slide-container, [class*="slide"] {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+  #slide-content::before, #slide-content::after,
+  .slidev-layout::before, .slidev-layout::after,
+  [class*="slide"]::before, [class*="slide"]::after,
+  [class*="cover"]::before, [class*="cover"]::after {
+    display: none !important;
+    content: none !important;
+    opacity: 0 !important;
+  }
 
-<!-- FOUT: Illustratie binnen content div -->
-<div class="mt-8">
-  <img src="..." style="position: absolute..." />
-  Content gets pushed around...
-</div>
-```
+  /* Logo on every slide */
+  :deep(.slide)::after {
+    content: '';
+    position: absolute;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    width: 85px;
+    height: auto;
+    background-image: url('/npuls/npuls_logo.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+  }
 
-2. **Gebruik volledige opacity (1.0):**
-```html
-<!-- Illustraties mogen opvallen en zichtbaar zijn -->
-<img src="/npuls/powerpoint_illustrations/example.svg"
-     style="position: absolute; bottom: 1rem; right: 2rem;
-            width: 140px; opacity: 1.0;" />
-```
-
-3. **Kleinere illustraties (120-160px):**
-```html
-<!-- Compact = meer ruimte voor tekst -->
-<img src="/npuls/powerpoint_illustrations/example.svg"
-     style="width: 140px; opacity: 1.0;" />
-```
-
-4. **Strategische plaatsing:**
-- **Bottom corners**: Vaak minste tekst
-- **Top right**: Meestal vrij
-- **Center (alleen voor kleine accenten)**: Gebruik kleine illustraties + verschuif content
-- **Let op bij code blocks**: Nemen veel ruimte
-
-**Voorbeeld: Gecentreerde illustratie met content shift:**
-```html
-<!-- Kleine pijl in center -->
-<img src="/npuls/powerpoint_illustrations/Pijlen rechts grafisch.svg"
-     style="position: absolute; top: 50%; left: 42%;
-            transform: translate(-50%, -50%); width: 80px; opacity: 1.0; z-index: 0;" />
-
-<!-- Content iets naar rechts -->
-<div class="grid grid-cols-2 gap-8" style="margin-left: 3rem; position: relative; z-index: 1;">
-  Content hier
-</div>
-```
-
-5. **Test altijd in development mode:**
-```bash
-slidev presentation.md --open
-```
-- Check verschillende slides
-- Resize venster om responsive gedrag te zien
-- Test op beamer/projector als mogelijk
-
-### Presentation-Specific Assets
-
-Voor presentatie `YYMMDD_naam.md`, plaats images in `public/presentations/YYMMDD_naam/`:
-
-```markdown
-<!-- Voorbeeld voor presentatie 2603_1CHO_update_Avans_Windesheim.md -->
-<img src="/presentations/2603_1CHO_update_Avans_Windesheim/screenshot.png" />
-<img src="/presentations/2603_1CHO_update_Avans_Windesheim/diagram.jpg" />
-
-<!-- CEDA contributors gebruik je vanuit de shared folder -->
-<img src="/ceda_contributors/aslam_tanjung.jpg" />
+  /* Force illustrations visible */
+  img[src*="powerpoint_illustrations"] { opacity: 1 !important; }
+</style>
 ```
 
 ---
 
-## Slide Structuur
+## Slide Templates (Minimal)
 
-### Frontmatter
-
-Elke slide begint met een YAML frontmatter block:
-
-```yaml
----
-class: text-center        # Optioneel: styling classes
-layout: default          # Optioneel: layout type
----
-```
-
-**Belangrijke regels:**
-- ❌ Gebruik GEEN `theme:` property (zorgt voor overlays)
-- ❌ Gebruik GEEN `layout: cover` (voegt overlays toe)
-- ❌ Gebruik GEEN `background:` property (voegt overlays toe)
-- ✅ Gebruik alleen `class:` voor styling
-
-### Section Breaks
-
-Voor grote sectie-overgangen:
-
+### Title Slide
 ```markdown
 ---
+theme: default
 class: text-center
+title: Presentation Title
 ---
+
+<style>[CSS boilerplate here]</style>
 
 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide16.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
+  <img src="/npuls/powerpoint_slides/Slide1.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
 </div>
 
-# Section Title
+# Title
 
 ## Subtitle
-```
-
-### Content Slides
-
-Normale slides zonder background:
-
-```markdown
----
----
-
-# Slide Title
-
-### Subsection
-
-Content here...
-```
-
----
-
-## Presenter Notes
-
-Slidev ondersteunt **presenter notes** die alleen zichtbaar zijn in presenter mode (druk op `P` tijdens de presentatie).
-
-### Hoe Notes Toevoegen
-
-Voeg notes toe aan het **einde van een slide** met HTML comment syntax:
-
-```markdown
----
----
-
-# Slide Title
-
-Content van de slide...
-
-<!--
-Dit zijn presenter notes.
-- Ze zijn alleen zichtbaar voor de presenter
-- Niet voor het publiek
-- Gebruik ze voor timing, extra context, of herinneringen
--->
-
----
-```
-
-### Best Practices voor Presenter Notes
-
-**✅ VOEG ALTIJD TOE:**
-- **Timing**: "Deze slide duurt ~2 minuten"
-- **Key points**: Belangrijkste punten om te benadrukken
-- **Voorbeelden**: Extra voorbeelden die je mondeling kunt delen
-- **Transities**: "Vervolgens gaan we naar..."
-- **Vragen om te stellen**: "Vraag: Wie heeft dit al eens gebruikt?"
-
-**❌ VERMIJD:**
-- Hele paragrafen voorlezen
-- Te veel detail (kort en bondig)
-- Informatie die op de slide zelf hoort
-
-### Voorbeeld: Title Slide met Notes
-
-```markdown
----
-class: text-center
----
-
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide1.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
-</div>
-
-# Slidev Presentaties
-
-## Snel professionele slides maken met Claude
-
-<div class="mt-8 text-xl title-subtitle">
-<strong>CEDA</strong> - Centre for Educational Data Analytics
-</div>
-
-<!--
-⏱️ Timing: 1 minuut
-
-📌 Key points:
-- Verwelkom iedereen
-- Korte intro: "Vandaag leer je hoe je snel professionele presentaties maakt"
-- Noem dat presentatie ~15 minuten duurt
-
-💡 Opening:
-"Welkom! Vandaag laat ik zien hoe we bij CEDA in een paar minuten professionele presentaties maken met Slidev en Claude."
--->
-```
-
-### Voorbeeld: Content Slide met Notes
-
-```markdown
----
----
-
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
-</div>
-
-# Voordelen van Slidev
-
-- **Markdown** - Schrijf zoals je documentatie schrijft
-- **Git-vriendelijk** - Track changes, branches, pull requests
-- **Code highlighting** - Alle talen ondersteund
-- **Hot reload** - Zie wijzigingen direct
-
-<!--
-⏱️ Timing: 2-3 minuten
-
-📌 Key points:
-- Markdown: Voor developers heel natuurlijk
-- Git: Volledige versiecontrole, samenwerken makkelijk
-- Code highlighting: Laat voorbeeld zien als tijd
-- Hot reload: Demo live als mogelijk
-
-🎯 Call to action:
-"Wie gebruikt hier regelmatig Markdown?" [wacht op response]
-
-🔄 Transitie:
-"Nu we de voordelen kennen, laten we kijken naar de setup..."
--->
-```
-
-### Presenter Mode Gebruiken
-
-**Start presenter mode:**
-1. Open presentatie in browser (`slidev presentation.md --open`)
-2. Druk op `P` voor Presenter mode
-3. Twee vensters openen:
-   - **Presenter view**: Met notes, timer, volgende slide preview
-   - **Presentation view**: Voor het publiek (beamer/scherm)
-
-**Keyboard shortcuts in presenter mode:**
-- `P` - Toggle presenter mode
-- `Space` / `→` - Volgende slide
-- `Shift+Space` / `←` - Vorige slide
-- `G` - Ga naar slide nummer
-- `D` - Toggle dark mode
-
-### Template met Notes
-
-Gebruik dit als standaard template:
-
-```markdown
----
----
-
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
-</div>
-
-# Slide Titel
-
-Content hier...
-
-<!--
-⏱️ Timing: [X minuten]
-
-📌 Key points:
-- [Punt 1]
-- [Punt 2]
-
-💡 Extra context:
-[Extra informatie die je mondeling deelt]
-
-🔄 Transitie:
-"[Overgangszin naar volgende slide]"
--->
-```
-
----
-
-## Slide Templates
-
-### Template: Title Slide (Slide1.PNG)
-
-```markdown
----
-class: text-center
----
-
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide1.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
-</div>
-
-# Presentatie Titel
-
-## Ondertitel
 
 <div class="mt-8 text-xl title-subtitle">
 <strong>CEDA</strong> - Centre for Educational Data Analytics
 </div>
 ```
 
-### Template: Agenda/Over Ons (Slide2.PNG)
-
-**⚠️ Belangrijk: Tekst RECHTS plaatsen (afbeelding is links)**
-
-```markdown
----
----
-
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide2.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
-</div>
-
-<div style="margin-left: 50%; padding-left: 2rem;">
-
-# Agenda
-
-<div class="mt-8">
-
-- Onderwerp 1
-- Onderwerp 2
-- Onderwerp 3
-
-</div>
-
-</div>
-```
-
-### Template: Standaard Content (Slide3.PNG)
-
-```markdown
----
----
-
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
-</div>
-
-# Slide Titel
-
-<div class="mt-8">
-
-### Subsectie
-
-- Bullet point 1
-- Bullet point 2
-- Bullet point 3
-
-</div>
-```
-
-### Template: Hoofdstuk Slide (Slide13/14/15.PNG)
-
-**⚠️ Belangrijk: Gebruik DIKKE tekstopmaak (bold/thick) zodat het als hoofdstuk herkenbaar is**
-
-**⚠️ Wissel af tussen Slide13.PNG, Slide14.PNG, Slide15.PNG**
-
-**⚠️ Gebruik WITTE tekst voor goede contrast op hoofdstuk backgrounds**
-
+### Chapter Slide (White Text!)
 ```markdown
 ---
 class: text-center
@@ -795,20 +493,11 @@ class: text-center
 </div>
 
 <div style="font-weight: 700; font-size: 3.5rem; color: #FFFFFF;">
-
-# Hoofdstuk Titel
-
-</div>
-
-<div style="font-weight: 600; font-size: 2rem; margin-top: 1rem; color: #FFFFFF;">
-
-## Ondertitel
-
+# Chapter Title
 </div>
 ```
 
-### Template: Presenter Slide
-
+### Content Slide
 ```markdown
 ---
 ---
@@ -817,32 +506,12 @@ class: text-center
   <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
 </div>
 
-# Presentatie door
+# Slide Title
 
-<div class="grid grid-cols-2 gap-8 mt-8">
-  <div class="text-center">
-    <img src="/ceda_contributors/aslam_tanjung.jpg"
-         alt="Aslam Tanjung"
-         class="h-56 rounded-lg mx-auto shadow-lg">
-    <h3 class="mt-4 text-xl font-bold">Aslam Tanjung</h3>
-    <p class="mt-2 text-base font-semibold">Data Scientist @ CEDA</p>
-    <p class="mt-3 text-sm leading-relaxed">Korte beschrijving</p>
-  </div>
-  <div class="text-center">
-    <img src="/ceda_contributors/tomer_iwan.jpg"
-         alt="Tomer Iwan"
-         class="h-56 rounded-lg mx-auto shadow-lg">
-    <h3 class="mt-4 text-xl font-bold">Tomer Iwan</h3>
-    <p class="mt-2 text-base font-semibold">Data Engineer @ CEDA</p>
-    <p class="mt-3 text-sm leading-relaxed">Korte beschrijving</p>
-  </div>
-</div>
+Content here...
 ```
 
-### Template: Closing Slide (Slide17.PNG)
-
-**⚠️ KRITIEK: GEEN TEKST op deze slide - alleen de background!**
-
+### Closing Slide (NO TEXT!)
 ```markdown
 ---
 class: text-center
@@ -855,591 +524,143 @@ class: text-center
 
 ---
 
-## CSS Styling
+## Presenter Notes
 
-Custom styling plaats je in een `<style>` block aan het begin van je presentatie bestand.
-
-### Npuls Kleuren Toepassen
-
-```css
-<style>
-  /* Npuls Custom Fonts */
-  @font-face {
-    font-family: 'General Sans';
-    src: url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'General Sans';
-    src: url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_semibold.otf') format('opentype');
-    font-weight: 600;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Cooper Light BT';
-    src: url('/npuls/Npuls_lettertype/Npuls_lettertype_cooper_light_bt.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-  }
-
-  /* Npuls Branding Colors */
-  :root {
-    --npuls-blue: #3D68EC;
-    --npuls-orange: #DD784B;
-    --npuls-green: #00AF81;
-    --npuls-yellow: #F4D74B;
-    --npuls-pink: #F4D9DC;
-    --npuls-black: #000000;
-    --npuls-white: #FFFFFF;
-  }
-
-  /* Headings met Npuls kleuren */
-  :deep(h1) {
-    color: #DD784B !important;                  /* Oranje */
-    font-weight: 700;
-  }
-  :deep(h2) {
-    color: #DD784B !important;                  /* Oranje */
-    font-weight: 600;
-  }
-  :deep(h3), :deep(h4), :deep(h5), :deep(h6) {
-    color: #000000 !important;                  /* Zwart */
-  }
-
-  /* Subtitle op title slide - Oranje maar NIET bold */
-  .title-subtitle {
-    color: #DD784B !important;
-    font-weight: 400 !important;                /* Normal weight, niet bold */
-  }
-
-  .title-subtitle strong {
-    font-weight: 400 !important;                /* Ook strong niet bold maken */
-  }
-
-  /* Links */
-  :deep(a) { color: #3D68EC; }
-  :deep(a:hover) { color: #DD784B; }
-
-  /* Strong/Bold tekst */
-  :deep(strong) { color: #3D68EC; }
-</style>
-```
-
-### Overlay Removal CSS
-
-**KRITIEK - NIET VERWIJDEREN:**
-
-```css
-/* AGGRESSIVE OVERLAY REMOVAL */
-* {
-  box-shadow: none !important;
-}
-
-#slide-content,
-.slidev-layout,
-.slide-container,
-[class*="slide"],
-[id*="slide"] {
-  background-color: transparent !important;
-  box-shadow: none !important;
-  filter: none !important;
-}
-
-/* Remove ALL pseudo-elements that could be overlays */
-#slide-content::before,
-#slide-content::after,
-.slidev-layout::before,
-.slidev-layout::after,
-.slide-container::before,
-.slide-container::after,
-[class*="slide"]::before,
-[class*="slide"]::after,
-[class*="cover"]::before,
-[class*="cover"]::after,
-[class*="background"]::before,
-[class*="background"]::after {
-  display: none !important;
-  content: none !important;
-  opacity: 0 !important;
-}
-```
-
-Deze CSS zorgt ervoor dat Slidev geen overlays toevoegt over je backgrounds.
-
-### Npuls Logo op Elke Slide
-
-```css
-/* Npuls Logo on every slide */
-:deep(.slide)::after {
-  content: '';
-  position: absolute;
-  bottom: 1.2rem;
-  right: 1.2rem;
-  width: 85px;
-  height: auto;
-  background-image: url('/npuls/npuls_logo.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.9;
-}
-```
-
-### Animations (Apple-style)
-
-Voeg smooth animations toe voor professionele, flashy presentaties:
-
-```css
-/* Apple-style animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.6s ease-out;
-}
-```
-
-**Gebruik:**
+Add notes at slide end with HTML comments (see `/slidev` skill for details):
 
 ```markdown
-<!-- Fade in from bottom -->
-<div class="animate-fade-in-up">
-# Slide Title
-Content appears from below...
-</div>
+# Slide Content
 
-<!-- Scale in (grow) -->
-<div class="animate-scale-in">
-# Big Reveal
-Perfect for chapter slides and important moments
-</div>
+<!--
+⏱️ Timing: 2 min
+📌 Key points: ...
+💡 Context: ...
+🔄 Transition: ...
+-->
 ```
 
-**Best practices:**
-- ✅ Gebruik voor belangrijke slides (title, chapters, reveals)
-- ✅ `animate-scale-in` voor grote reveals (logo's, hoofdstukken)
-- ✅ `animate-fade-in-up` voor content slides (smooth entry)
-- ❌ Niet op élke slide (wordt vermoeiend)
-- ❌ Niet combineren (kies één animatie per slide)
+Press `P` in presentation for presenter mode.
 
 ---
 
-## Content Richtlijnen
+## Workflow: Creating New Presentation
 
-### Slides die te vol zijn
+1. **Ask user:**
+   - Date, topic, audience, duration
 
-Als een slide te veel content heeft:
-1. ✅ Split de slide in meerdere slides
-2. ✅ Gebruik `---` om een nieuwe slide te maken
-3. ✅ Gebruik two-column layouts waar mogelijk
-
-**Voorbeeld Two-Column:**
-```html
-<div class="grid grid-cols-2 gap-8">
-  <div>
-    Left column content
-  </div>
-  <div>
-    Right column content
-  </div>
-</div>
-```
-
-### Text Readability
-
-Op slides met backgrounds:
-- Gebruik **duidelijke, grote fonts**
-- Houd tekst **gecentreerd** waar mogelijk
-- Vermijd te veel tekst per slide
-- Gebruik **witruimte** effectief
-
-### Presenter Cards Voorbeeld
-
-```html
-<div class="grid grid-cols-2 gap-8 mt-8">
-  <div class="text-center">
-    <img src="/ceda_contributors/aslam_tanjung.jpg"
-         alt="Aslam Tanjung"
-         class="h-56 rounded-lg mx-auto shadow-lg">
-    <h3 class="mt-4 text-xl font-bold">Aslam Tanjung</h3>
-    <p class="mt-2 text-base font-semibold">Data Scientist @ CEDA</p>
-    <p class="mt-3 text-sm leading-relaxed">Gespecialiseerd in data pipelines en R packages</p>
-  </div>
-  <div class="text-center">
-    <img src="/ceda_contributors/tomer_iwan.jpg"
-         alt="Tomer Iwan"
-         class="h-56 rounded-lg mx-auto shadow-lg">
-    <h3 class="mt-4 text-xl font-bold">Tomer Iwan</h3>
-    <p class="mt-2 text-base font-semibold">Data Engineer @ CEDA</p>
-    <p class="mt-3 text-sm leading-relaxed">Expert in educational data analytics</p>
-  </div>
-</div>
-```
-
----
-
-## Development Workflow
-
-### Start Development Server
-
-**Vereiste**: Slidev globally geïnstalleerd
-```bash
-npm install -g @slidev/cli
-```
-
-**Start een presentatie:**
-```bash
-slidev 2603_1CHO_update_Avans_Windesheim.md --open
-```
-
-Server draait standaard op: `http://localhost:3030`
-
-### Hot Reload
-
-Slidev heeft hot-reload - wijzigingen in je `.md` bestand worden automatisch herladen.
-
-### Keyboard Shortcuts
-
-- `Space` / `→` : Volgende slide
-- `Shift+Space` / `←` : Vorige slide
-- `F` : Fullscreen
-- `P` : Presenter mode (met notities)
-- `D` : Dark mode toggle
-- `G` : Go to slide (type slide number)
-- `O` : Overview mode
-
-### Export naar PDF
-
-```bash
-slidev export YYMMDD_presentation_name.md
-```
-
-**Export naar PowerPoint:**
-```bash
-slidev export YYMMDD_presentation_name.md --format pptx
-```
-
----
-
-## Creating Claude Code Skills
-
-### Wat is een Claude Code Skill?
-
-Een skill is een herbruikbare AI-prompt die Claude helpt om specifieke taken uit te voeren. Skills leven in `.claude/skills/` als Markdown bestanden en kunnen aangeroepen worden met `/skill-name`.
-
-### Workflow: Van Voorbeeld naar Skill
-
-**Stap 1: Verzamel voorbeelden**
-
-Voordat je een skill maakt, verzamel eerst goede voorbeelden van de taak. Voor Slidev presentaties:
-- Maak eerst handmatig 1-2 presentaties die de Npuls huisstijl perfect volgen
-- Documenteer alle patronen en conventies in CLAUDE.md
-- Test grondig om problemen te vinden (zoals de overlay issue)
-
-**Stap 2: Toon Claude het "voor" en "na"**
-
-```markdown
-Ik wil een skill maken voor het genereren van Slidev presentaties.
-
-VOOR (input):
-- User geeft titel en inhoud van presentatie
-- User geeft datum
-
-NA (gewenste output):
-- Volledig YYMMDD_naam.md bestand
-- Correcte frontmatter
-- Custom fonts (@font-face declarations)
-- Overlay removal CSS
-- Npuls branding kleuren
-- Backgrounds zonder overlays
-- Alle slides correct gestructureerd
-
-Bekijk deze voorbeelden:
-- 2603_1CHO_update_Avans_Windesheim.md
-- 260310_claude_code_skills.md
-- CLAUDE.md (voor alle conventies)
-
-Maak een skill die dit automatisch kan genereren.
-```
-
-**Stap 3: Itereer en verfijn**
-
-Claude's eerste versie is NIET perfect. Waarom niet?
-
-⚠️ **Claude is non-deterministisch** - dezelfde prompt kan verschillende outputs geven:
-- Eerste run: gebruikt Google Fonts (fout!)
-- Tweede run: gebruikt custom fonts (goed!)
-- Derde run: vergeet overlay removal CSS (fout!)
-
-**Daarom:**
-1. Test de skill meerdere keren
-2. Vind patronen in de fouten
-3. Voeg expliciete instructies toe:
-   ```markdown
-   **IMPORTANT:** NEVER use Google Fonts. ALWAYS use custom Npuls fonts.
-   **CRITICAL:** ALWAYS include overlay removal CSS.
+2. **Create files:**
+   ```bash
+   touch YYMMDD_topic.md
+   mkdir -p public/presentations/YYMMDD_topic
    ```
-4. Herhaal tot de skill consistent werkt
 
-**Stap 4: Maak de skill file**
+3. **Build presentation:**
+   - Start with title slide template
+   - Add CSS boilerplate (REQUIRED)
+   - Use content slide template for body
+   - Check illustration filenames: `ls public/npuls/powerpoint_illustrations/ | grep -i "keyword"`
+   - Add chapter slides (Slide13/14/15.PNG, white text)
+   - End with closing slide (Slide17.PNG, no text)
 
-Plaats in `.claude/skills/slidev-npuls.md`:
+4. **Validate before delivery:**
+   - All illustrations exist (case-sensitive!)
+   - CSS boilerplate present
+   - No `background:` properties used
+   - Slide2.PNG has text RIGHT
+   - Chapter slides have WHITE text
+   - Closing slide has NO text
 
-```markdown
+5. **Test:**
+   ```bash
+   slidev YYMMDD_topic.md --open
+   ```
+
 ---
-description: Create Slidev presentations following Npuls branding
-dependencies: []
----
-
-# Slidev Npuls Presentation Generator
-
-You are a specialist in creating Slidev presentations...
-
-## Your Responsibilities
-1. Generate Slidev presentations from user content
-2. Apply Npuls branding consistently
-3. Follow CLAUDE.md conventions
-
-## File Naming Convention
-Always use: YYMMDD_presentation_name.md
-
-## Required Structure
-[Gedetailleerde instructies hier...]
 
 ## Validation Checklist
-Before delivering:
-- ✅ Custom fonts loaded
-- ✅ Overlay removal CSS included
-- ✅ Backgrounds use <img> method
-...
-```
 
-### Best Practices voor Skills
+Before delivering presentation:
 
-**DO ✅**
-- Verzamel eerst goede voorbeelden
-- Documenteer alle patronen in een CLAUDE.md bestand
-- Test de skill 5-10x om non-determinisme te vangen
-- Gebruik expliciete "NEVER" en "ALWAYS" statements
-- Voeg validation checklists toe
-- Laat de skill naar CLAUDE.md verwijzen voor details
+**Structure:**
+- [ ] Filename: `YYMMDD_topic.md`
+- [ ] Title slide (Slide1.PNG)
+- [ ] Closing slide (Slide17.PNG, NO TEXT)
+- [ ] Asset folder created: `public/presentations/YYMMDD_topic/`
 
-**DON'T ❌**
-- Probeer NIET alles in de skill te stoppen (verwijs naar docs)
-- Test NIET slechts 1x (Claude is non-deterministisch!)
-- Vergeet NIET edge cases (wat als user geen datum geeft?)
-- Maak GEEN skills voor één-keer taken
+**CSS:**
+- [ ] Complete CSS boilerplate present
+- [ ] Overlay removal CSS included
+- [ ] Npuls colors applied
+- [ ] Custom fonts loaded
 
-### Testing een Skill
+**Backgrounds:**
+- [ ] All use `<img>` method (NOT `background:` property)
+- [ ] Slide2.PNG has text RIGHT
+- [ ] Chapter slides (Slide13/14/15.PNG) have WHITE text
+- [ ] Slide17.PNG has NO text
+
+**Illustrations:**
+- [ ] All filenames case-correct (verified with `ls`)
+- [ ] Positioned outside content (avoid overlap)
+- [ ] Opacity: 1.0 for visibility
+
+**Content:**
+- [ ] No slide >7 bullet points
+- [ ] Text readable on backgrounds
+- [ ] Presenter notes added
+
+**Testing:**
+- [ ] Runs in `slidev --open`
+- [ ] No 404 errors for images
+- [ ] All slides display correctly
+
+---
+
+## Common Errors
+
+**Error: Failed to resolve illustration**
+- **Cause**: Case-sensitivity
+- **Fix**: Run `ls public/npuls/powerpoint_illustrations/ | grep -i "keyword"` and use exact filename
+
+**Error: Dark overlay on backgrounds**
+- **Cause**: Used `background:` property
+- **Fix**: Use `<img>` method with `z-index: -1`
+
+**Error: First slide empty**
+- **Cause**: `---` separator after `</style>` block
+- **Fix**: Remove separator, start title content immediately
+
+**Error: Text not fitting on slide**
+- **Fix**: Reduce font sizes, margins, or split into multiple slides
+
+---
+
+## Advanced Slidev Features
+
+See `/slidev` skill for:
+- Mermaid/PlantUML diagrams (apply Npuls colors)
+- Monaco editor (live code)
+- LaTeX math
+- Click animations (`v-click`)
+- Magic Move (code animations)
+- Export options
+
+All features work with Npuls branding.
+
+---
+
+## CLI Commands
 
 ```bash
-# Test de skill meerdere keren
-/slidev-npuls "Maak presentatie over AI in education"
-# Check output...
-
-# Test opnieuw (andere output?)
-/slidev-npuls "Maak presentatie over AI in education"
-# Check output...
-
-# Test met edge case
-/slidev-npuls "Maak presentatie" # Geen titel?
-# Hoe reageert de skill?
+slidev presentation.md --open    # Dev server
+slidev export presentation.md    # Export PDF
+slidev build presentation.md     # Build for hosting
 ```
 
-### Skill Maintenance
-
-Skills moeten onderhouden worden:
-- Update wanneer conventies veranderen
-- Voeg nieuwe features toe (bijv. nieuwe background slides)
-- Fix bugs die je tegenkomt in productie
-- Versie beheer via git
-
-**Voorbeeld:** Toen we ontdekten dat Slide6.PNG vervangen moest worden door Slide6/13/14/15, moesten we:
-1. CLAUDE.md updaten
-2. Skill updaten
-3. Bestaande presentaties updaten
+See `/slidev` skill for full CLI reference.
 
 ---
 
-## Troubleshooting
-
-### Probleem: Donkere overlay over backgrounds
-
-**Oorzaak**: Slidev's `background:` property voegt automatisch overlays toe.
-
-**Oplossing**: Gebruik de `<img>` methode zoals gedocumenteerd in "Slide Backgrounds" sectie.
-
-### Probleem: Backgrounds niet zichtbaar
-
-**Check:**
-1. Is het img element aanwezig op de slide?
-2. Is `z-index: -1` ingesteld?
-3. Is het pad naar de image correct?
-4. Bestaat het bestand in `public/npuls/powerpoint_slides/`?
-
-### Probleem: Presentation-specific images niet zichtbaar
-
-**Check:**
-1. Bestaat de folder `public/presentations/YYMMDD_naam/`?
-2. Staat de image in die folder?
-3. Klopt het pad in je markdown? `/presentations/YYMMDD_naam/image.jpg`
-
-### Probleem: CSS werkt niet
-
-**Check:**
-1. Is de `<style>` block aanwezig in je presentatie bestand?
-2. Staan er conflicterende inline styles?
-3. Is de dev server opnieuw gestart na CSS wijzigingen?
-
-### Probleem: Tekst overlapped met logo
-
-Het Npuls logo (rechtsonder) heeft een `::after` pseudo-element. Als tekst overlapped:
-- Voeg padding toe aan de slide
-- Gebruik `class` om positionering aan te passen
-- Of pas de logo grootte aan in CSS
-
----
-
-## Best Practices
-
-### DO ✅
-
-- Gebruik Npuls kleuren consequent
-- Houd slides simpel en overzichtelijk
-- Test op een beamer/projector voor leesbaarheid
-- Gebruik de naming convention: `YYMMDD_naam.md`
-- Plaats presentation-specific assets in eigen folder
-- Volg de gedocumenteerde background methode
-- Splits te volle slides in meerdere slides
-- Gebruik shared Npuls assets waar mogelijk
-
-### DON'T ❌
-
-- Gebruik NIET Slidev's `background:` property
-- Gebruik NIET `layout: cover` voor backgrounds
-- Voeg GEEN extra themes toe
-- Verwijder NIET de overlay-removal CSS
-- Maak slides NIET te vol met tekst
-- Gebruik GEEN andere kleuren dan Npuls palette
-- Plaats GEEN shared assets in presentation-specific folders
-- Dupliceer GEEN Npuls assets
-
----
-
-## Validation Checklist
-
-Voordat je een presentatie als "klaar" beschouwt, controleer het volgende:
-
-### Bestandsnamen & Structuur
-- ✅ Filename volgt `YYMMDD_name.md` conventie
-- ✅ Title slide aanwezig
-- ✅ Closing slide aanwezig (Slide17.PNG zonder tekst)
-
-### CSS & Styling
-- ✅ Complete CSS block met custom fonts (@font-face declarations)
-- ✅ Overlay removal CSS aanwezig (CRITICAL!)
-- ✅ Npuls kleuren consistent gebruikt (orange voor h1 en h2, subtitle oranje maar niet bold)
-- ✅ Npuls logo verschijnt op alle slides (via CSS ::after)
-
-### Backgrounds
-- ✅ Alle slides gebruiken `<img>` methode (NIET `background:` property)
-- ✅ Section dividers gebruiken **alleen** Slide13/14/15.PNG (wissel af, NIET Slide6.PNG)
-- ✅ Hoofdstuk slides hebben **dikke tekstopmaak** (bold styling)
-- ✅ Slide2.PNG heeft tekst RECHTS (niet gecentreerd - afbeelding is links)
-- ✅ Tekst overlapt NIET met figuren op section divider slides
-- ✅ Slide17.PNG (closing) heeft GEEN TEKST - alleen background
-
-### Content
-- ✅ Geen enkele slide heeft meer dan 7 bullet points
-- ✅ Te volle slides zijn gesplitst in meerdere slides
-- ✅ Tekst is leesbaar op alle backgrounds
-
-### Content Fitting (CRITICAL!)
-- ✅ **ALTIJD testen**: Start `slidev presentation.md --open` en bekijk ELKE slide
-- ✅ **Geen overflow**: Content mag NIET buiten viewport vallen (bottom of slide)
-- ✅ **Marges checken**: Top margins niet te groot (max 6rem voor eerste element)
-- ✅ **Font sizes aangepast**: Als content niet past, verklein fonts (niet margins weglaten!)
-- ✅ **Hoofdstuk slides**: Witte tekst (`color: #FFFFFF`) op Slide13/14/15.PNG backgrounds
-- ✅ **Photo sizes**: Profielfoto's max 150-180px voor goede balans
-- ✅ **Line heights**: Gebruik `line-height: 1.4-1.8` voor compacte maar leesbare tekst
-- ✅ **Grid layouts**: Bij two-column gebruik `gap: 1-2rem` (niet meer!)
-
-**Fixing workflow als content niet past:**
-1. Verklein font sizes (niet verwijderen!)
-2. Reduceer margins (top, bottom, between elements)
-3. Verklein images/logos (maar blijf zichtbaar!)
-4. Check line-height (1.4 = compact, 2.0 = ruim)
-5. Split in meerdere slides als nog steeds te vol
-
-### Assets
-- ✅ Asset paths zijn correct:
-  - `/npuls/` voor Npuls branding
-  - `/ceda_contributors/` voor team foto's
-  - `/presentations/YYMMDD_name/` voor presentatie-specifieke assets
-- ✅ Contributor foto's gebruiken shared `/ceda_contributors/` folder
-
-### Testen
-- ✅ Presentatie bekeken in slidev development mode
-- ✅ Getest op beamer/projector als mogelijk
-- ✅ Alle backgrounds tonen correct (geen overlays!)
-- ✅ Logo zichtbaar op alle slides
-
----
-
-## Referentie Materialen
-
-Alle Npuls branding documenten zijn beschikbaar in `public/npuls/`:
-
-- **Huisstijlgids**: `public/npuls/Npuls_huisstijlgids_2025.pdf`
-- **PowerPoint Template**: `public/npuls/Npuls_powerpoint-template.potx`
-- **Fonts**: `public/npuls/Npuls_lettertype/`
-
-Raadpleeg deze voor:
-- Kleurgebruik
-- Typografie regels
-- Logo placement
-- Design guidelines
-
----
-
-## Voorbeeld Presentatie
-
-Bekijk `2603_1CHO_update_Avans_Windesheim.md` voor een volledig voorbeeld van:
-- Correcte frontmatter setup
-- Background image implementatie
-- CSS styling met Npuls kleuren
-- Overlay removal
-- Two-column layouts
-- Presenter cards
-- Asset path structuur
-
----
-
-**Laatste update**: 2 maart 2026
-**Versie**: 2.0
+**Version**: 3.0 (Compact)
+**Last Update**: March 11, 2026
 **Maintainer**: CEDA Team
