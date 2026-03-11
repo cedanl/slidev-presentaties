@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "slidev",
     "build": "slidev build",
-    "export": "slidev export",
-    "clidev": "slidev 260311_clidev.md --open"
+    "export": "slidev export"
   },
   "repository": {
     "type": "git",
