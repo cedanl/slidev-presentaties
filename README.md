@@ -155,6 +155,24 @@ background: /npuls/powerpoint_slides/Slide1.PNG
 
 ### Eigen Afbeeldingen Toevoegen
 
+#### Optie 1: Laat Claude het doen ⭐ (Aanbevolen)
+
+```
+"Voeg deze afbeelding toe aan mijn presentatie:
+~/Downloads/team_foto.jpg
+
+Plaats hem op de 'Over Ons' slide met rounded corners en shadow"
+```
+
+**Claude doet automatisch:**
+1. ✅ Maakt `public/presentations/YYMMDD_naam/` folder aan
+2. ✅ Kopieert de afbeelding naar de juiste locatie
+3. ✅ Voegt `<img>` tag toe aan de slide
+4. ✅ Past Tailwind styling toe (rounded, shadow, height)
+5. ✅ Gebruikt correct pad: `/presentations/YYMMDD_naam/afbeelding.jpg`
+
+#### Optie 2: Handmatig
+
 **Stap 1: Maak folder**
 ```bash
 mkdir -p public/presentations/260310_jouw_presentatie
@@ -204,26 +222,63 @@ slidev-presentaties/
 
 ## ✨ Nieuwe Presentatie Maken
 
-### Stap 1: Creëer presentatie bestand
+### Optie 1: Met Claude Code ⭐ (Aanbevolen)
+
+```bash
+# Open Claude Code in je project
+claude
+```
+
+**Vraag Claude:**
+```
+Maak een nieuwe Slidev presentatie over [onderwerp]
+voor [doelgroep].
+
+Onderwerpen:
+- [Punt 1]
+- [Punt 2]
+- [Punt 3]
+
+Gebruik de CEDA Npuls huisstijl.
+Presentatie datum: [datum]
+Duur: ongeveer [X] minuten
+```
+
+**Claude doet automatisch:**
+- ✅ Maakt presentatie bestand aan (`YYMMDD_onderwerp.md`)
+- ✅ Creëert asset folder (`public/presentations/YYMMDD_onderwerp/`)
+- ✅ Voegt Npuls styling toe (kleuren, fonts, CSS)
+- ✅ Kiest juiste backgrounds (Slide1, Slide3, etc.)
+- ✅ Voegt illustraties toe uit de bibliotheek
+- ✅ Schrijft presenter notes
+- ✅ Volgt alle CLAUDE.md richtlijnen
+
+**Tijdsbesparing: 5 minuten vs 2 uur handmatig werk!**
+
+---
+
+### Optie 2: Handmatig
+
+#### Stap 1: Creëer presentatie bestand
 
 ```bash
 touch 0304_mijn_presentatie.md
 ```
 
-### Stap 2: Creëer asset folder
+#### Stap 2: Creëer asset folder
 
 ```bash
 mkdir -p public/presentations/0304_mijn_presentatie
 ```
 
-### Stap 3: Voeg images toe
+#### Stap 3: Voeg images toe
 
 ```bash
 # Kopieer je specifieke afbeeldingen
 cp ~/Downloads/grafiek.png public/presentations/0304_mijn_presentatie/
 ```
 
-### Stap 4: Start met template
+#### Stap 4: Start met template
 
 Kopieer de structuur van een bestaande presentatie of begin met:
 

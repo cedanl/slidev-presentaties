@@ -526,25 +526,23 @@ Een slide eindigt met `---` en de volgende begint.
 
 # Backgrounds Toevoegen
 
-<div class="mt-8">
+<div class="mt-6 text-sm">
 
-```markdown
----
----
-
-<div style="position: absolute;
-     top: 0; left: 0;
-     width: 100%; height: 100%;
-     z-index: -1;">
+```html
+<div style="position: absolute; top: 0; left: 0;
+     width: 100%; height: 100%; z-index: -1;">
   <img src="/npuls/powerpoint_slides/Slide3.PNG"
        style="width: 100%; height: 100%;
               object-fit: cover;" />
 </div>
-
-# Je Slide Titel
 ```
 
-**Beschikbaar**: Slide1.PNG t/m Slide19.PNG
+**Beschikbaar:** Slide1 - Slide19
+
+- Slide1: Titelslide
+- Slide3: Content
+- Slide13-15: Hoofdstukken
+- Slide17: Afsluiting
 
 </div>
 
@@ -581,27 +579,37 @@ Een slide eindigt met `---` en de volgende begint.
 
 # Eigen Afbeeldingen Toevoegen
 
-<div class="mt-8">
+<div class="mt-4 text-sm">
 
-### Stap 1: Maak folder voor je presentatie
+### Optie 1: Laat Claude het doen ⭐
 
-```bash
-mkdir -p public/presentations/260310_jouw_presentatie
+```
+"Voeg ~/Downloads/team_foto.jpg toe op slide 'Over Ons'"
 ```
 
-### Stap 2: Voeg images toe
+Claude regelt: folder, kopiëren, img tag, styling ✅
+
+</div>
+
+<div class="mt-4 text-sm">
+
+### Optie 2: Handmatig
 
 ```bash
-cp je_afbeelding.jpg public/presentations/260310_jouw_presentatie/
+mkdir -p public/presentations/YYMMDD_naam
+cp foto.jpg public/presentations/YYMMDD_naam/
 ```
-
-### Stap 3: Gebruik in presentatie
 
 ```markdown
-<img src="/presentations/260310_jouw_presentatie/je_afbeelding.jpg"
-     alt="Beschrijving"
+<img src="/presentations/YYMMDD_naam/foto.jpg"
      class="h-56 rounded-lg" />
 ```
+
+</div>
+
+<div class="mt-4 text-xs opacity-70">
+
+💡 **Tip:** Team foto's staan in `/ceda_contributors/`
 
 </div>
 
@@ -609,17 +617,18 @@ cp je_afbeelding.jpg public/presentations/260310_jouw_presentatie/
 ⏱️ Timing: 2 minuten
 
 📌 Key points:
-- Maak folder in public/presentations/ met je presentatie naam
-- Kopieer images daarheen
-- Gebruik pad: /presentations/YYMMDD_naam/image.jpg
-- Geen ../ of absolute paths nodig
+- OPTIE 1 (aanbevolen): Vraag Claude om images toe te voegen
+- Claude doet alles: folder maken, kopiëren, img tag toevoegen
+- OPTIE 2 (handmatig): Zelf folder maken, kopiëren, en Markdown schrijven
+- Pad: /presentations/YYMMDD_naam/image.jpg
 
 💡 Extra context:
-"Voor je eigen afbeeldingen: maak een folder in public/presentations met je presentatie naam - gebruik dezelfde YYMMDD prefix."
+"Het makkelijkste: vraag Claude om je afbeelding toe te voegen. Claude maakt de juiste folder aan, kopieert de image, en voegt de img tag toe met goede styling."
 
-"Kopieer je images daarheen. In je Markdown gebruik je dan gewoon /presentations/jouw-naam/image.jpg"
+"Of doe het handmatig: maak folder in public/presentations, kopieer image, gebruik /presentations/jouw-naam/image.jpg in je Markdown."
 
-"Handig: je kunt Tailwind classes gebruiken voor styling, zoals h-56 voor height, rounded-lg voor afgeronde hoeken."
+🎯 Voorbeeld:
+"Zeg tegen Claude: 'Voeg mijn screenshot toe van ~/Desktop/demo.png op slide 5' - Claude regelt het."
 
 🎯 Tip:
 "Voor team foto's gebruik je /ceda_contributors/ - die zijn gedeeld."

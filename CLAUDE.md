@@ -48,8 +48,19 @@ slidev-presentaties/
 1. **Presentatie datum**: Op welke datum is het overleg/de presentatie?
 2. **Onderwerp**: Waar gaat de presentatie over?
 3. **Doelgroep**: Voor wie is de presentatie bedoeld?
+4. **Duur**: Hoe lang moet de presentatie zijn?
 
 Gebruik de datum voor de bestandsnaam: `YYMMDD_onderwerp.md`
+
+**💡 Pro Tip voor Claude Code:**
+Als gebruiker vraagt om een presentatie, doe dan automatisch stap 0-4 zonder tussenkomst:
+- Vraag eerst om details (datum, onderwerp, doelgroep, duur)
+- Maak vervolgens de complete presentatie met alle stappen hieronder
+- Gebruiker hoeft niets handmatig te doen!
+
+---
+
+### Handmatige Stappen (Als je niet Claude Code gebruikt)
 
 ### Stap 1: Creëer presentatie bestand
 
