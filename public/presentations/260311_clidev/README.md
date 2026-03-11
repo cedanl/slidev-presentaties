@@ -34,16 +34,13 @@
 
 **Usage:** "Use Case: Update Presentaties" slide
 
-### 4. CEDA Logo
-**Filename:** `ceda-logo.png` or `ceda-logo.svg`
-**Location:** `public/ceda_contributors/ceda-logo.png`
-**Size:** 150-200px width recommended
+### 4. Clidev Logo
+**Filename:** `clidev-logo.svg`
+**Location:** `public/presentations/260311_clidev/clidev-logo.svg`
+**Size:** 60px height
 **Usage:** Title slide (next to CEDA text)
 
-**How to add:**
-1. Get CEDA logo from your organization
-2. Save as `ceda-logo.png`
-3. Place in `public/ceda_contributors/` folder
+**Status:** ✅ Already added by user
 
 ## Current Folder Structure
 
@@ -59,8 +56,7 @@ public/presentations/260311_clidev/
 
 public/ceda_contributors/
 ├── aslam_tanjung.jpg ✅
-├── tomer_iwan.jpg ✅
-└── ceda-logo.png (TODO: add this)
+└── tomer_iwan.jpg ✅
 ```
 
 ## After Adding Images
