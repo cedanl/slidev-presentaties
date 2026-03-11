@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0533"/>
+      <stop offset="100%" style="stop-color:#2d0a5e"/>
+    </linearGradient>
+    <linearGradient id="slideGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c084fc"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0abfc"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background rounded square -->
+  <rect width="200" height="200" rx="40" ry="40" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid lines in background -->
+  <line x1="0" y1="100" x2="200" y2="100" stroke="#5b21b6" stroke-width="0.5" opacity="0.3"/>
+  <line x1="100" y1="0" x2="100" y2="200" stroke="#5b21b6" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Slide stack (back) -->
+  <rect x="62" y="58" width="90" height="68" rx="6" fill="#4c1d95" opacity="0.6"/>
+
+  <!-- Slide stack (middle) -->
+  <rect x="56" y="64" width="90" height="68" rx="6" fill="#5b21b6" opacity="0.7"/>
+
+  <!-- Main slide (front) -->
+  <rect x="50" y="70" width="90" height="68" rx="6" fill="url(#slideGrad)" filter="url(#glow)"/>
+
+  <!-- CLI prompt arrow on slide -->
+  <!-- ">" chevron -->
+  <polyline points="68,95 80,104 68,113" fill="none" stroke="#1a0533" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Cursor underscore -->
+  <rect x="85" y="110" width="18" height="4" rx="2" fill="#1a0533" opacity="0.7"/>
+
+  <!-- Sparkle / AI dot top right of slide -->
+  <circle cx="127" cy="80" r="4" fill="#f0abfc" filter="url(#softGlow)" opacity="0.9"/>
+
+  <!-- Bottom node dots (Slidev-style navigation) -->
+  <circle cx="88" cy="152" r="4" fill="#7c3aed" opacity="0.5"/>
+  <circle cx="100" cy="152" r="5" fill="#c084fc" filter="url(#glow)"/>
+  <circle cx="112" cy="152" r="4" fill="#7c3aed" opacity="0.5"/>
+
+</svg>
