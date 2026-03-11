@@ -1319,6 +1319,23 @@ Voordat je een presentatie als "klaar" beschouwt, controleer het volgende:
 - ✅ Te volle slides zijn gesplitst in meerdere slides
 - ✅ Tekst is leesbaar op alle backgrounds
 
+### Content Fitting (CRITICAL!)
+- ✅ **ALTIJD testen**: Start `slidev presentation.md --open` en bekijk ELKE slide
+- ✅ **Geen overflow**: Content mag NIET buiten viewport vallen (bottom of slide)
+- ✅ **Marges checken**: Top margins niet te groot (max 6rem voor eerste element)
+- ✅ **Font sizes aangepast**: Als content niet past, verklein fonts (niet margins weglaten!)
+- ✅ **Hoofdstuk slides**: Witte tekst (`color: #FFFFFF`) op Slide13/14/15.PNG backgrounds
+- ✅ **Photo sizes**: Profielfoto's max 150-180px voor goede balans
+- ✅ **Line heights**: Gebruik `line-height: 1.4-1.8` voor compacte maar leesbare tekst
+- ✅ **Grid layouts**: Bij two-column gebruik `gap: 1-2rem` (niet meer!)
+
+**Fixing workflow als content niet past:**
+1. Verklein font sizes (niet verwijderen!)
+2. Reduceer margins (top, bottom, between elements)
+3. Verklein images/logos (maar blijf zichtbaar!)
+4. Check line-height (1.4 = compact, 2.0 = ruim)
+5. Split in meerdere slides als nog steeds te vol
+
 ### Assets
 - ✅ Asset paths zijn correct:
   - `/npuls/` voor Npuls branding
