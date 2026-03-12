@@ -5,6 +5,7 @@ Presentatie repository voor CEDA (Centre for Educational Data Analytics) met **N
 ## 📋 Inhoudsopgave
 
 - [Over dit project](#over-dit-project)
+- [Clidev Demo](#clidev-demo)
 - [Slidev Installatie](#slidev-installatie)
 - [Project Structuur](#project-structuur)
 - [Nieuwe Presentatie Maken](#nieuwe-presentatie-maken)
@@ -22,6 +23,52 @@ Dit project bevat meerdere Slidev presentaties die de Npuls huisstijl volgen. Al
 
 **Naming Convention**: `YYMMDD_presentatie_naam.md`
 - Voorbeeld: `260310_slidev_claude.md`
+
+---
+
+## 🚀 Clidev Demo
+
+**Clidev** (Claude + Slidev) is een product dat dit repository mogelijk maakt. Het combineert de kracht van Claude AI met Slidev's presentatie framework om in minuten professionele presentaties te maken.
+
+### Wat is Clidev?
+
+- ⚡ **90% sneller** - Van 2 uur naar 2 minuten
+- 🎨 **Automatische branding** - Npuls huisstijl altijd correct
+- 🔄 **Git-friendly** - Versiebeheer en samenwerking
+- 👨‍💻 **Developer-vriendelijk** - Markdown + code highlighting
+- 🌐 **Web UI optie** - Voor non-technical users
+
+### Demo Presentatie Bekijken
+
+```bash
+# Met npm scripts
+npm run clidev
+
+# Of direct met Slidev
+slidev 260311_clidev.md --open
+```
+
+Deze presentatie toont:
+- Het probleem met traditionele presentatie tools
+- Hoe Clidev werkt (live demo)
+- Voordelen: snelheid, branding, git integratie
+- Technische features: hot reload, export opties
+- Use cases: wanneer wel/niet gebruiken
+- Web UI demo (zie `clidev-ui.html`)
+
+### Web UI Proberen
+
+Open `clidev-ui.html` in je browser voor een gebruiksvriendelijke interface:
+
+1. Vul titel, onderwerp, datum, en duur in
+2. Klik "Genereer Presentatie"
+3. Zie de "generating" animatie
+4. Presentatie wordt automatisch geopend
+
+**Note:** De web UI is een prototype/demo. In productie zou deze:
+- Claude API aanroepen voor generatie
+- Markdown bestand opslaan
+- Slidev automatisch starten
 
 ---
 

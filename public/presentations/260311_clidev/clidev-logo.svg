@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <!-- Background gradient: deep dark -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#120822"/>
+      <stop offset="100%" stop-color="#07030f"/>
+    </radialGradient>
+
+    <!-- Claude arc gradient: warm coral/orange like Claude brand -->
+    <linearGradient id="claudeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5a574"/>
+      <stop offset="50%" stop-color="#e8723a"/>
+      <stop offset="100%" stop-color="#c94f1e"/>
+    </linearGradient>
+
+    <!-- Slidev triangle gradient: teal/cyan like Slidev brand -->
+    <linearGradient id="slidevGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6ee7f7"/>
+      <stop offset="50%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#0891b2"/>
+    </linearGradient>
+
+    <!-- Purple fusion gradient for overlap zone -->
+    <linearGradient id="fusionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e879f9"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+
+    <!-- Glow filter for Claude arc -->
+    <filter id="claudeGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Glow filter for Slidev triangle -->
+    <filter id="slidevGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Outer border glow -->
+    <filter id="borderGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- App icon background -->
+  <rect x="20" y="20" width="360" height="360" rx="80" ry="80" fill="url(#bgGrad)"/>
+
+  <!-- Subtle border -->
+  <rect x="20" y="20" width="360" height="360" rx="80" ry="80"
+        fill="none" stroke="#3b0764" stroke-width="2" opacity="0.6" filter="url(#borderGlow)"/>
+
+  <!-- ===================== -->
+  <!-- CLAUDE "C" ARC SHAPE  -->
+  <!-- Large open arc, thick stroke, gap on right side (like Claude logo) -->
+  <!-- Center: 185,200  Radius: 105  Gap: right side ~30deg opening -->
+  <!-- Arc from ~35deg to ~325deg (leaving gap on right) -->
+  <path d="
+    M 274, 161
+    A 105,105 0 1,0 274,239
+  "
+    fill="none"
+    stroke="url(#claudeGrad)"
+    stroke-width="32"
+    stroke-linecap="round"
+    filter="url(#claudeGlow)"
+    opacity="0.95"
+  />
+
+  <!-- ======================== -->
+  <!-- SLIDEV TRIANGLE (PLAY)   -->
+  <!-- Bold right-pointing triangle, positioned inside/overlapping the C gap -->
+  <!-- Tip pointing right, sitting in the open mouth of the C -->
+  <polygon
+    points="195,148  195,252  295,200"
+    fill="url(#slidevGrad)"
+    filter="url(#slidevGlow)"
+    opacity="0.92"
+  />
+
+  <!-- Fusion highlight: small glowing dot at the tip of the triangle -->
+  <!-- where Claude arc "meets" Slidev arrow -->
+  <circle cx="295" cy="200" r="10" fill="url(#fusionGrad)" opacity="0.9" filter="url(#slidevGlow)"/>
+
+  <!-- Corner accent dots -->
+  <circle cx="60" cy="60" r="4" fill="#e8723a" opacity="0.3"/>
+  <circle cx="340" cy="340" r="4" fill="#22d3ee" opacity="0.3"/>
+</svg>
