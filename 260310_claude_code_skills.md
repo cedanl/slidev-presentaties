@@ -594,6 +594,38 @@ Controleer tegen `standards/principles.md`
 </div>
 
 ---
+
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+  <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
+</div>
+
+# Uitdagingen met Claude Code
+
+<img src="/npuls/powerpoint_illustrations/verrekijker.svg"
+     style="position: absolute; bottom: 2rem; right: 2rem; width: 140px; height: auto; opacity: 1.0;"
+     alt="Verrekijker" />
+
+<div class="mt-2" style="font-size: 0.85rem; line-height: 1.5;">
+
+### Wat gaat er soms mis?
+
+- **Visueel design begrip** - Claude "ziet" niet hoe slides er uit zien, werkt alleen met code
+- **Tekstoverloop problemen** - Te veel content, te grote marges (`mt-8` ipv `mt-2`), verkeerde font sizes
+- **Achtergrond problemen** - Gebruikt soms `background:` property ipv `<img>` methode
+
+</div>
+
+<div class="mt-4" style="font-size: 0.85rem; line-height: 1.5;">
+
+### Oplossing: Strikte guardrails in CLAUDE.md
+
+- **Spacing regels** - Altijd `mt-2` of `mt-4`, nooit groter
+- **Font size regels** - Start met `0.85rem`, niet met default
+- **Content limieten** - Max 3-4 bullets per slide
+- **Validatie checklist** - Test elke slide in browser
+
+</div>
+
 ---
 
 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
