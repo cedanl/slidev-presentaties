@@ -1,681 +1,225 @@
 # CEDA Slidev Presentaties
 
-Presentatie repository voor CEDA (Centre for Educational Data Analytics) met **Npuls huisstijl**.
-
-## 📋 Inhoudsopgave
-
-- [Over dit project](#over-dit-project)
-- [Clidev Demo](#clidev-demo)
-- [Slidev Installatie](#slidev-installatie)
-- [Project Structuur](#project-structuur)
-- [Nieuwe Presentatie Maken](#nieuwe-presentatie-maken)
-- [Presentatie Uitvoeren](#presentatie-uitvoeren)
-- [Exporteren](#exporteren)
-- [Werken met Claude](#werken-met-claude)
-- [Npuls Huisstijl](#npuls-huisstijl)
-- [Documentatie](#documentatie)
+Presentation repository for CEDA (Centre for Educational Data Analytics) using the Npuls house style.
 
 ---
 
-## 🎯 Over dit project
+## Getting started
 
-Dit project bevat meerdere Slidev presentaties die de Npuls huisstijl volgen. Alle presentaties delen dezelfde branding assets maar hebben hun eigen specifieke content en afbeeldingen.
-
-**Naming Convention**: `YYMMDD_presentatie_naam.md`
-- Voorbeeld: `260310_slidev_claude.md`
-
----
-
-## 🚀 Clidev Demo
-
-**Clidev** (Claude + Slidev) is een product dat dit repository mogelijk maakt. Het combineert de kracht van Claude AI met Slidev's presentatie framework om in minuten professionele presentaties te maken.
-
-### Wat is Clidev?
-
-- ⚡ **90% sneller** - Van 2 uur naar 2 minuten
-- 🎨 **Automatische branding** - Npuls huisstijl altijd correct
-- 🔄 **Git-friendly** - Versiebeheer en samenwerking
-- 👨‍💻 **Developer-vriendelijk** - Markdown + code highlighting
-- 🌐 **Web UI optie** - Voor non-technical users
-
-### Demo Presentatie Bekijken
+**Prerequisites:** Node.js 18+
 
 ```bash
-# Met npm scripts
-npm run clidev
-
-# Of direct met Slidev
-slidev 260311_clidev.md --open
-```
-
-Deze presentatie toont:
-- Het probleem met traditionele presentatie tools
-- Hoe Clidev werkt (live demo)
-- Voordelen: snelheid, branding, git integratie
-- Technische features: hot reload, export opties
-- Use cases: wanneer wel/niet gebruiken
-- Web UI demo (zie `clidev-ui.html`)
-
-### Web UI Proberen
-
-Open `clidev-ui.html` in je browser voor een gebruiksvriendelijke interface:
-
-1. Vul titel, onderwerp, datum, en duur in
-2. Klik "Genereer Presentatie"
-3. Zie de "generating" animatie
-4. Presentatie wordt automatisch geopend
-
-**Note:** De web UI is een prototype/demo. In productie zou deze:
-- Claude API aanroepen voor generatie
-- Markdown bestand opslaan
-- Slidev automatisch starten
-
----
-
-## ⚡ Quick Start
-
-```bash
-# 1. Clone repository
+# Clone the repo
 git clone https://github.com/cedanl/slidev-presentaties.git
 cd slidev-presentaties
 
-# 2. Installeer Slidev
-npm install -g @slidev/cli
-
-# 3. Start een presentatie
-slidev 260310_slidev_claude.md --open
-
-# 4. Maak presentatie met Claude Code
-claude
-> "Maak een presentatie over [onderwerp] volgens CEDA Npuls huisstijl"
+# Install dependencies
+npm install
 ```
 
-### 📌 Belangrijkste Commando's
-
-| Commando | Beschrijving |
-|----------|--------------|
-| `slidev presentatie.md --open` | Start presentatie met hot reload |
-| `slidev export presentatie.md` | Export naar PDF |
-| `slidev export presentatie.md --format pptx` | Export naar PowerPoint |
-| Druk `P` tijdens presentatie | Presenter mode met notes |
+That's it. No global installs needed — Slidev is included as a dev dependency.
 
 ---
 
-## 🚀 Snel Aan De Slag
-
-### Stap 1: Clone de Repository
+## Running a presentation
 
 ```bash
-git clone https://github.com/cedanl/slidev-presentaties.git
-cd slidev-presentaties
+npx slidev 260311_clidev.md --open
 ```
 
-### Stap 2: Installeer Slidev
+This starts a local dev server at `http://localhost:3030` with hot reload.
 
-**Optie A: Global Installatie (Aanbevolen) ⭐**
+**Useful keyboard shortcuts during presentation:**
 
-```bash
-npm install -g @slidev/cli
-```
-
-✅ Eén keer installeren, overal gebruiken
-
-**Optie B: NPX (Geen installatie nodig)**
-
-```bash
-npx @slidev/cli --version
-```
-
-✅ Geen installatie, altijd laatste versie
-
-### Stap 3: Start een Presentatie
-
-```bash
-# Met global installatie:
-slidev 260310_slidev_claude.md --open
-
-# Met npx:
-npx @slidev/cli 260310_slidev_claude.md --open
-```
-
-Browser opent automatisch op `http://localhost:3030` 🎉
+| Key | Action |
+|-----|--------|
+| Space / Arrow right | Next slide |
+| Shift+Space / Arrow left | Previous slide |
+| P | Presenter mode (shows notes + next slide) |
+| O | Overview / slide grid |
+| F | Fullscreen |
 
 ---
 
-## 📝 Slidev Gebruiken
+## Available presentations
 
-### Markdown Basis
-
-Slidev presentaties worden geschreven in **Markdown**:
-
-```markdown
-# H1 Titel (grootste - oranje)
-## H2 Ondertitel (oranje)
-### H3 Sectie titel (zwart)
-
-- Bullet point
-- Nog een bullet
-
-**Bold text** en *italic text*
-```
-
-### Slides Scheiden
-
-Elke slide eindigt met drie streepjes:
-
-```markdown
-# Slide 1
-
-Content hier...
+| File | Topic |
+|------|-------|
+| `260311_clidev.md` | Clidev — Slidev + Claude Code workflow |
+| `260311_1cijferho_update.md` | 1CijferHO update |
+| `260312_assistentie.md` | Assistentie |
+| `260310_claude_code_skills.md` | Claude Code skills |
+| `2603_1CHO_update_Avans_Windesheim.md` | 1CHO update Avans & Windesheim |
 
 ---
 
-# Slide 2
+## Adding a new presentation
 
-Content hier...
-```
+### 1. Create the file
 
-### Backgrounds Toevoegen
-
-**❌ NIET zo** (voegt overlay toe):
-```yaml
----
-background: /npuls/powerpoint_slides/Slide1.PNG
----
-```
-
-**✅ WEL zo** (originele kleuren behouden):
-```markdown
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide3.PNG"
-       style="width: 100%; height: 100%; object-fit: cover;" />
-</div>
-
-# Jouw Slide Titel
-```
-
-**Beschikbare backgrounds:**
-- `Slide1.PNG` - Titelslide
-- `Slide3.PNG` - Standaard content
-- `Slide13.PNG`, `Slide14.PNG`, `Slide15.PNG` - Hoofdstuk dividers
-- `Slide17.PNG` - Afsluiting (geen tekst)
-
-### Eigen Afbeeldingen Toevoegen
-
-#### Optie 1: Laat Claude het doen ⭐ (Aanbevolen)
-
-```
-"Voeg deze afbeelding toe aan mijn presentatie:
-~/Downloads/team_foto.jpg
-
-Plaats hem op de 'Over Ons' slide met rounded corners en shadow"
-```
-
-**Claude doet automatisch:**
-1. ✅ Maakt `public/presentations/YYMMDD_naam/` folder aan
-2. ✅ Kopieert de afbeelding naar de juiste locatie
-3. ✅ Voegt `<img>` tag toe aan de slide
-4. ✅ Past Tailwind styling toe (rounded, shadow, height)
-5. ✅ Gebruikt correct pad: `/presentations/YYMMDD_naam/afbeelding.jpg`
-
-#### Optie 2: Handmatig
-
-**Stap 1: Maak folder**
-```bash
-mkdir -p public/presentations/260310_jouw_presentatie
-```
-
-**Stap 2: Kopieer images**
-```bash
-cp je_foto.jpg public/presentations/260310_jouw_presentatie/
-```
-
-**Stap 3: Gebruik in presentatie**
-```markdown
-<img src="/presentations/260310_jouw_presentatie/je_foto.jpg"
-     alt="Beschrijving"
-     class="h-56 rounded-lg shadow-lg" />
-```
-
-### Hot Reload
-
-Wijzigingen worden **automatisch** zichtbaar - geen refresh nodig! 🔥
-
----
-
-## 📁 Project Structuur
-
-```
-slidev-presentaties/
-├── 2603_1CHO_update_Avans_Windesheim.md  ← Presentaties (YYMMDD_naam.md)
-├── CLAUDE.md                              ← Uitgebreide documentatie
-├── README.md                              ← Dit bestand
-├── .gitignore
-├── components/                            ← Custom Vue components
-├── snippets/                              ← Herbruikbare code snippets
-└── public/                                ← ALLE statische assets
-    ├── npuls/                            ← SHARED Npuls branding
-    │   ├── powerpoint_slides/            ← Slide backgrounds
-    │   ├── npuls_images/                 ← Template assets
-    │   ├── npuls_logo.jpg
-    │   ├── Npuls_huisstijlgids_2025.pdf
-    │   └── Npuls_lettertype/
-    └── presentations/                    ← Per-presentatie assets
-        └── YYMMDD_naam/
-            └── [specifieke images].jpg
-```
-
----
-
-## ✨ Nieuwe Presentatie Maken
-
-### Optie 1: Met Claude Code ⭐ (Aanbevolen)
+Name it `YYMMDD_topic.md` (e.g. `260320_new_topic.md`).
 
 ```bash
-# Open Claude Code in je project
-claude
+touch 260320_new_topic.md
+mkdir -p public/presentations/260320_new_topic
 ```
 
-**Vraag Claude:**
-```
-Maak een nieuwe Slidev presentatie over [onderwerp]
-voor [doelgroep].
+The `public/presentations/260320_new_topic/` folder is where you put any images or assets specific to this presentation.
 
-Onderwerpen:
-- [Punt 1]
-- [Punt 2]
-- [Punt 3]
-
-Gebruik de CEDA Npuls huisstijl.
-Presentatie datum: [datum]
-Duur: ongeveer [X] minuten
-```
-
-**Claude doet automatisch:**
-- ✅ Maakt presentatie bestand aan (`YYMMDD_onderwerp.md`)
-- ✅ Creëert asset folder (`public/presentations/YYMMDD_onderwerp/`)
-- ✅ Voegt Npuls styling toe (kleuren, fonts, CSS)
-- ✅ Kiest juiste backgrounds (Slide1, Slide3, etc.)
-- ✅ Voegt illustraties toe uit de bibliotheek
-- ✅ Schrijft presenter notes
-- ✅ Volgt alle CLAUDE.md richtlijnen
-
-**Tijdsbesparing: 5 minuten vs 2 uur handmatig werk!**
-
----
-
-### Optie 2: Handmatig
-
-#### Stap 1: Creëer presentatie bestand
-
-```bash
-touch 0304_mijn_presentatie.md
-```
-
-#### Stap 2: Creëer asset folder
-
-```bash
-mkdir -p public/presentations/0304_mijn_presentatie
-```
-
-#### Stap 3: Voeg images toe
-
-```bash
-# Kopieer je specifieke afbeeldingen
-cp ~/Downloads/grafiek.png public/presentations/0304_mijn_presentatie/
-```
-
-#### Stap 4: Start met template
-
-Kopieer de structuur van een bestaande presentatie of begin met:
+### 2. Start from the title slide template
 
 ```markdown
 ---
+theme: default
 class: text-center
-title: Mijn Presentatie Titel
+title: Your Presentation Title
 ---
+
+<style>
+  @font-face {
+    font-family: 'General Sans';
+    src: url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_regular.otf') format('opentype');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'General Sans';
+    src: url('/npuls/Npuls_lettertype/Npuls_lettertype_generalsans_semibold.otf') format('opentype');
+    font-weight: 600;
+  }
+
+  :deep(.slide) { font-family: 'General Sans', Arial, sans-serif; }
+  :deep(h1), :deep(h2) { color: #DD784B !important; font-weight: 600; }
+  :deep(h3), :deep(h4) { color: #000000 !important; }
+  :deep(strong) { color: #3D68EC; }
+
+  .title-subtitle { color: #000000 !important; font-weight: 400 !important; }
+
+  #slide-content, .slidev-layout, [class*="slide"] {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+  #slide-content::before, #slide-content::after,
+  .slidev-layout::before, .slidev-layout::after,
+  [class*="slide"]::before, [class*="slide"]::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  :deep(.slide)::after {
+    content: '';
+    position: absolute;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    width: 85px;
+    height: 28px;
+    background-image: url('/npuls/npuls_logo.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+  }
+</style>
 
 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
   <img src="/npuls/powerpoint_slides/Slide1.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
 </div>
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+# Your Title
 
-  :root {
-    --npuls-orange: #DD784B;
-    --npuls-blue: #3D68EC;
-  }
+## Your subtitle
 
-  :deep(h1) {
-    color: #DD784B !important;
-    font-weight: 700;
-  }
-  :deep(h2) {
-    color: #DD784B !important;
-    font-weight: 600;
-  }
-
-  /* Subtitle op title slide - Oranje maar NIET bold */
-  .title-subtitle {
-    color: #DD784B !important;
-    font-weight: 400 !important;
-  }
-</style>
-
-# Mijn Presentatie Titel
-
-## Ondertitel
+<div class="mt-8 title-subtitle">
+**CEDA** - Centre for Educational Data Analytics
+</div>
 
 ---
 
-# Volgende Slide
+# First content slide
 
-Content hier...
-```
-
----
-
-## ▶️ Presentatie Uitvoeren
-
-### Development Mode (met hot-reload)
-
-```bash
-slidev 2603_1CHO_update_Avans_Windesheim.md --open
-```
-
-**Automatisch opent:**
-- 🌐 Browser op `http://localhost:3030`
-- 🔄 Hot-reload bij wijzigingen
-
-### Presenter Mode
-
-Druk op `P` tijdens presentatie of navigeer naar:
-```
-http://localhost:3030/presenter
-```
-
-**Features:**
-- 📝 Speaker notes zichtbaar
-- ⏭️ Volgende slide preview
-- ⏱️ Timer
-
-### Keyboard Shortcuts
-
-| Toets | Actie |
-|-------|-------|
-| `Space` / `→` | Volgende slide |
-| `Shift+Space` / `←` | Vorige slide |
-| `F` | Fullscreen |
-| `P` | Presenter mode |
-| `D` | Dark mode toggle |
-| `G` | Ga naar slide (type nummer) |
-| `O` | Overview mode |
-
----
-
-## 📤 Exporteren
-
-### Export naar PDF
-
-```bash
-slidev export 2603_1CHO_update_Avans_Windesheim.md
-```
-
-Output: `2603_1CHO_update_Avans_Windesheim.pdf`
-
-### Export naar PowerPoint
-
-```bash
-slidev export 2603_1CHO_update_Avans_Windesheim.md --format pptx
-```
-
-Output: `2603_1CHO_update_Avans_Windesheim.pptx`
-
-### Export naar PNG (per slide)
-
-```bash
-slidev export 2603_1CHO_update_Avans_Windesheim.md --format png
-```
-
-### Export met custom range
-
-```bash
-# Alleen slides 1-10
-slidev export presentatie.md --range 1-10
-```
-
----
-
-## 🤖 Werken met Claude Code
-
-### Hele Presentaties Maken met Claude
-
-Claude kan **complete presentaties** genereren met de juiste Npuls huisstijl. Tijdsbesparing: **5 minuten vs 2 uur** handmatig werk.
-
-### Claude Code Workflow
-
-#### 1. Open Project in Claude Code
-
-```bash
-cd slidev-presentaties
-claude
-```
-
-#### 2. Vraag om een Presentatie
-
-**Voorbeeld prompt:**
-```
-Maak een Slidev presentatie over Data Visualisatie
-voor een technische doelgroep.
-
-Onderwerpen:
-- Waarom visualisatie belangrijk is
-- Populaire tools (Python, R, Tableau)
-- Best practices
-- Voorbeelden
-
-Gebruik de CEDA Npuls huisstijl.
-Presentatie datum: 15 maart 2026
-Duur: ongeveer 20 minuten
-```
-
-#### 3. Claude Leest Automatisch CLAUDE.md
-
-Claude gebruikt alle richtlijnen uit `CLAUDE.md`:
-- ✅ Npuls kleuren en fonts
-- ✅ Juiste backgrounds (Slide1.PNG voor titel, etc.)
-- ✅ Illustraties uit de bibliotheek
-- ✅ Correcte styling en CSS
-- ✅ Presenter notes
-
-#### 4. Review & Itereer
-
-Claude kan alles aanpassen:
-
-```
-"Voeg een slide toe over interactieve visualisaties"
-
-"Maak de intro korter - max 2 minuten"
-
-"Voeg presenter notes toe aan alle slides"
-
-"Verander de volgorde: begin met voorbeelden"
-
-"Gebruik meer code voorbeelden voor Python"
-```
-
-#### 5. Start Presentatie
-
-```bash
-slidev YYMMDD_jouw_presentatie.md --open
-```
-
-### Wat Claude Automatisch Doet
-
-- ✅ **Correcte bestandsnaam**: `YYMMDD_onderwerp.md` format
-- ✅ **Npuls styling**: Oranje titels, juiste fonts, kleuren
-- ✅ **Backgrounds**: Slide1 voor titel, Slide3 voor content, Slide17 voor afsluiting
-- ✅ **Illustraties**: Kiest passende SVG icons uit de bibliotheek
-- ✅ **Asset folders**: Maakt `public/presentations/YYMMDD_naam/` aan
-- ✅ **Presenter notes**: Timing, key points, scripts
-- ✅ **Consistentie**: Volgt altijd CLAUDE.md richtlijnen
-
-### Tips voor Beste Resultaten
-
-**✅ Geef duidelijke context:**
-- Onderwerp en doelgroep
-- Belangrijkste punten
-- Gewenste duur
-- Presentatie datum
-
-**✅ Specificeer niveau:**
-```
-"Maak een technische presentatie voor developers"
-"Maak een toegankelijke presentatie voor management"
-```
-
-**✅ Vraag om specifieke elementen:**
-```
-"Voeg code voorbeelden toe"
-"Gebruik twee-kolom layouts waar mogelijk"
-"Voeg een demo slide toe"
-```
-
-**✅ Itereer stapsgewijs:**
-- Eerst basis structuur
-- Daarna content verfijnen
-- Als laatste presenter notes toevoegen
-
-### Claude Code Skills
-
-Het project kan **Claude Code Skills** bevatten in `.claude/skills/`. Deze skills helpen bij:
-- ✅ Automatisch presentaties genereren
-- ✅ Consistente styling toepassen
-- ✅ Asset management
-
-Vraag Claude om een skill te maken als je repetitieve taken hebt.
-
----
-
-## 🎨 Npuls Huisstijl
-
-### Kleuren
-
-```css
-/* Primair */
---npuls-orange: #DD784B    /* H1 en H2 titels */
---npuls-blue: #3D68EC      /* Accenten en links */
---npuls-black: #000000     /* Tekst */
---npuls-white: #FFFFFF     /* Achtergrond */
-
-/* Secundair */
---npuls-green: #00AF81     /* Accent */
---npuls-yellow: #F4D74B    /* Accent */
---npuls-pink: #F4D9DC      /* Accent */
-```
-
-**Styling:**
-- H1: Oranje (#DD784B), bold (700)
-- H2: Oranje (#DD784B), semi-bold (600)
-- Subtitle op titelslide: Oranje, **niet** bold (400)
-
-### Fonts
-
-- **Primair**: Poppins (via Google Fonts)
-- **Weights**: 400 (regular), 500 (medium), 600 (semi-bold), 700 (bold)
-
-### Assets Locaties
-
-```markdown
-<!-- Slide backgrounds -->
-/npuls/powerpoint_slides/Slide1.PNG    (titelslide)
-/npuls/powerpoint_slides/Slide2.PNG    (inhoudsopgave)
-/npuls/powerpoint_slides/Slide16.PNG   (section break)
-
-<!-- Logo -->
-/npuls/npuls_logo.jpg
-
-<!-- Template images (101 stuks) -->
-/npuls/npuls_images/image1.png
-/npuls/npuls_images/image42.svg
-
-<!-- Presentatie-specifieke images -->
-/presentations/YYMMDD_naam/foto.jpg
-```
-
-### Background Implementatie
-
-**❌ NIET zo:**
-```yaml
----
-background: /npuls/powerpoint_slides/Slide1.PNG
----
-```
-
-**✅ WEL zo:**
-```html
 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide1.PNG"
-       style="width: 100%; height: 100%; object-fit: cover;" />
+  <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
+</div>
+
+<div class="mt-4" style="font-size: 0.85rem; line-height: 1.5;">
+
+- Point one
+- Point two
+- Point three
+
+</div>
+
+---
+class: text-center
+---
+
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+  <img src="/npuls/powerpoint_slides/Slide17.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
 </div>
 ```
 
-**Reden:** Slidev voegt automatisch een overlay toe bij `background:` property.
+### 3. Run and preview
+
+```bash
+npx slidev 260320_new_topic.md --open
+```
+
+### 4. Key rules to avoid overflow
+
+- Wrap content in `<div style="font-size: 0.85rem; line-height: 1.5;">` — the default font size is too large
+- Max 3-4 bullet points per slide; split into two slides if you need more
+- Never use the `background:` frontmatter property for backgrounds — always use the `<img>` approach shown above
+- Spacing: use `mt-2` or `mt-4`, never `mt-6` or larger
+
+See `CLAUDE.md` for the full set of styling rules and templates.
 
 ---
 
-## 📚 Documentatie
+## Exporting
 
-### Uitgebreide Docs
+```bash
+# PDF
+npx slidev export 260311_clidev.md
 
-Zie **[CLAUDE.md](./CLAUDE.md)** voor:
-- Volledige CSS styling voorbeelden
-- Slide structuur templates
-- Troubleshooting
-- Best practices
-- Content richtlijnen
+# PowerPoint
+npx slidev export 260311_clidev.md --format pptx
 
-### Externe Links
-
-- 📖 [Slidev Documentatie](https://sli.dev/)
-- 🎨 [Npuls Huisstijlgids](./public/npuls/Npuls_huisstijlgids_2025.pdf)
-- 💻 [Slidev GitHub](https://github.com/slidevjs/slidev)
+# PNG per slide
+npx slidev export 260311_clidev.md --format png
+```
 
 ---
 
-## 🤝 Contributing
+## Using Claude Code
 
-### Voor nieuwe presentaties:
+Open the project in Claude Code and ask it to create or update presentations. Claude reads `CLAUDE.md` automatically and applies the correct Npuls styling, backgrounds, illustrations, and presenter notes.
 
-1. Branch maken: `git checkout -b 0304-nieuwe-presentatie`
-2. Presentatie maken volgens structuur hierboven
-3. Assets toevoegen aan `public/presentations/0304_nieuwe_presentatie/`
-4. Testen: `slidev 0304_nieuwe_presentatie.md --open`
-5. Commit en push
-6. Pull request maken
+```bash
+claude
+```
 
-### Naming Conventions
+Then just describe what you need:
 
-- **Presentaties**: `YYMMDD_beschrijvende_naam.md`
-- **Asset folders**: `public/presentations/YYMMDD_beschrijvende_naam/`
-- **Branches**: `YYMMDD-beschrijvende-naam`
-
----
-
-## 📞 Support
-
-**CEDA Team**
-- Voor vragen over presentaties: Tomer Iwan & Aslam Tanjung
-- Voor technische issues: Zie CLAUDE.md troubleshooting sectie
-- Voor Npuls branding: Raadpleeg huisstijlgids in `public/npuls/`
+```
+Make a presentation about [topic] for [audience].
+Duration: ~20 minutes. Date: 26 March 2026.
+Use the CEDA Npuls house style.
+```
 
 ---
 
-## 📄 Licentie
+## Project structure
 
-Npuls branding assets zijn eigendom van Npuls. Gebruik alleen binnen CEDA context.
-
----
-
-**Happy presenting! 🎉**
+```
+slidev-presentaties/
+├── YYMMDD_topic.md              # Presentations
+├── package.json
+├── CLAUDE.md                    # Styling rules + templates for Claude
+└── public/
+    ├── npuls/
+    │   ├── powerpoint_slides/   # Slide backgrounds (Slide1-19.PNG)
+    │   ├── powerpoint_illustrations/  # 70+ SVG icons
+    │   ├── npuls_logo.jpg
+    │   └── Npuls_lettertype/    # Custom fonts
+    ├── ceda_contributors/       # Team photos
+    └── presentations/
+        └── YYMMDD_topic/        # Per-presentation assets
+```
