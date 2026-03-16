@@ -34,14 +34,17 @@ mdc: true
   <img src="/npuls/powerpoint_slides/Slide2.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
 </div>
 
-<div class="ml-auto w-1/2 mt-4" style="font-size: 0.85rem; line-height: 1.5;">
+<div style="margin-left: 50%; padding-left: 2rem; height: 100%; display: flex; flex-direction: column; justify-content: center;">
 
 ## Agenda
+
+<div style="font-size: 1rem; line-height: 2; margin-top: 1rem;">
 
 - Onderwerp 1
 - Onderwerp 2
 - Onderwerp 3
 
+</div>
 </div>
 
 <!--
@@ -72,14 +75,17 @@ mdc: true
   <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
 </div>
 
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2rem 4rem; z-index: 1;">
+
 # Slidetitel
 
-<div class="mt-2" style="font-size: 0.85rem; line-height: 1.5;">
+<div style="font-size: 0.95rem; line-height: 1.8; margin-top: 1rem;">
 
 - Punt één
 - Punt twee
 - Punt drie
 
+</div>
 </div>
 
 <!--
@@ -94,9 +100,11 @@ mdc: true
   <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
 </div>
 
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2rem 4rem; z-index: 1;">
+
 # Slidetitel
 
-<div class="grid grid-cols-2 gap-4 mt-2" style="font-size: 0.85rem; line-height: 1.5;">
+<div class="grid grid-cols-2 gap-6" style="font-size: 0.9rem; line-height: 1.7; margin-top: 1rem;">
 <div>
 
 **Links**
@@ -112,6 +120,7 @@ mdc: true
 - Punt twee
 - Punt drie
 
+</div>
 </div>
 </div>
 
