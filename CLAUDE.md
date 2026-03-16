@@ -1,5 +1,45 @@
 # CEDA Clidev Presentaties
 
+---
+
+## ⚡️ QUICKSTART: In 1x Perfecte Slidev-presentatie
+
+1. Kopieer `_template.md` → `cp _template.md 260311_jouwonderwerp.md`
+2. Vul titels/onderdelen/plaatjes in, max 4 bullets per slide.
+3. **Check direct in het template bij elke slide de `✅ CHECKLIST` boven de slide in commentaar.**
+4. Illustratie nodig? Gebruik: `ls public/npuls/powerpoint_illustrations/ | grep -i "zoek"` binnen terminal; check bestandsnaam op letter/case!
+5. Elke slide visueel testen: `npx slidev 260311_jouwonderwerp.md --open`.
+6. Bij fout/overflow: SPLITS! Te veel tekst = foute slide. Simpel.
+
+Klaar? Zie onderaan dit bestand voor de QA-checklist.
+
+---
+
+❗ Veelgemaakte fouten direct spotten
+- Tekst-overflow → splits slide
+- `mt-6`, `mt-8`, `mt-12` gebruikt → altijd terug naar max `mt-4` (liever mt-2)
+- Bulletlists te lang: max 4 per slide
+- Hoofdstukdividers: GEEN kleur behalve wit
+- Afsluitslide: nooit tekst
+- Illustraties: check altijd exacte bestandsnaam (case sensitive)
+
+
+---
+
+# 🚫 FOUT? Snel oplossen:
+- **Overflow/te veel tekst:** Split je slide direct op.
+- **Verkeerde afbeelding of tekst opslides:** (b.v. verkeerde slide afbeelding): corrigeer bestandsnaam, neem alleen uit de lijst bovenin.
+- **Bulletlist langer dan 4:** Kies belangrijkste punten, splits de slide op.
+- **Margin te groot (mt-6/8/12):** Altijd max mt-2 of in uitzonderlijke gevallen mt-4.
+- **Afbeelding of illustratie werkt niet:** Check pad en case-sensitivity met ls-opdracht.
+- **Slide17.PNG (afsluit):** Nooit tekst of illustratie toevoegen, alleen achtergrond tonen.
+- **Hoofdstukslides:** Altijd witte tekst, geen bullets of extra secties.
+- **Agenda geen tekst links:** Alleen rechts content!
+- Fout blijft? Geef bestand & slide-nummer door aan tech support met korte uitleg.
+
+---
+
+
 > **FOR CLAUDE CODE:**
 > Gebruik `/slidev` skill als basis voor Slidev-kennis.
 > Dit bestand = CEDA/Npuls-specifieke regels. Deze hebben voorrang.
