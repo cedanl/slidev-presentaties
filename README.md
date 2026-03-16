@@ -168,16 +168,16 @@ Claude Code maakt de presentatie aan met de juiste huisstijl, achtergronden en s
 
 ## Een nieuwe presentatie aanmaken
 
-Geef het bestand een naam in het formaat `JJMMDD_onderwerp.md`, bijvoorbeeld `260326_leeranalytics.md`.
+Geef het bestand een naam in het formaat `YYMMDD_onderwerp.md`, bijvoorbeeld `260326_leeranalytics.md`.
 
 ```bash
-touch 260326_leeranalytics.md
+cp _template.md 260326_leeranalytics.md
 mkdir -p public/presentations/260326_leeranalytics
 ```
 
-De map `public/presentations/260326_leeranalytics/` gebruik je voor afbeeldingen en andere bestanden die specifiek bij deze presentatie horen.
+`_template.md` bevat werkende voorbeelden van alle slidetypen in de juiste Npuls-opmaak. De map `public/presentations/260326_leeranalytics/` gebruik je voor afbeeldingen en andere bestanden die specifiek bij deze presentatie horen.
 
-Zie `CLAUDE.md` voor sjablonen, stijlregels en een overzicht van beschikbare achtergronden en illustraties.
+Zie `CLAUDE.md` voor stijlregels, achtergronden en illustraties.
 
 ---
 
@@ -196,7 +196,9 @@ npx slidev export YYMMDD_onderwerp.md --format png  # Afbeeldingen per slide
 ```
 clidev-presentaties/
 ├── YYMMDD_onderwerp.md          # Presentatiebestanden
-├── CLAUDE.md                    # Sjablonen en stijlregels voor Claude Code
+├── _template.md                 # Startpunt voor nieuwe presentaties
+├── CLAUDE.md                    # Stijlregels voor Claude Code
+├── theme/                       # Npuls-thema (fonts, kleuren, logo)
 └── public/
     ├── npuls/
     │   ├── powerpoint_slides/   # Achtergronden (Slide1-19.PNG)
