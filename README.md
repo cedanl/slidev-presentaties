@@ -34,7 +34,7 @@ Slidev is included as a dev dependency, nothing to install globally.
 ## Running a presentation
 
 ```bash
-npx slidev 260311_clidev.md --open
+npx slidev YYMMDD_topic.md --open
 ```
 
 Opens at `http://localhost:3030` with hot reload.
@@ -46,18 +46,6 @@ Opens at `http://localhost:3030` with hot reload.
 | `P` | Presenter mode |
 | `O` | Slide overview |
 | `F` | Fullscreen |
-
----
-
-## Available presentations
-
-| File | Topic |
-|------|-------|
-| `260311_clidev.md` | Clidev — Slidev + Claude Code workflow |
-| `260311_1cijferho_update.md` | 1CijferHO update |
-| `260312_assistentie.md` | Assistentie |
-| `260310_claude_code_skills.md` | Claude Code skills |
-| `2603_1CHO_update_Avans_Windesheim.md` | 1CHO update Avans & Windesheim |
 
 ---
 
@@ -105,9 +93,9 @@ Name files `YYMMDD_topic.md` (e.g. `260320_new_topic.md`). See `CLAUDE.md` for t
 ## Exporting
 
 ```bash
-npx slidev export 260311_clidev.md             # PDF
-npx slidev export 260311_clidev.md --format pptx
-npx slidev export 260311_clidev.md --format png
+npx slidev export YYMMDD_topic.md             # PDF
+npx slidev export YYMMDD_topic.md --format pptx
+npx slidev export YYMMDD_topic.md --format png
 ```
 
 ---
