@@ -6,8 +6,7 @@
 
 **Documentation Hierarchy:**
 1. `/slidev` skill → Core Slidev (syntax, features, CLI)
-2. `/clidev` skill → CEDA/Npuls branding + templates
-3. This CLAUDE.md → Additional context and rules
+2. This CLAUDE.md → Npuls branding + CEDA workflows
 
 ---
 

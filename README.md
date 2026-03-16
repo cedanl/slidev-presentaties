@@ -79,11 +79,7 @@ Claude Code lets you create and edit presentations with natural language. It rea
 Skills give Claude Code knowledge about Slidev and the CEDA house style:
 
 ```bash
-# Core Slidev knowledge
 npx skills add slidevjs/slidev
-
-# CEDA/Npuls house style — branding, templates, overflow guardrails
-npx skills add cedanl/clidev
 ```
 
 **3. Open the project in Claude Code**
