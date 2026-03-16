@@ -1,7 +1,7 @@
 {
-  "name": "slidev-presentaties",
+  "name": "clidev-presentations",
   "version": "1.0.0",
-  "description": "Presentatie repository voor CEDA (Centre for Educational Data Analytics) met **Npuls huisstijl**.",
+  "description": "Presentation repository for CEDA (Centre for Educational Data Analytics) using the Npuls house style.",
   "main": "index.js",
   "scripts": {
     "dev": "slidev",
@@ -10,16 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cedanl/slidev-presentaties.git"
+    "url": "git+https://github.com/cedanl/clidev-presentations.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/cedanl/slidev-presentaties/issues"
+    "url": "https://github.com/cedanl/clidev-presentations/issues"
   },
-  "homepage": "https://github.com/cedanl/slidev-presentaties#readme",
+  "homepage": "https://github.com/cedanl/clidev-presentations#readme",
   "devDependencies": {
     "@iconify-json/carbon": "^1.2.19",
     "@iconify-json/logos": "^1.2.10",
