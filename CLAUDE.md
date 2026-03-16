@@ -124,21 +124,34 @@ Veelgemaakte fouten: `Data.svg` → `data.svg` · `Ster.svg` → `Ster geel.svg`
 
 **Nooit gebruiken:** `mt-6`, `mt-8`, `mt-12` · `line-height: 1.6` of hoger · `padding: 1rem` of hoger in boxes
 
-### Lettergrootte
+### Centrering
 
-Standaard tekst is te groot. Altijd content wikkelen in:
+Content slides gebruiken altijd een gecentreerde wrapper zodat content verticaal gecenterd staat (zoals PowerPoint):
 
 ```html
-<div class="mt-2" style="font-size: 0.85rem; line-height: 1.5;">
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2rem 4rem; z-index: 1;">
+
+# Slidetitel
+
+<div style="font-size: 0.95rem; line-height: 1.8; margin-top: 1rem;">
   content
+</div>
 </div>
 ```
 
+Agendaislide (Slide2.PNG, tekst rechts):
+
+```html
+<div style="margin-left: 50%; padding-left: 2rem; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+```
+
+### Lettergrootte
+
 | Contenttype | Grootte |
 |-------------|---------|
-| Bodytekst / lijsten | `0.85rem` |
+| Bodytekst / lijsten | `0.95rem` |
 | Codeblokken | `0.85rem` |
-| Boxes / callouts | `0.8rem` |
+| Boxes / callouts | `0.9rem` |
 | H1, H2 | Niet overschrijven (thema regelt dit) |
 
 ### Contentlimieten per slide
@@ -186,17 +199,24 @@ code hier
 
 ### Grids
 
+Grids zitten altijd binnen de gecentreerde wrapper:
+
 ```html
-<div class="grid grid-cols-2 gap-4 mt-2" style="font-size: 0.85rem; line-height: 1.5;">
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2rem 4rem; z-index: 1;">
+
+# Slidetitel
+
+<div class="grid grid-cols-2 gap-6" style="font-size: 0.9rem; line-height: 1.7; margin-top: 1rem;">
   <div>Max 3 regels</div>
   <div>Max 3 regels</div>
+</div>
 </div>
 ```
 
 ### Veelgemaakte fouten
 
 1. "Ziet er goed uit in markdown" → rendered slide is altijd hoger, altijd testen
-2. Standaard marges en lettergrootte → altijd te groot, altijd 0.85rem wrapper gebruiken
+2. Geen gecentreerde wrapper → content belandt linksboven zonder padding
 3. Meer dan 4 bulletpoints → gegarandeerde overflow
 4. Mermaid scale > 0.6 → overflow
 5. Code in v-click → breekt click-highlighting
