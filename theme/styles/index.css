@@ -147,6 +147,31 @@ img[src*="powerpoint_illustrations"] {
    Hulpklassen — gebruik in presentaties via class="..."
    ============================================================ */
 
+/* Titelslide centrering */
+.title-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+  padding: 2rem 4rem;
+}
+
+/* Titelslide koppen */
+.title-center h1 {
+  font-size: 3.8rem;
+  line-height: 1.15;
+}
+
+.title-center h2 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
 /* Titelslide subtitel */
 .title-subtitle {
   color: #000000 !important;
