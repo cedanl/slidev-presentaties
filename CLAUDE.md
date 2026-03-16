@@ -1,4 +1,4 @@
-# CEDA Slidev Presentations - Documentation
+# CEDA Clidev Presentations - Documentation
 
 > **FOR CLAUDE CODE:**
 > **ALWAYS use `/slidev` skill as foundation** when working with Slidev presentations.
@@ -6,14 +6,15 @@
 
 **Documentation Hierarchy:**
 1. `/slidev` skill → Core Slidev (syntax, features, CLI)
-2. This CLAUDE.md → Npuls branding + CEDA workflows
+2. `/clidev` skill → CEDA/Npuls branding + templates
+3. This CLAUDE.md → Additional context and rules
 
 ---
 
 ## Project Structure
 
 ```
-slidev-presentaties/
+clidev-presentations/
 ├── YYMMDD_name.md              # Presentations (naming: YYMMDD_topic.md)
 ├── public/
 │   ├── npuls/                  # SHARED Npuls assets
