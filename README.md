@@ -1,118 +1,209 @@
-# CEDA Clidev Presentations
+# CEDA Clidev Presentaties
 
-Presentation repository for CEDA (Centre for Educational Data Analytics) using the Npuls house style, built on [Slidev](https://sli.dev).
-
----
-
-## Prerequisites
-
-**Node.js 18+**
-
-| OS | Install |
-|----|---------|
-| macOS | `brew install node` or [nodejs.org](https://nodejs.org) |
-| Windows | `winget install OpenJS.NodeJS` or [nodejs.org](https://nodejs.org) |
-| Linux (Debian/Ubuntu) | `sudo apt install nodejs npm` |
-| Linux (other) | `nvm install 18` via [nvm](https://github.com/nvm-sh/nvm) |
-
-Check with `node --version` — needs to be v18 or higher.
+Presentatierepository van CEDA (Centre for Educational Data Analytics) in de Npuls huisstijl, gebouwd op [Slidev](https://sli.dev).
 
 ---
 
-## Setup
+## Wat heb je nodig?
+
+Je hebt twee dingen nodig om dit project te gebruiken: **Node.js** en **Git**. Heb je die al? Sla dan de installatiestappen over en ga direct naar [Project instellen](#project-instellen).
+
+### Node.js installeren
+
+Node.js is de software waarop Slidev draait. Je hebt versie 18 of hoger nodig.
+
+**macOS**
+
+Open de Terminal-app (zoek op "Terminal" via Spotlight met Cmd+Spatie) en voer het volgende in:
 
 ```bash
-git clone https://github.com/cedanl/clidev-presentations.git
-cd clidev-presentations
+brew install node
+```
+
+Heb je Homebrew nog niet? Installeer het eerst via [brew.sh](https://brew.sh).
+
+**Windows**
+
+Open PowerShell als administrator (zoek op "PowerShell" in het Startmenu, klik rechts → Als administrator uitvoeren) en voer het volgende in:
+
+```powershell
+winget install OpenJS.NodeJS
+```
+
+Of download het installatieprogramma handmatig via [nodejs.org](https://nodejs.org) en volg de wizard.
+
+**Linux (Ubuntu/Debian)**
+
+```bash
+sudo apt install nodejs npm
+```
+
+**Controleer de installatie**
+
+Sluit je terminal en open hem opnieuw. Voer dan in:
+
+```bash
+node --version
+```
+
+Je ziet zoiets als `v22.0.0`. Zolang het getal 18 of hoger is, zit je goed.
+
+### Git installeren
+
+Git is nodig om het project te downloaden.
+
+**macOS** — Git is meestal al geïnstalleerd. Controleer met `git --version`. Zo niet: `brew install git`
+
+**Windows** — Download via [git-scm.com](https://git-scm.com) en volg de installer.
+
+**Linux** — `sudo apt install git`
+
+---
+
+## Project instellen
+
+Open je terminal, navigeer naar de map waar je het project wil plaatsen en voer de volgende stappen uit.
+
+**1. Project downloaden**
+
+```bash
+git clone https://github.com/cedanl/clidev-presentaties.git
+```
+
+**2. Map openen**
+
+```bash
+cd clidev-presentaties
+```
+
+**3. Afhankelijkheden installeren**
+
+```bash
 npm install
 ```
 
-Slidev is included as a dev dependency, nothing to install globally.
+Dit haalt Slidev en alle andere benodigde pakketten op. Dit duurt de eerste keer een minuutje.
 
 ---
 
-## Running a presentation
+## Een presentatie bekijken
 
 ```bash
-npx slidev YYMMDD_topic.md --open
+npx slidev YYMMDD_onderwerp.md --open
 ```
 
-Opens at `http://localhost:3030` with hot reload.
+Vervang `YYMMDD_onderwerp.md` door de bestandsnaam van de presentatie die je wil openen, bijvoorbeeld `260311_clidev.md`. De presentatie opent automatisch in je browser op `http://localhost:3030`.
 
-| Key | Action |
-|-----|--------|
-| Space / Arrow right | Next slide |
-| Shift+Space / Arrow left | Previous slide |
-| `P` | Presenter mode |
-| `O` | Slide overview |
-| `F` | Fullscreen |
+**Sneltoetsen tijdens de presentatie:**
+
+| Toets | Actie |
+|-------|-------|
+| Spatie / Pijl rechts | Volgende slide |
+| Shift+Spatie / Pijl links | Vorige slide |
+| `P` | Presentatormodus (notities + volgend slide) |
+| `O` | Overzicht van alle slides |
+| `F` | Volledig scherm |
+
+Stop de server met `Ctrl+C` in de terminal.
 
 ---
 
-## Creating with Claude Code (recommended)
+## Werken met Claude Code (aanbevolen)
 
-Claude Code reads `CLAUDE.md` automatically and applies the correct Npuls styling, backgrounds, and illustrations.
+Claude Code is een AI-assistent in je terminal waarmee je presentaties kunt maken en bewerken via gewone tekst. Het leest `CLAUDE.md` automatisch en past de juiste Npuls-stijl, achtergronden en illustraties toe.
 
-**1. Install Claude Code**
+### Claude Code installeren
+
+**macOS / Linux**
 
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
-**2. Install the Slidev skill**
+**Windows**
+
+Voer hetzelfde commando uit in PowerShell of Git Bash:
+
+```powershell
+npm install -g @anthropic-ai/claude-code
+```
+
+Controleer de installatie met `claude --version`.
+
+Je hebt ook een Anthropic-account nodig. Maak er een aan via [claude.ai](https://claude.ai) en log in via de terminal met:
+
+```bash
+claude
+```
+
+De eerste keer vraagt het om je in te loggen via de browser.
+
+### Slidev-skill installeren
+
+De Slidev-skill geeft Claude Code kennis over hoe Slidev werkt. Installeer hem eenmalig met:
 
 ```bash
 npx skills add slidevjs/slidev
 ```
 
-**3. Open the project and describe what you need**
+### Aan de slag
+
+Ga naar de projectmap en open Claude Code:
 
 ```bash
-cd clidev-presentations
+cd clidev-presentaties
 claude
 ```
 
+Beschrijf vervolgens wat je nodig hebt, bijvoorbeeld:
+
 ```
-Make a 20-minute presentation about learning analytics for institutional staff.
-Date: 26 March 2026.
+Maak een presentatie van 20 minuten over leeranalytics voor beleidsmedewerkers.
+Datum: 26 maart 2026.
 ```
+
+Claude Code maakt de presentatie aan met de juiste huisstijl, achtergronden en sprekersnotities.
 
 ---
 
-## Adding a presentation manually
+## Een nieuwe presentatie aanmaken
+
+Geef het bestand een naam in het formaat `JJMMDD_onderwerp.md`, bijvoorbeeld `260326_leeranalytics.md`.
 
 ```bash
-touch YYMMDD_topic.md
-mkdir -p public/presentations/YYMMDD_topic
+touch 260326_leeranalytics.md
+mkdir -p public/presentations/260326_leeranalytics
 ```
 
-Name files `YYMMDD_topic.md` (e.g. `260320_new_topic.md`). See `CLAUDE.md` for templates, slide rules, and the full list of available backgrounds and illustrations.
+De map `public/presentations/260326_leeranalytics/` gebruik je voor afbeeldingen en andere bestanden die specifiek bij deze presentatie horen.
+
+Zie `CLAUDE.md` voor sjablonen, stijlregels en een overzicht van beschikbare achtergronden en illustraties.
 
 ---
 
-## Exporting
+## Exporteren
 
 ```bash
-npx slidev export YYMMDD_topic.md             # PDF
-npx slidev export YYMMDD_topic.md --format pptx
-npx slidev export YYMMDD_topic.md --format png
+npx slidev export YYMMDD_onderwerp.md              # PDF
+npx slidev export YYMMDD_onderwerp.md --format pptx # PowerPoint
+npx slidev export YYMMDD_onderwerp.md --format png  # Afbeeldingen per slide
 ```
 
 ---
 
-## Project structure
+## Projectstructuur
 
 ```
-clidev-presentations/
-├── YYMMDD_topic.md              # Presentations
-├── CLAUDE.md                    # Templates and styling rules
+clidev-presentaties/
+├── YYMMDD_onderwerp.md          # Presentatiebestanden
+├── CLAUDE.md                    # Sjablonen en stijlregels voor Claude Code
 └── public/
     ├── npuls/
-    │   ├── powerpoint_slides/   # Backgrounds (Slide1-19.PNG)
-    │   ├── powerpoint_illustrations/  # 70+ SVG icons
+    │   ├── powerpoint_slides/   # Achtergronden (Slide1-19.PNG)
+    │   ├── powerpoint_illustrations/  # 70+ SVG-iconen
     │   ├── npuls_logo.jpg
-    │   └── Npuls_lettertype/    # Custom fonts
-    ├── ceda_contributors/       # Team photos
+    │   └── Npuls_lettertype/    # Lettertypen
+    ├── ceda_contributors/       # Teamfoto's
     └── presentations/
-        └── YYMMDD_topic/        # Per-presentation assets
+        └── YYMMDD_onderwerp/    # Presentatiespecifieke bestanden
 ```
