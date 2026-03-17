@@ -23,19 +23,21 @@ Als de slidev skill niet aanwezig is, installeer hem eerst:
 npx skills add slidevjs/slidev
 ```
 
-### 2. Zorg dat je in het juiste project werkt
+### 2. Zoek het project op de machine
+
+Zoek naar een directory die de kenmerken heeft van het clidev project — aanwezigheid van `_template.md`, een `theme/` map en een `public/npuls/` structuur:
 
 ```bash
-# Zoek of het project al op de machine staat
-find ~ -type d -name "clidev-presentaties" -o -name "slidev-presentaties" 2>/dev/null | head -5
+find ~ -type f -name "_template.md" 2>/dev/null | xargs -I{} dirname {} | while read dir; do
+  [ -d "$dir/theme" ] && [ -d "$dir/public/npuls" ] && echo "$dir"
+done | head -3
 ```
 
-- Als het project gevonden wordt: navigeer daarheen (`cd <gevonden-pad>`)
-- Als het project niet gevonden wordt: clone het repo
+- Als een directory gevonden wordt: gebruik die locatie, ongeacht de naam van de map
+- Als niets gevonden wordt: vraag de gebruiker waar het project gekloond mag worden, en gebruik die locatie
 
 ```bash
-git clone https://github.com/cedanl/clidev-presentaties.git ~/Projects/clidev-presentaties
-cd ~/Projects/clidev-presentaties
+git clone https://github.com/cedanl/clidev-presentaties.git <door-gebruiker-opgegeven-pad>
 ```
 
 Na navigeren altijd `npm install` draaien als `node_modules/` ontbreekt.
