@@ -110,7 +110,7 @@ Stop de server met `Ctrl+C` in de terminal.
 
 ## Werken met Claude Code (aanbevolen)
 
-Claude Code is een AI-assistent in je terminal waarmee je presentaties kunt maken en bewerken via gewone tekst. Het leest `CLAUDE.md` automatisch en past de juiste Npuls-stijl, achtergronden en illustraties toe.
+Claude Code is een AI-assistent in je terminal waarmee je presentaties kunt maken en bewerken via gewone tekst. De **clidev skill** geeft Claude Code alle kennis over de Npuls huisstijl, achtergronden en illustraties, en regelt automatisch de projectsetup.
 
 ### Claude Code installeren
 
@@ -122,15 +122,13 @@ npm install -g @anthropic-ai/claude-code
 
 **Windows**
 
-Voer hetzelfde commando uit in PowerShell of Git Bash:
-
 ```powershell
 npm install -g @anthropic-ai/claude-code
 ```
 
 Controleer de installatie met `claude --version`.
 
-Je hebt ook een Anthropic-account nodig. Maak er een aan via [claude.ai](https://claude.ai) en log in via de terminal met:
+Je hebt ook een Anthropic-account nodig. Maak er een aan via [claude.ai](https://claude.ai) en log in via:
 
 ```bash
 claude
@@ -138,31 +136,30 @@ claude
 
 De eerste keer vraagt het om je in te loggen via de browser.
 
-### Slidev-skill installeren
+### Clidev skill installeren
 
-De Slidev-skill geeft Claude Code kennis over hoe Slidev werkt. Installeer hem eenmalig met:
+Installeer de clidev skill eenmalig. De skill installeert de slidev basisskill automatisch als die nog niet aanwezig is.
 
 ```bash
-npx skills add slidevjs/slidev
+npx skills add cedanl/clidev-presentaties
 ```
 
 ### Aan de slag
 
-Ga naar de projectmap en open Claude Code:
+Open Claude Code vanuit willekeurig welke map — je hoeft het project niet zelf te clonen of te zoeken:
 
 ```bash
-cd clidev-presentaties
 claude
 ```
 
-Beschrijf vervolgens wat je nodig hebt, bijvoorbeeld:
+Roep de skill aan en beschrijf wat je nodig hebt:
 
 ```
-Maak een presentatie van 20 minuten over leeranalytics voor beleidsmedewerkers.
+/clidev Maak een presentatie van 20 minuten over leeranalytics voor beleidsmedewerkers.
 Datum: 26 maart 2026.
 ```
 
-Claude Code maakt de presentatie aan met de juiste huisstijl, achtergronden en sprekersnotities.
+Claude zoekt het project op de machine, navigeert daarheen (of kloont het als het er nog niet staat) en maakt de presentatie aan met de juiste huisstijl, achtergronden en sprekersnotities.
 
 ---
 
@@ -177,7 +174,7 @@ mkdir -p public/presentations/260326_leeranalytics
 
 `_template.md` bevat werkende voorbeelden van alle slidetypen in de juiste Npuls-opmaak. De map `public/presentations/260326_leeranalytics/` gebruik je voor afbeeldingen en andere bestanden die specifiek bij deze presentatie horen.
 
-Zie `CLAUDE.md` voor stijlregels, achtergronden en illustraties.
+Zie de clidev skill (`SKILL.md`) voor stijlregels, achtergronden en illustraties.
 
 ---
 
@@ -197,7 +194,7 @@ npx slidev export YYMMDD_onderwerp.md --format png  # Afbeeldingen per slide
 clidev-presentaties/
 ├── YYMMDD_onderwerp.md          # Presentatiebestanden
 ├── _template.md                 # Startpunt voor nieuwe presentaties
-├── CLAUDE.md                    # Stijlregels voor Claude Code
+├── SKILL.md                     # Clidev skill voor Claude Code
 ├── theme/                       # Npuls-thema (fonts, kleuren, logo)
 └── public/
     ├── npuls/
