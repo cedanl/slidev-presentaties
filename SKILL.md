@@ -1,9 +1,46 @@
-# CEDA Slidev Presentaties
-
-> **FOR CLAUDE CODE:** Gebruik `/slidev` skill als basis voor Slidev-kennis.
-> Dit bestand = CEDA/Npuls-specifieke regels. Deze hebben voorrang.
-
 ---
+name: clidev
+description: Maak CEDA/Npuls Slidev presentaties met automatische projectsetup, huisstijl en branding. Gebruik wanneer iemand een presentatie wil maken voor CEDA, Npuls of 1CHO. Bouwt voort op de slidev skill.
+---
+
+# Clidev - CEDA Slidev Presentaties
+
+Skill voor het maken van Slidev presentaties in de CEDA/Npuls huisstijl. Bouwt voort op `/slidev` voor algemene Slidev-kennis — de regels hier hebben voorrang.
+
+## Projectsetup (altijd als eerste stap)
+
+Voer deze stappen uit in volgorde voordat je een presentatie aanmaakt.
+
+### 1. Controleer of de slidev skill aanwezig is
+
+```bash
+ls ~/.claude/skills/slidev/ 2>/dev/null && echo "aanwezig" || echo "niet aanwezig"
+```
+
+Als de slidev skill niet aanwezig is, installeer hem eerst:
+
+```bash
+npx skills add slidevjs/slidev
+```
+
+### 2. Zoek het project op de machine
+
+Zoek naar een directory die de kenmerken heeft van het clidev project — aanwezigheid van `_template.md`, een `theme/` map en een `public/npuls/` structuur:
+
+```bash
+find ~ -type f -name "_template.md" 2>/dev/null | xargs -I{} dirname {} | while read dir; do
+  [ -d "$dir/theme" ] && [ -d "$dir/public/npuls" ] && echo "$dir"
+done | head -3
+```
+
+- Als een directory gevonden wordt: gebruik die locatie, ongeacht de naam van de map
+- Als niets gevonden wordt: vraag de gebruiker waar het project gekloond mag worden, en gebruik die locatie
+
+```bash
+git clone https://github.com/cedanl/clidev-presentaties.git <door-gebruiker-opgegeven-pad>
+```
+
+Na navigeren altijd `npm install` draaien als `node_modules/` ontbreekt.
 
 ## Quickstart
 
@@ -14,12 +51,10 @@ npx slidev YYMMDD_onderwerp.md --open
 
 Naamconventie: `YYMMDD_onderwerp.md` — bijv. `260311_leeranalytics.md`
 
----
-
 ## Projectstructuur
 
 ```
-slidev-presentaties/
+clidev-presentaties/
 ├── YYMMDD_onderwerp.md
 ├── _template.md
 ├── theme/
@@ -33,13 +68,9 @@ slidev-presentaties/
     └── presentations/YYMMDD_onderwerp/
 ```
 
----
-
 ## Thema
 
 Elke presentatie gebruikt `theme: ./theme`. Hierdoor zijn fonts, kleuren, logo en overlay-verwijdering al geregeld. Geen `<style>` blok nodig in presentatiebestanden.
-
----
 
 ## Npuls Huisstijl
 
@@ -69,8 +100,6 @@ CSS-variabelen: `var(--npuls-blue)`, `var(--npuls-orange)`, `var(--npuls-green)`
 
 Logo verschijnt automatisch rechtsonder via het thema.
 
----
-
 ## Achtergronden
 
 Gebruik altijd de `<img>` methode. Nooit `background:` in frontmatter.
@@ -89,8 +118,6 @@ Gebruik altijd de `<img>` methode. Nooit `background:` in frontmatter.
 | `Slide4.PNG`–`Slide12.PNG` | Varianten content | Vrij te gebruiken |
 | `Slide13.PNG` / `Slide14.PNG` / `Slide15.PNG` | Hoofdstukdividers | Witte tekst verplicht |
 | `Slide17.PNG` | Afsluitslide | Geen tekst |
-
----
 
 ## Centrering
 
@@ -127,8 +154,6 @@ content hier
 <div style="margin-left: 50%; padding-left: 2rem; height: 100%; display: flex; flex-direction: column; justify-content: center;">
 ```
 
----
-
 ## Illustraties
 
 Controleer exacte bestandsnaam — hoofdlettergevoelig:
@@ -141,8 +166,6 @@ ls public/npuls/powerpoint_illustrations/ | grep -i "zoekwoord"
 <img src="/npuls/powerpoint_illustrations/data.svg"
      style="position: absolute; bottom: 2rem; right: 2rem; width: 140px;" />
 ```
-
----
 
 ## Technische vereisten
 
@@ -166,8 +189,6 @@ graph LR
 
 Houd scale laag (0.5–0.6) en labels kort om overflow te voorkomen.
 
----
-
 ## Slide layouts in de template
 
 De template bevat werkende voorbeelden van:
@@ -186,8 +207,6 @@ De template bevat werkende voorbeelden van:
 
 Voeg zo veel of zo weinig slides toe als de presentatie vraagt. De template is een startpunt, geen blauwdruk.
 
----
-
 ## CLI
 
 ```bash
@@ -197,3 +216,15 @@ npx slidev export YYMMDD_onderwerp.md --format pptx
 ```
 
 Druk op `P` in de browser voor presentatormodus.
+
+## Installatie
+
+```bash
+npx skills add cedanl/clidev-presentaties
+```
+
+Vereist ook de slidev skill voor basiskennis:
+
+```bash
+npx skills add slidevjs/slidev
+```
