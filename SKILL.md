@@ -9,7 +9,21 @@ Skill voor het maken van Slidev presentaties in de CEDA/Npuls huisstijl. Bouwt v
 
 ## Projectsetup (altijd als eerste stap)
 
-Voordat je een presentatie aanmaakt, zorg dat je in het juiste project werkt:
+Voer deze stappen uit in volgorde voordat je een presentatie aanmaakt.
+
+### 1. Controleer of de slidev skill aanwezig is
+
+```bash
+ls ~/.claude/skills/slidev/ 2>/dev/null && echo "aanwezig" || echo "niet aanwezig"
+```
+
+Als de slidev skill niet aanwezig is, installeer hem eerst:
+
+```bash
+npx skills add slidevjs/slidev
+```
+
+### 2. Zorg dat je in het juiste project werkt
 
 ```bash
 # Zoek of het project al op de machine staat
