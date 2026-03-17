@@ -217,6 +217,18 @@ npx slidev export YYMMDD_onderwerp.md --format pptx
 
 Druk op `P` in de browser voor presentatormodus.
 
+## Afsluiting na aanmaken presentatie
+
+Na het aanmaken van een presentatie sluit je altijd af met een korte instructie aan de gebruiker. Vermeld de exacte bestandsnaam en het pad zodat de gebruiker direct aan de slag kan:
+
+```
+Om de presentatie te bekijken, run vanuit <projectpad>:
+
+    npx slidev <bestandsnaam>.md --open
+
+De presentatie opent op http://localhost:3030
+```
+
 ## Installatie
 
 ```bash
