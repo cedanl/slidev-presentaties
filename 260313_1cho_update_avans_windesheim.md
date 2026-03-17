@@ -267,17 +267,21 @@ duration: 60min
   }
 </style>
 
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; z-index: 1; padding: 2rem 4rem;">
+
 <h1 style="color: #DD784B !important;">CEDA Projecten Update</h1>
 
-<div class="grid grid-cols-2 gap-8 mt-12">
+<div class="grid grid-cols-2 gap-8 mt-2">
   <div>
-    <h3>🔄 1CijferHO</h3>
+    <h3>1CijferHO</h3>
     <p>Updates & Nieuwe Functies</p>
   </div>
   <div>
-    <h3>⚖️ NFWA</h3>
+    <h3>NFWA</h3>
     <p>Introductie Kansengelijkheid</p>
   </div>
+</div>
+
 </div>
 
 ---
