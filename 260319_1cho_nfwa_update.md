@@ -1,6 +1,6 @@
 ---
 theme: ./theme
-title: 1CijferHO Update & NFWA
+title: 1CijferHO Update
 highlighter: shiki
 lineNumbers: false
 drawings:
@@ -18,10 +18,9 @@ mdc: true
 
 # 1CijferHO Update
 
-## Nieuwe features, data voorbeelden & introductie NFWA
 
 <div class="mt-2 title-subtitle">
-<strong>CEDA</strong> · 16 maart 2026 · Avans & Windesheim
+<strong>CEDA</strong> · 19 maart 2026 · Avans & Windesheim
 </div>
 </div>
 
@@ -38,15 +37,52 @@ mdc: true
 
 <div style="font-size: 1rem; line-height: 2.2; margin-top: 1rem;">
 
-- Wat was er in september 2025?
+- CEDA update
+- Vertrekpunt: vorige release
 - Decoding: `_decoded` en `_enriched`
 - Data voorbeelden uit de echte DEMO-bestanden
 - CLI & PyPI package
 - Roadmap
-- Introductie NFWA
 - Staat van Avans
-- Pijl interesse
+- Jullie behoefte
 
+</div>
+</div>
+
+---
+
+<!-- CEDA UPDATE -->
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+  <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
+</div>
+
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2rem 4rem; z-index: 1;">
+
+# CEDA update
+
+Het team is gegroeid. Dat betekent meer capaciteit, meer tijd voor doorontwikkeling, en meer ruimte om samen te werken met instellingen.
+
+<div class="grid grid-cols-2 gap-6" style="margin-top: 1.2rem; font-size: 0.9rem; line-height: 1.8;">
+<div style="background: #f0fff8; border-left: 4px solid #00AF81; padding: 0.75rem; border-radius: 4px;">
+
+**Wat dat oplevert**
+
+- Snellere doorontwikkeling van bestaande tools
+- Meer ruimte voor nieuwe vraagstukken vanuit instellingen
+- Beter onderhoud en documentatie
+
+</div>
+<div style="background: #f0f4ff; border-left: 4px solid #3D68EC; padding: 0.75rem; border-radius: 4px;">
+
+**Waar we naartoe willen**
+
+Samenwerken met onderwijsinstellingen aan betere onderwijsdataoplossingen. Niet bouwen voor instellingen, maar samen met ze.
+
+</div>
+</div>
+
+<div style="margin-top: 1.2rem; font-size: 0.88rem; color: #555;">
+Volg onze voortgang op GitHub: <a href="https://github.com/cedanl" style="color: #3D68EC;">github.com/cedanl</a>
 </div>
 </div>
 
@@ -60,7 +96,7 @@ mdc: true
 <div class="flex items-center justify-center h-full">
   <div style="text-align: center;">
     <h1 style="color: #FFFFFF !important; font-size: 3rem;">1CijferHO</h1>
-    <p style="color: #FFFFFF; font-size: 1.3rem; margin-top: 0.5rem;">Alles wat er is bijgekomen sinds september 2025</p>
+    <p style="color: #FFFFFF; font-size: 1.3rem; margin-top: 0.5rem;">Alles wat er is bijgekomen sinds de vorige release</p>
   </div>
 </div>
 
@@ -73,14 +109,14 @@ mdc: true
 
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2rem 4rem; z-index: 1;">
 
-# Vertrekpunt: september 2025
+# Vertrekpunt: vorige release
 
-In september 2025 was 1CijferHO een Streamlit-applicatie die fixed-width ASCII-bestanden omzette naar CSV en Parquet. Dat was het.
+In de vorige release was 1CijferHO een Streamlit-applicatie die fixed-width ASCII-bestanden omzette naar CSV en Parquet. Dat was het.
 
 <div class="grid grid-cols-2 gap-6" style="margin-top: 1.2rem; font-size: 0.9rem; line-height: 1.8;">
 <div style="background: #f9f9f9; border-left: 4px solid #ccc; padding: 0.75rem; border-radius: 4px;">
 
-**Aanwezig in september 2025**
+**Aanwezig in de vorige release**
 
 - Streamlit UI (upload, extract, validate, convert)
 - Fixed-width naar CSV en Parquet
@@ -169,20 +205,19 @@ Het oorspronkelijke bestand na conversie van fixed-width naar CSV. Kolomnamen al
 <div style="margin-top: 1rem; font-size: 0.82rem; line-height: 1.5;">
 
 ```
-persoonsgebonden_nummer ; inschrijvingsjaar ; opleidingsvorm ; opleidingsfase ; geslacht
-2                       ; 2008              ; 1              ; B              ; V
-7                       ; 2006              ; 1              ; B              ; M
-7                       ; 2010              ; 1              ; M              ; M
-10                      ; 2007              ; 1              ; B              ; V
+pgn ; geslacht ; geboorteland ; nationaliteit_1 ; opleidingsvorm ; opleidingsfase
+2   ; V        ; 6030         ; 1               ; 1              ; B
+7   ; M        ; 6030         ; 1               ; 1              ; B
+7   ; M        ; 6030         ; 1               ; 1              ; M
+10  ; V        ; 6030         ; 1               ; 1              ; B
 ```
 
 </div>
 
 <div style="margin-top: 1rem; font-size: 0.9rem; line-height: 1.7;">
 
-`opleidingsvorm: 1` = voltijd, `2` = deeltijd, `3` = duaal. Dat zie je hier niet.
-`opleidingsfase: B` = bachelor, `M` = master.
-`geslacht: V` = vrouw, `M` = man. Dat moet je ook apart weten.
+Wat betekent `6030`? Wat is nationaliteit `1`? Wat is `opleidingsvorm: 1`?
+Je hebt de DUO-bestandsbeschrijving nodig om dit te begrijpen.
 
 </div>
 </div>
@@ -198,29 +233,30 @@ persoonsgebonden_nummer ; inschrijvingsjaar ; opleidingsvorm ; opleidingsfase ; 
 
 # EV decoded: nieuwe opzoekkolommen
 
-`_decoded` laat alle oorspronkelijke waarden staan, maar voegt nieuwe kolommen toe via de DEC-tabellen uit de bestandsbeschrijving:
+`_decoded` laat alle oorspronkelijke waarden staan. Per gecodeerde kolom komen er nieuwe opzoekkolommen bij:
 
-<div style="margin-top: 1rem; font-size: 0.82rem; line-height: 1.5;">
+<div style="margin-top: 1rem; font-size: 0.84rem; line-height: 1.7;">
 
 ```
-geslacht ; geboorteland_naam_land ; nationaliteit_1_omschrijving_nationaliteit
-V        ; Nederland              ; Nederlandse
-M        ; Turkije                ; Nederlandse
-M        ; Turkije                ; Nederlandse
-V        ; Nederland              ; Nederlandse
+geboorteland  →  geboorteland_naam_land
+6030             Nederland
 ```
 
 ```
-actuele_instelling_naam          ; postcode_gemeentenaam
-Vrije Universiteit Amsterdam     ; Amstelveen
-Vrije Universiteit Amsterdam     ; Amsterdam
-...
+nationaliteit_1  →  nationaliteit_1_omschrijving_nationaliteit
+1                   Nederlandse
 ```
 
-</div>
+```
+instellingscode  →  instellingscode_naam_instelling
+21PL                Vrije Universiteit Amsterdam
+```
 
-<div style="margin-top: 0.8rem; font-size: 0.87rem;">
-`geslacht` blijft `V` en `M`. Voor de vertaling naar vrouw/man is de variabelemetadata nodig, niet de DEC-tabellen.
+```
+postcodecijfers_student_op_1_oktober  →  ...gemeentenaam_per_1_januari_2024
+1183                                      Amstelveen
+```
+
 </div>
 </div>
 
@@ -235,35 +271,24 @@ Vrije Universiteit Amsterdam     ; Amsterdam
 
 # EV enriched: waarden vervangen
 
-`_enriched` gebruikt ook de variabelemetadata en vervangt daarmee de gecodeerde waarden in bestaande kolommen:
+`_enriched` vervangt de gecodeerde waarden in bestaande kolommen via de variabelemetadata. De kolomnaam blijft hetzelfde, de waarde wordt leesbaar:
 
-<div class="grid grid-cols-2 gap-6" style="margin-top: 1rem; font-size: 0.82rem; line-height: 1.5;">
-<div>
-
-**Origineel**
+<div style="margin-top: 1rem; font-size: 0.84rem; line-height: 1.7;">
 
 ```
-opleidingsvorm ; opleidingsfase ; geslacht
-1              ; B              ; V
-1              ; B              ; M
-1              ; M              ; M
-1              ; B              ; V
+geslacht: V          →  geslacht: vrouw
+geslacht: M          →  geslacht: man
 ```
 
-</div>
-<div>
-
-**Enriched**
-
 ```
-opleidingsvorm ; opleidingsfase ; geslacht
-voltijd        ; bachelor       ; vrouw
-voltijd        ; bachelor       ; man
-voltijd        ; master         ; man
-voltijd        ; bachelor       ; vrouw
+opleidingsvorm: 1    →  opleidingsvorm: voltijd
 ```
 
-</div>
+```
+opleidingsfase: B    →  opleidingsfase: bachelor
+opleidingsfase: M    →  opleidingsfase: master
+```
+
 </div>
 
 <div style="margin-top: 1rem; font-size: 0.87rem; line-height: 1.7;">
@@ -282,39 +307,24 @@ Plus alle DEC-opzoekkolommen die `_decoded` ook heeft. `_enriched` is de meest c
 
 # VAKHAVW decoded: vakcode uitgebreid
 
-Het VAKHAVW-bestand krijgt drie nieuwe kolommen vanuit de Dec_vakcode-tabel:
+Het VAKHAVW-bestand krijgt nieuwe kolommen vanuit de Dec_vakcode-tabel. De originele `vakcode` blijft staan:
 
-<div class="grid grid-cols-2 gap-6" style="margin-top: 1rem; font-size: 0.82rem; line-height: 1.5;">
-<div>
-
-**Origineel**
+<div style="margin-top: 1rem; font-size: 0.84rem; line-height: 1.7;">
 
 ```
-pgn    ; diplomajaar ; vakcode ; afkorting_vak
-117706 ; 2005        ; 61      ; du1
-117706 ; 2005        ; 71      ; en
-117706 ; 2005        ; 122     ; gs1
-117706 ; 2005        ; 123     ; gs
+vakcode  →  vakcode_omschrijving_vak
+61          Deutsche taal 1
+71          Engelse taal
+122         geschiedenis 1
 ```
 
-`vakcode` is een numerieke code.
-
-</div>
-<div>
-
-**Decoded: nieuwe kolommen**
-
 ```
-vakcode ; vakcode_omschrijving_vak    ; vakcode_roepnaam_vak
-61      ; Deutsche taal 1            ; Duits 1
-71      ; Engelse taal               ; Engels
-122     ; geschiedenis 1             ; geschiedenis1
-123     ; geschiedenis               ; geschiedenis
+vakcode  →  vakcode_roepnaam_vak
+61          Duits 1
+71          Engels
+122         geschiedenis1
 ```
 
-De originele `vakcode` blijft staan, naast de nieuwe kolommen.
-
-</div>
 </div>
 </div>
 
@@ -431,176 +441,6 @@ Metadata (JSON, logs, Excel) gaat automatisch naar `uitvoer/metadata/`. Databest
 
 ---
 
-<!-- HOOFDSTUK: NFWA -->
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide14.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
-</div>
-
-<div class="flex items-center justify-center h-full">
-  <div style="text-align: center;">
-    <h1 style="color: #FFFFFF !important; font-size: 2.8rem;">No Fairness Without Awareness</h1>
-    <p style="color: #FFFFFF; font-size: 1.2rem; margin-top: 0.5rem;">Introductie van het R-package</p>
-  </div>
-</div>
-
----
-
-<!-- NFWA: WAT IS HET -->
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
-</div>
-
-<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2rem 4rem; z-index: 1;">
-
-# Wat is NFWA?
-
-<div class="grid grid-cols-2 gap-6" style="margin-top: 1rem; font-size: 0.9rem; line-height: 1.8;">
-<div>
-
-Een R-package voor kansengelijkheidsanalyse in het hoger onderwijs. Ontwikkeld op basis van het onderzoek van lector Dr. Theo Bakker (LTA, De Haagse Hogeschool).
-
-**De kernvraag:** zijn er in studiedata patronen die wijzen op ongelijke kansen voor bepaalde studentgroepen?
-
-Het prognosemodel is het instrument voor de analyse, niet het einddoel.
-
-</div>
-<div>
-
-```r
-library(nfwa)
-
-data_ev <- read.csv("EV_2024.csv", sep = ";")
-data_vakhavw <- read.csv("VAKHAVW_2024.csv",
-                          sep = ";")
-
-result <- analyze_fairness(
-  data_ev        = data_ev,
-  data_vakhavw   = data_vakhavw,
-  opleidingsnaam = "B Bedrijfskunde",
-  eoi            = 2019,
-  opleidingsvorm = "VT",
-  generate_pdf   = TRUE
-)
-```
-
-</div>
-</div>
-</div>
-
----
-
-<!-- NFWA: HOE WERKT HET -->
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
-</div>
-
-<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2rem 4rem; z-index: 1;">
-
-# Hoe werkt NFWA?
-
-`analyze_fairness()` voert vier stappen automatisch uit:
-
-<div style="margin-top: 1rem; font-size: 0.9rem; line-height: 1.85;">
-
-**Stap 1: Metadata inlezen**
-Ingebouwde metadata: variabeledefinities, APCG- en SES-verrijkingstabellen, decode-tabellen voor vooropleiding en ISAT-codes. Niets hoef je zelf aan te leveren.
-
-**Stap 2: Data transformeren**
-1CHO-data gefilterd op opleiding, opleidingsvorm en `eoi` (eerste jaar aan de opleiding). Retentie bepaald, vooropleiding gedecodeerd, APCG en SES toegevoegd op basis van postcode.
-
-**Stap 3: Fairness-analyse**
-Twee ML-modellen (Logistic Regression + Random Forest) getraind. Per sensitieve variabele fairness-metrieken berekend en visualisaties gegenereerd in `temp/`.
-
-**Stap 4: PDF-rapport**
-Quarto compileert een volledig rapport met plots, conclusies en een glossarium.
-
-</div>
-</div>
-
----
-
-<!-- NFWA: METRIEKEN -->
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
-</div>
-
-<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2rem 4rem; z-index: 1;">
-
-# Fairness-metrieken
-
-<div class="grid grid-cols-2 gap-6" style="margin-top: 1rem; font-size: 0.88rem; line-height: 1.75;">
-<div>
-
-**Gelijke kans (Equal Opportunity)**
-Heeft elke groep een gelijke kans op een positieve uitkomst (retentie)? Kijkt naar de true positive rate per groep.
-
-**Nauwkeurigheidsgelijkheid (Accuracy Equality)**
-Is het foutpercentage van het model gelijk voor alle groepen?
-
-</div>
-<div>
-
-**Predictieve pariteit (Predictive Parity)**
-Als het model een positieve uitkomst voorspelt, klopt dat dan even vaak voor alle groepen?
-
-**Statistische pariteit (Statistical Parity)**
-Krijgen groepen ongeacht prestatie dezelfde verhouding positieve uitkomsten?
-
-</div>
-</div>
-
-<div style="margin-top: 1.2rem; font-size: 0.88rem; background: #f0f4ff; border-left: 4px solid #3D68EC; padding: 0.75rem; border-radius: 4px;">
-Geen van deze metrieken is "de beste". Ze belichten verschillende dimensies van eerlijkheid. Het rapport helpt bepalen welke metriek relevant is voor de specifieke onderzoeksvraag.
-</div>
-</div>
-
----
-
-<!-- HOOFDSTUK: STAAT VAN AVANS -->
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide15.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
-</div>
-
-<div class="flex items-center justify-center h-full">
-  <div style="text-align: center;">
-    <h1 style="color: #FFFFFF !important; font-size: 3rem;">Staat van Avans</h1>
-    <p style="color: #FFFFFF; font-size: 1.2rem; margin-top: 0.5rem;">Doorontwikkeling en de stap naar andere instellingen</p>
-  </div>
-</div>
-
----
-
-<!-- STAAT VAN AVANS: WAT IS HET -->
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
-</div>
-
-<div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2rem 4rem; z-index: 1;">
-
-# Staat van Avans: wat is het?
-
-<div class="grid grid-cols-2 gap-6" style="margin-top: 1rem; font-size: 0.9rem; line-height: 1.8;">
-<div>
-
-De **Staat van Avans** is een jaarlijkse rapportage die Avans zelf heeft ontwikkeld over de studentstromen binnen de instelling. Ze brengt in kaart wie instroomt, hoeveel studenten uitvallen, wat het rendement is en hoeveel studenten van studie wisselen.
-
-De analyses worden uitgesplitst naar vooropleiding, leeftijdsgroep en HBOsector. Zo wordt zichtbaar waar Avans het goed doet en waar aandacht nodig is.
-
-</div>
-<div>
-
-**Losstaand van NFWA**
-
-NFWA analyseert fairness per opleiding: zijn er ongelijke kansen voor bepaalde studentgroepen? De Staat van Avans kijkt breder: het is een instellingsoverzicht van studentstromen over alle opleidingen heen.
-
-Ze kunnen elkaar aanvullen, maar zijn onafhankelijk van elkaar.
-
-</div>
-</div>
-</div>
-
----
-
 <!-- STAAT VAN AVANS: DOORONTWIKKELING -->
 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
   <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
@@ -608,35 +448,20 @@ Ze kunnen elkaar aanvullen, maar zijn onafhankelijk van elkaar.
 
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 2rem 4rem; z-index: 1;">
 
-# Doorontwikkeling: van Avans naar alle instellingen
+# Staat van Avans
 
-Avans heeft de Staat van Avans zelf ontwikkeld. CEDA wil dit concept doorontwikkelen zodat elke instelling die haar 1CHO-data aanlevert een vergelijkbare rapportage kan krijgen.
+Avans heeft een jaarlijkse rapportage over studentstromen binnen de instelling. CEDA gaat dit concept doorontwikkelen zodat andere instellingen er ook gebruik van kunnen maken.
 
-<div style="margin-top: 1.2rem; font-size: 0.88rem; line-height: 1.6;">
+<div style="margin-top: 1.2rem; font-size: 0.9rem; line-height: 1.8; background: #f9f9f9; border-left: 4px solid #ccc; padding: 0.75rem; border-radius: 4px;">
 
-```
-1CHO-data instelling X
-       ↓
- eencijferho pipeline (conversie + decoding)
-       ↓
- gestandaardiseerde CSV-output
-       ↓
- Staat van [Instelling X]
- (instroom · rendement · uitval · studiewissel)
-```
-
-</div>
-
-<div style="margin-top: 1rem; font-size: 0.9rem; line-height: 1.7;">
-
-Het rapport is vergelijkbaar opgebouwd voor elke instelling. Zo kunnen instellingen patronen bij zichzelf herkennen en, als ze dat willen, vergelijken met anderen.
+We zijn hier mee bezig. Meer volgt zodra er iets te laten zien is.
 
 </div>
 </div>
 
 ---
 
-<!-- PIJL INTERESSE -->
+<!-- JULLIE BEHOEFTE -->
 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
   <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
 </div>
@@ -644,12 +469,12 @@ Het rapport is vergelijkbaar opgebouwd voor elke instelling. Zo kunnen instellin
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem 5rem; z-index: 1;">
 
 <div style="font-family: 'Cooper Light BT', serif; font-size: 2rem; line-height: 1.5; color: #3D68EC;">
-Zou Windesheim ook zo'n rapportage willen?
+Waar hebben jullie nog meer behoefte aan?
 </div>
 
 <div style="margin-top: 2rem; font-size: 1rem; color: #000; line-height: 1.9; max-width: 600px;">
 
-Avans heeft de Staat van Avans zelf ontwikkeld. CEDA wil dit concept doorontwikkelen zodat andere instellingen er ook gebruik van kunnen maken. We zijn benieuwd of Windesheim daar interesse in heeft.
+We zijn benieuwd wat er bij jullie speelt rond onderwijsdata. Welke analyses wil je kunnen maken? Waar loop je tegenaan? We denken graag mee.
 
 </div>
 
