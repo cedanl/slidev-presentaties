@@ -493,8 +493,7 @@ title: CEDA Sprint Review - Iteratie 5
 
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; padding: 2rem 4rem; z-index: 1;">
 
-<h2 style="font-size: 1.3rem; margin-bottom: 0.6rem;">Toevoegingen</h2>
-<p style="font-size: 0.65rem; color: #666; margin-bottom: 0.8rem;">Functies van 20-100 regels als proxy voor echte logica — niet boilerplate, niet one-liners.</p>
+<h2 style="font-size: 1.3rem; margin-bottom: 0.6rem;">Iteratie Output</h2>
 
 <table style="width: 100%; border-collapse: collapse; font-size: 0.65rem; background: rgba(255,255,255,0.95); border-radius: 8px; overflow: hidden;">
   <thead>
@@ -504,7 +503,7 @@ title: CEDA Sprint Review - Iteratie 5
       <td style="padding: 0.4rem 0.6rem; text-align: center;">Functies</td>
       <td style="padding: 0.4rem 0.6rem; text-align: center;">Bestanden</td>
       <td style="padding: 0.4rem 0.6rem;">Scope</td>
-      <td style="padding: 0.4rem 0.6rem;">Top repo</td>
+      <td style="padding: 0.4rem 0.6rem;">Top repo(s)</td>
     </tr>
   </thead>
   <tbody>
@@ -558,8 +557,14 @@ title: CEDA Sprint Review - Iteratie 5
   </tbody>
 </table>
 
-<div style="margin-top: 1rem; font-size: 0.6rem; color: #666;">
-  <strong>Leeswijzer:</strong> breed (>20 bestanden) = feature/integratie werk, smal (&lt;5) = bugfix/refactor. Functies 20-100 regels, geen waardeoordeel.
+<div style="margin-top: 0.6rem; font-size: 0.55rem; color: #666;">
+  <strong>Leeswijzer</strong><br/>
+  <strong>Domein:</strong> groepering van repo's — instroom (prognose), uitval (1cijferho, UR, nfwa, Assistentie), tech (devcontainers, templates), project (.github, regio), overig (rest).<br/>
+  <strong>Commits:</strong> aantal commits op de default branch (main/master) in deze iteratie.<br/>
+  <strong>Functies:</strong> toegevoegde functies van 20-100 regels — proxy voor substantieve logica, niet boilerplate of one-liners.<br/>
+  <strong>Bestanden:</strong> unieke bestanden gewijzigd in deze iteratie.<br/>
+  <strong>Scope:</strong> breed (>20 bestanden) = feature/integratie werk, smal (&lt;5) = bugfix/refactor, gemiddeld = daartussenin.<br/>
+  <strong>Top repo(s):</strong> repo's met de meeste functies (20-100r) — getal tussen haakjes is het aantal functies.
 </div>
 
 </div>
