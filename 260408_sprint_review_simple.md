@@ -413,6 +413,84 @@ title: CEDA Sprint Review - Iteratie 5
   <img src="/npuls/powerpoint_slides/Slide5.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
 </div>
 
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; padding: 1.5rem 3rem; z-index: 1;">
+
+<h2 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Afgeronde tasks — Iteratie 5</h2>
+<p style="font-size: 0.6rem; color: #666; margin-bottom: 0.8rem;">Tasks en bugs die los van een pitch zijn opgeleverd deze iteratie.</p>
+
+<div style="display: flex; gap: 0.5rem;">
+
+<div style="flex: 1; display: flex; flex-direction: column;">
+  <div style="background: #2E7D32; color: #fff; padding: 0.3rem 0.5rem; border-radius: 6px 6px 0 0; font-size: 0.65rem; font-weight: bold; text-align: center;">Done (1)</div>
+  <div style="background: rgba(232,245,233,0.9); border-radius: 0 0 6px 6px; padding: 0.4rem; flex: 1; display: flex; flex-direction: column; gap: 0.3rem;">
+    <a href="https://github.com/cedanl/Uitnodigingsregel/issues/19" style="text-decoration: none; background: #fff; border-radius: 6px; padding: 0.4rem 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-left: 3px solid #D93F0B; display: block;">
+      <div style="display: flex; align-items: center; gap: 0.3rem;">
+        <span style="background: #1565C0; color: #fff; padding: 0.05rem 0.3rem; border-radius: 6px; font-size: 0.45rem; font-weight: bold;">Task</span>
+        <span style="font-size: 0.55rem; font-weight: bold; color: #333;">Migratie CEDA structuur</span>
+      </div>
+      <div style="font-size: 0.4rem; color: #666; margin-top: 0.15rem;">Uitnodigingsregel#19 <img src="https://github.com/StevenRamondt.png" style="width: 14px; height: 14px; border-radius: 50%; vertical-align: middle;" title="StevenRamondt" /></div>
+    </a>
+  </div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column;">
+  <div style="background: #757575; color: #fff; padding: 0.3rem 0.5rem; border-radius: 6px 6px 0 0; font-size: 0.65rem; font-weight: bold; text-align: center;">Open (6)</div>
+  <div style="background: rgba(245,245,245,0.9); border-radius: 0 0 6px 6px; padding: 0.4rem; flex: 1; display: flex; flex-direction: column; gap: 0.25rem;">
+    <a href="https://github.com/cedanl/arbeidsmarkt-mbo/issues/2" style="text-decoration: none; background: #fff; border-radius: 6px; padding: 0.3rem 0.4rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-left: 3px solid #C62828; display: block;">
+      <div style="display: flex; align-items: center; gap: 0.3rem;">
+        <span style="background: #C62828; color: #fff; padding: 0.05rem 0.3rem; border-radius: 6px; font-size: 0.4rem; font-weight: bold;">Bug</span>
+        <span style="font-size: 0.5rem; font-weight: bold; color: #333;">UV sync loopt vast</span>
+      </div>
+      <div style="font-size: 0.35rem; color: #666;">arbeidsmarkt-mbo#2 <img src="https://github.com/Tomeriko96.png" style="width: 12px; height: 12px; border-radius: 50%; vertical-align: middle;" /></div>
+    </a>
+    <a href="https://github.com/cedanl/1cijferho/issues/78" style="text-decoration: none; background: #fff; border-radius: 6px; padding: 0.3rem 0.4rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); display: block;">
+      <div style="display: flex; align-items: center; gap: 0.3rem;">
+        <span style="background: #1565C0; color: #fff; padding: 0.05rem 0.3rem; border-radius: 6px; font-size: 0.4rem; font-weight: bold;">Task</span>
+        <span style="font-size: 0.5rem; font-weight: bold; color: #333;">Microsoft Dev Program</span>
+      </div>
+      <div style="font-size: 0.35rem; color: #666;">1cijferho#78 <img src="https://github.com/oinkspook.png" style="width: 12px; height: 12px; border-radius: 50%; vertical-align: middle;" /></div>
+    </a>
+    <a href="https://github.com/cedanl/Uitnodigingsregel/issues/7" style="text-decoration: none; background: #fff; border-radius: 6px; padding: 0.3rem 0.4rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); display: block;">
+      <div style="display: flex; align-items: center; gap: 0.3rem;">
+        <span style="background: #1565C0; color: #fff; padding: 0.05rem 0.3rem; border-radius: 6px; font-size: 0.4rem; font-weight: bold;">Task</span>
+        <span style="font-size: 0.5rem; font-weight: bold; color: #333;">Updaten ReadMe</span>
+      </div>
+      <div style="font-size: 0.35rem; color: #666;">UR#7 <img src="https://github.com/StevenRamondt.png" style="width: 12px; height: 12px; border-radius: 50%; vertical-align: middle;" /></div>
+    </a>
+    <a href="https://github.com/cedanl/Uitnodigingsregel/issues/20" style="text-decoration: none; background: #fff; border-radius: 6px; padding: 0.3rem 0.4rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); display: block;">
+      <div style="display: flex; align-items: center; gap: 0.3rem;">
+        <span style="background: #1565C0; color: #fff; padding: 0.05rem 0.3rem; border-radius: 6px; font-size: 0.4rem; font-weight: bold;">Task</span>
+        <span style="font-size: 0.5rem; font-weight: bold; color: #333;">Quarto naar Streamlit</span>
+      </div>
+      <div style="font-size: 0.35rem; color: #666;">UR#20 <img src="https://github.com/StevenRamondt.png" style="width: 12px; height: 12px; border-radius: 50%; vertical-align: middle;" /></div>
+    </a>
+    <a href="https://github.com/cedanl/Uitnodigingsregel/issues/11" style="text-decoration: none; background: #fff; border-radius: 6px; padding: 0.3rem 0.4rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); display: block;">
+      <div style="display: flex; align-items: center; gap: 0.3rem;">
+        <span style="background: #1565C0; color: #fff; padding: 0.05rem 0.3rem; border-radius: 6px; font-size: 0.4rem; font-weight: bold;">Task</span>
+        <span style="font-size: 0.5rem; font-weight: bold; color: #333;">Data dictionary</span>
+      </div>
+      <div style="font-size: 0.35rem; color: #666;">UR#11 <img src="https://github.com/StevenRamondt.png" style="width: 12px; height: 12px; border-radius: 50%; vertical-align: middle;" /></div>
+    </a>
+    <a href="https://github.com/cedanl/Uitnodigingsregel/issues/23" style="text-decoration: none; background: #fff; border-radius: 6px; padding: 0.3rem 0.4rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); display: block;">
+      <div style="display: flex; align-items: center; gap: 0.3rem;">
+        <span style="background: #1565C0; color: #fff; padding: 0.05rem 0.3rem; border-radius: 6px; font-size: 0.4rem; font-weight: bold;">Task</span>
+        <span style="font-size: 0.5rem; font-weight: bold; color: #333;">Checkbox gebruik UR</span>
+      </div>
+      <div style="font-size: 0.35rem; color: #666;">UR#23 <img src="https://github.com/StevenRamondt.png" style="width: 12px; height: 12px; border-radius: 50%; vertical-align: middle;" /></div>
+    </a>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+---
+
+<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+  <img src="/npuls/powerpoint_slides/Slide5.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
+</div>
+
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column; padding: 2rem 4rem; z-index: 1;">
 
 <h2 style="font-size: 1.3rem; margin-bottom: 0.6rem;">Toevoegingen</h2>
@@ -482,32 +560,6 @@ title: CEDA Sprint Review - Iteratie 5
 
 <div style="margin-top: 1rem; font-size: 0.6rem; color: #666;">
   <strong>Leeswijzer:</strong> breed (>20 bestanden) = feature/integratie werk, smal (&lt;5) = bugfix/refactor. Functies 20-100 regels, geen waardeoordeel.
-</div>
-
-</div>
-
----
-
-<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-  <img src="/npuls/powerpoint_slides/Slide3.PNG" style="width: 100%; height: 100%; object-fit: cover;" />
-</div>
-
-<div style="position: absolute; inset: 0; display: flex; flex-direction: column; padding: 2rem 4rem; z-index: 1;">
-
-<h2 style="font-size: 1.3rem; margin-bottom: 0.6rem;">Afgeronde tasks</h2>
-<p style="font-size: 0.65rem; color: #666; margin-bottom: 1rem;">Tasks en bugs die los van een pitch zijn opgeleverd deze iteratie.</p>
-
-<div style="display: flex; flex-direction: column; gap: 0.5rem; max-width: 60%;">
-  <a href="https://github.com/cedanl/Uitnodigingsregel/issues/19" style="text-decoration: none; color: inherit; background: rgba(255,255,255,0.95); border-radius: 8px; padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.8rem; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-left: 4px solid #2E7D32;">
-    <span style="background: #1565C0; color: #fff; padding: 0.15rem 0.5rem; border-radius: 8px; font-size: 0.6rem; font-weight: bold;">Task</span>
-    <span style="font-size: 0.7rem; color: #333;">Migreren van cookiecutter naar CEDA structuur</span>
-    <span style="font-size: 0.55rem; color: #666; margin-left: auto;">Uitnodigingsregel#19</span>
-    <img src="https://github.com/StevenRamondt.png" style="width: 26px; height: 26px; border-radius: 50%;" title="StevenRamondt" />
-  </a>
-</div>
-
-<div style="margin-top: 2rem; font-size: 0.65rem; color: #888;">
-  <strong>Open tasks deze iteratie:</strong> UV sync fix (arbeidsmarkt-mbo#2), Microsoft Dev Program (1cijferho#78), Updaten ReadMe (UR#7), Quarto naar Streamlit (UR#20), Data dictionary (UR#11), Checkbox gebruik (UR#23)
 </div>
 
 </div>
