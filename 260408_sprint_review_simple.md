@@ -164,7 +164,7 @@ title: CEDA Sprint Review - Iteratie 5
   </div>
 
   <div style="font-size: 0.7rem; color: #999; text-align: center; padding: 2rem 0;">
-    Geen activiteit deze iteratie
+    Geen output deze iteratie
   </div>
 </div>
 </div>
@@ -513,7 +513,7 @@ title: CEDA Sprint Review - Iteratie 5
       <td style="padding: 0.4rem 0.6rem; text-align: center; color: #999;">0</td>
       <td style="padding: 0.4rem 0.6rem; text-align: center; color: #999;">0</td>
       <td style="padding: 0.4rem 0.6rem; color: #999;">—</td>
-      <td style="padding: 0.4rem 0.6rem; color: #999;">geen activiteit</td>
+      <td style="padding: 0.4rem 0.6rem; color: #999;">geen output</td>
     </tr>
     <tr style="border-top: 1px solid #eee; background: rgba(217,63,11,0.05);">
       <td style="padding: 0.4rem 0.6rem;"><span style="color: #D93F0B; font-weight: bold;">uitval</span></td>
